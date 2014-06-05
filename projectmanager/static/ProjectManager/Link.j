@@ -51,15 +51,12 @@
 }
 
 
-- (void)makeConnectPoint:(float)currentPointX currentPointY:(float)currentPointY 
-        controlPoint1X:(float)controlPoint1X controlPoint1Y:(float)controlPoint1Y 
-        controlPoint2X:(float)controlPoint2X controlPoint2Y:(float)controlPoint2Y 
-        endPointX:(float)endPointX endPointY:(float)endPointY
+- (void)makeConnectPointAtCurrentPoint:(CGPoint)currentPt controlPoint1:(CGPoint)ctrlPt1 controlPoint2:(CGPoint)ctrlPt2 endPoint:(CGPoint)endPt
 {
-    currentPoint = CGPointMake(currentPointX, currentPointY);
-    controlPoint1 = CGPointMake(controlPoint1X, controlPoint1Y);
-    controlPoint2 = CGPointMake(controlPoint2X, controlPoint2Y);
-    endPoint = CGPointMake(endPointX, endPointY);
+    currentPoint = currentPt
+    controlPoint1 = ctrlPt1
+    controlPoint2 = ctrlPt2
+    endPoint = endPt;
 }
 
 - (void)mouseDown

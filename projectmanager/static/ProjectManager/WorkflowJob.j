@@ -13,35 +13,35 @@
     CPArray                 outputPorts                     @accessors;
 }
 
-- (id)initWithPoint:(CGPoint)aPoint length:(float)theLength width:(float)theWidth inputPortNum:(CPUInteger)inputPortNum outputPortNum:(CPUInteger)outputPortNum type:(CPString)aType
+- (id)initWithPoint:(CGPoint)aPoint size:(CGSize)aSize inputPortNum:(CPUInteger)inputPortNum outputPortNum:(CPUInteger)outputPortNum type:(CPString)aType
 { 
     self = [super init];
 
     if (self)
     {
-        workflowJob = [[CPBox alloc] initWithFrame:CGRectMake(aPoint.x, aPoint.y, theLength, theWidth)];
+        workflowJob = [[CPBox alloc] initWithFrame:CGRectMake(aPoint.x, aPoint.y, aSize.height, aSize.width)];
         
         var subsection;
         outputPortNumber = outputPortNum;
         inputPortNumber = inputPortNum;
 
         //init outputPortsController -- 
-        subsection = (theWidth / outputPortNum);
+        subsection = (aSize.width / outputPortNum);
         outputPorts = [[CPArray alloc] init];
 
         for (var i = 0; i < outputPortNum; i++)
         {
-            outputPorts[i] = [[OutputPort alloc] init:aPoint length:theLength width:theWidth type:aType subsection:subsection iteration:(i+1)];
+            outputPorts[i] = [[OutputPort alloc] init:aPoint length:aSize.height width:aSize.width type:aType subsection:subsection iteration:(i+1)];
         };
         
         
         //init inputPortsController --
         inputPorts = [[CPArray alloc] init];
-        subsection = (theWidth / inputPortNum);
+        subsection = (aSize.width / inputPortNum);
         
         for (i = 0; i < inputPortNum; i++)
         {
-            inputPorts[i] = [[InputPort alloc] init:aPoint length:theLength width:theWidth type:aType subsection:subsection iteration:(i+1)];
+            inputPorts[i] = [[InputPort alloc] init:aPoint length:aSize.height width:aSize.width type:aType subsection:subsection iteration:(i+1)];
         };
     
     }
