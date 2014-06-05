@@ -31,35 +31,46 @@
     designerView = [[WorkflowDesignerView alloc] init];
 
 
-    [contentView addSubview:designerView.jobA.workflowJob];
-    [contentView addSubview:designerView.jobB.workflowJob];
-    [contentView addSubview:designerView.jobC.workflowJob];
+    [contentView addSubview:designerView.workflowJobs[0].workflowJob];
+    [contentView addSubview:designerView.workflowJobs[1].workflowJob];
+    [contentView addSubview:designerView.workflowJobs[2].workflowJob];
+
 
 // jobA
 
     for (var i = 0; i < designerView.jobA.inputPortNumber; i++)
-        [contentView addSubview:[[designerView.jobA.inputPortsController selectedObjects] objectAtIndex:i].input];
-
+    {
+        [contentView addSubview:designerView.jobA.inputPorts[i].input];
+    };
 
     for (i = 0; i < designerView.jobA.outputPortNumber; i++)
-        [contentView addSubview:[[designerView.jobA.outputPortsController selectedObjects] objectAtIndex:i].output];
+    {
+        [contentView addSubview:designerView.jobA.outputPorts[i].output];
+    };
 
 // job B
 
     for (i = 0; i < designerView.jobB.outputPortNumber; i++)
-        [contentView addSubview:[[designerView.jobB.outputPortsController selectedObjects] objectAtIndex:i].output];
+    {
+        [contentView addSubview:designerView.jobB.outputPorts[i].output];
+    };
 
     for (i = 0; i < designerView.jobB.inputPortNumber; i++)
-        [contentView addSubview:[[designerView.jobB.inputPortsController selectedObjects] objectAtIndex:i].input];
+    {
+        [contentView addSubview:designerView.jobB.inputPorts[i].input];
+    };
 
    // job C
 
     for (i = 0; i < designerView.jobC.outputPortNumber; i++)
-        [contentView addSubview:[[designerView.jobC.outputPortsController selectedObjects] objectAtIndex:i].output];
+    {
+        [contentView addSubview:designerView.jobC.outputPorts[i].output];
+    };
 
     for (i = 0; i < designerView.jobC.inputPortNumber; i++)
-        [contentView addSubview:[[designerView.jobC.inputPortsController selectedObjects] objectAtIndex:i].input];
-
+    {
+        [contentView addSubview:designerView.jobC.inputPorts[i].input];
+    };
 
 
 

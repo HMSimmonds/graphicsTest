@@ -8,8 +8,9 @@
     CPBox                   workflowJob                     @accessors;
     CPUInteger              outputPortNumber                @accessors;
     CPUInteger              inputPortNumber                 @accessors;
-    CPArrayController       outputPortsController           @accessors;
-    CPArrayController       inputPortsController            @accessors;
+
+    CPArray                 inputPorts                      @accessors;
+    CPArray                 outputPorts                     @accessors;
 }
 
 - (id)initWithPoint:(CGPoint)aPoint length:(float)theLength width:(float)theWidth inputPortNum:(CPUInteger)inputPortNum outputPortNum:(CPUInteger)outputPortNum type:(CPString)aType
@@ -26,21 +27,23 @@
 
         //init outputPortsController -- 
         subsection = (theWidth / outputPortNum);
-        outputPortsController = [[CPArrayController alloc] init];
+        outputPorts = [[CPArray alloc] init];
 
         for (var i = 0; i < outputPortNum; i++)
-            [outputPortsController addObject:[[OutputPort alloc] init:aPoint length:theLength width:theWidth type:aType subsection:subsection iteration:(i+1)]];
+        {
+            outputPorts[i] = [[OutputPort alloc] init:aPoint length:theLength width:theWidth type:aType subsection:subsection iteration:(i+1)];
+        };
         
-        // console.log([[self.outputPortsController selectedObjects] objectAtIndex:0]);
         
         //init inputPortsController --
-        inputPortsController = [[CPArrayController alloc] init];
+        inputPorts = [[CPArray alloc] init];
         subsection = (theWidth / inputPortNum);
         
         for (i = 0; i < inputPortNum; i++)
-            [inputPortsController addObject:[[InputPort alloc] init:aPoint length:theLength width:theWidth type:aType subsection:subsection iteration:(i+1)]];
+        {
+            inputPorts[i] = [[InputPort alloc] init:aPoint length:theLength width:theWidth type:aType subsection:subsection iteration:(i+1)];
+        };
     
-        // console.log([[self.inputPortsController selectedObjects] objectAtIndex:0]);
     }
     return self;
 }
