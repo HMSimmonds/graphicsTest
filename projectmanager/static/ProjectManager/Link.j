@@ -7,18 +7,21 @@
     CGPoint             controlPoint1       @accessors;
     CGPoint             controlPoint2       @accessors;
     CGPoint             currentPoint        @accessors;
+    CPString            name                @accessors;
 }
 
-- (id)initWithFrame:(CGRect)aFrame;
+- (id)initWithFrame:(CGRect)aFrame name:(CPString)aName;
 {
     self = [super initWithFrame:aFrame];
 
     if (self)
     {
-        self.endPoint = CGPointMake(0.0, 0.0);
-        self.controlPoint1 = CGPointMake(0.0, 0.0);
-        self.controlPoint2 = CGPointMake(0.0, 0.0);
-        self.currentPoint = CGPointMake(0.0, 0.0);
+        endPoint = CGPointMake(0.0, 0.0);
+        controlPoint1 = CGPointMake(0.0, 0.0);
+        controlPoint2 = CGPointMake(0.0, 0.0);
+        currentPoint = CGPointMake(0.0, 0.0);
+
+        name = aName;
     }
     return self
 }
@@ -53,10 +56,10 @@
         controlPoint2X:(float)controlPoint2X controlPoint2Y:(float)controlPoint2Y 
         endPointX:(float)endPointX endPointY:(float)endPointY
 {
-    self.currentPoint = CGPointMake(currentPointX, currentPointY);
-    self.controlPoint1 = CGPointMake(controlPoint1X, controlPoint1Y);
-    self.controlPoint2 = CGPointMake(controlPoint2X, controlPoint2Y);
-    self.endPoint = CGPointMake(endPointX, endPointY);
+    currentPoint = CGPointMake(currentPointX, currentPointY);
+    controlPoint1 = CGPointMake(controlPoint1X, controlPoint1Y);
+    controlPoint2 = CGPointMake(controlPoint2X, controlPoint2Y);
+    endPoint = CGPointMake(endPointX, endPointY);
 }
 
 - (void)mouseDown

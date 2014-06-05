@@ -50,17 +50,18 @@
 
 
 
+    for (i = 0; i < [designerView.links count]; i++)
+    {
+        [contentView addSubview:designerView.links[i]];
+    };
 
-    [contentView addSubview:designerView.linkAToB];
-    [contentView addSubview:designerView.linkAToC];
 
-
-    [designerView.linkAToB makeConnectPoint:310.0 currentPointY:230.0 
+    [designerView.links[0] makeConnectPoint:310.0 currentPointY:230.0 
             controlPoint1X:600.0 controlPoint1Y:100.0 
             controlPoint2X:600.0 controlPoint2Y:600.0 
             endPointX:990.0 endPointY:430.0];
 
-    [designerView.linkAToC makeConnectPoint:310.0 currentPointY:230.0 
+    [designerView.links[1] makeConnectPoint:310.0 currentPointY:230.0 
             controlPoint1X:600.0 controlPoint1Y:10.0 
             controlPoint2X:600.0 controlPoint2Y:200.0 
             endPointX:1090.0 endPointY:130.0];
