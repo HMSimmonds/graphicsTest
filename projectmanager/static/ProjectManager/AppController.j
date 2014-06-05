@@ -38,38 +38,38 @@
 
 // jobA
 
-    for (var i = 0; i < designerView.jobA.inputPortNumber; i++)
+    for (var i = 0; i < designerView.workflowJobs[0].inputPortNumber; i++)
     {
-        [contentView addSubview:designerView.jobA.inputPorts[i].input];
+        [contentView addSubview:designerView.workflowJobs[0].inputPorts[i].input];
     };
 
-    for (i = 0; i < designerView.jobA.outputPortNumber; i++)
+    for (i = 0; i < designerView.workflowJobs[0].outputPortNumber; i++)
     {
-        [contentView addSubview:designerView.jobA.outputPorts[i].output];
+        [contentView addSubview:designerView.workflowJobs[0].outputPorts[i].output];
     };
 
 // job B
 
-    for (i = 0; i < designerView.jobB.outputPortNumber; i++)
+    for (i = 0; i < designerView.workflowJobs[1].outputPortNumber; i++)
     {
-        [contentView addSubview:designerView.jobB.outputPorts[i].output];
+        [contentView addSubview:designerView.workflowJobs[1].outputPorts[i].output];
     };
 
-    for (i = 0; i < designerView.jobB.inputPortNumber; i++)
+    for (i = 0; i < designerView.workflowJobs[1].inputPortNumber; i++)
     {
-        [contentView addSubview:designerView.jobB.inputPorts[i].input];
+        [contentView addSubview:designerView.workflowJobs[1].inputPorts[i].input];
     };
 
    // job C
 
-    for (i = 0; i < designerView.jobC.outputPortNumber; i++)
+    for (i = 0; i < designerView.workflowJobs[2].outputPortNumber; i++)
     {
-        [contentView addSubview:designerView.jobC.outputPorts[i].output];
+        [contentView addSubview:designerView.workflowJobs[2].outputPorts[i].output];
     };
 
-    for (i = 0; i < designerView.jobC.inputPortNumber; i++)
+    for (i = 0; i < designerView.workflowJobs[2].inputPortNumber; i++)
     {
-        [contentView addSubview:designerView.jobC.inputPorts[i].input];
+        [contentView addSubview:designerView.workflowJobs[2].inputPorts[i].input];
     };
 
 

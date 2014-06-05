@@ -7,9 +7,7 @@
 
 @implementation WorkflowDesignerView : CPObject
 {
-                WorkflowJob         jobA                        @accessors;
-                WorkflowJob         jobB                        @accessors;
-                WorkflowJob         jobC                        @accessors;
+
                 Link                linkAToB                    @accessors;
                 Link                linkAToC                    @accessors;
 
@@ -43,56 +41,54 @@
         var theLength = 100.0,
             theWidth = 60.0;
 
-        jobA = [[WorkflowJob alloc] initWithPoint:points[0] length:theLength width:theWidth inputPortNum:1 outputPortNum:1 type:"Lyrical"];
-        jobB = [[WorkflowJob alloc] initWithPoint:points[1] length:theLength width:theWidth inputPortNum:1 outputPortNum:1 type:"Black & White"];
-        jobC = [[WorkflowJob alloc] initWithPoint:points[2] length:theLength width:theWidth inputPortNum:1 outputPortNum:1 type:"Cropped Border"];
-
-
-        [jobA changeBoxAttributes:2.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Lryic Removal"];
-        [jobB changeBoxAttributes:2.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Black/White Image"];
-        [jobC changeBoxAttributes:2.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Border Crop"];
-
         workflowJobs = [[CPArray alloc] init];
 
-        workflowJobs[0] = jobA;
-        workflowJobs[1] = jobB;
-        workflowJobs[2] = jobC;
+        workflowJobs[0] = [[WorkflowJob alloc] initWithPoint:points[0] length:theLength width:theWidth inputPortNum:1 outputPortNum:1 type:"Lyrical"];
+        workflowJobs[1] = [[WorkflowJob alloc] initWithPoint:points[1] length:theLength width:theWidth inputPortNum:1 outputPortNum:1 type:"Black & White"];
+        workflowJobs[2] = [[WorkflowJob alloc] initWithPoint:points[2] length:theLength width:theWidth inputPortNum:1 outputPortNum:1 type:"Cropped Border"];
+
+
+        [workflowJobs[0] changeBoxAttributes:2.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Lryic Removal"];
+        [workflowJobs[1] changeBoxAttributes:2.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Black/White Image"];
+        [workflowJobs[2] changeBoxAttributes:2.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Border Crop"];
+
+
 
 
         // JOBA
 
-        for (var i = 0; i < jobA.inputPortNumber; i++) 
+        for (var i = 0; i < workflowJobs[0].inputPortNumber; i++) 
         {
-            [jobA.inputPorts[i] changeBoxAttributes:2.0 cornerRadius:2.0 fillColor:[CPColor colorWithHexString:"003366"] boxType:CPBoxPrimary];
+            [workflowJobs[0].inputPorts[i] changeBoxAttributes:2.0 cornerRadius:2.0 fillColor:[CPColor colorWithHexString:"003366"] boxType:CPBoxPrimary];
         };
 
-        for (i = 0; i < jobA.outputPortNumber; i++) 
+        for (i = 0; i < workflowJobs[0].outputPortNumber; i++) 
         {
-            [jobA.outputPorts[i] changeBoxAttributes:2.0 cornerRadius:2.0 fillColor:[CPColor colorWithHexString:"003366"] boxType:CPBoxPrimary];
+            [workflowJobs[0].outputPorts[i] changeBoxAttributes:2.0 cornerRadius:2.0 fillColor:[CPColor colorWithHexString:"003366"] boxType:CPBoxPrimary];
         };
         
-        // JOBB
+        // workflowJobs[1]
 
-        for (i = 0; i < jobB.inputPortNumber; i++) 
+        for (i = 0; i < workflowJobs[1].inputPortNumber; i++) 
         {
-            [jobB.inputPorts[i] changeBoxAttributes:2.0 cornerRadius:2.0 fillColor:[CPColor colorWithHexString:"003366"] boxType:CPBoxPrimary];
+            [workflowJobs[1].inputPorts[i] changeBoxAttributes:2.0 cornerRadius:2.0 fillColor:[CPColor colorWithHexString:"003366"] boxType:CPBoxPrimary];
         };
 
-        for (i = 0; i < jobB.outputPortNumber; i++) 
+        for (i = 0; i < workflowJobs[1].outputPortNumber; i++) 
         {
-            [jobB.outputPorts[i] changeBoxAttributes:2.0 cornerRadius:2.0 fillColor:[CPColor colorWithHexString:"003366"] boxType:CPBoxPrimary];
+            [workflowJobs[1].outputPorts[i] changeBoxAttributes:2.0 cornerRadius:2.0 fillColor:[CPColor colorWithHexString:"003366"] boxType:CPBoxPrimary];
         };
 
-        //JOBC
+        //workflowJobs[2]
 
-        for (i = 0; i < jobC.inputPortNumber; i++) 
+        for (i = 0; i < workflowJobs[2].inputPortNumber; i++) 
         {
-            [jobC.inputPorts[i] changeBoxAttributes:2.0 cornerRadius:2.0 fillColor:[CPColor colorWithHexString:"003366"] boxType:CPBoxPrimary];
+            [workflowJobs[2].inputPorts[i] changeBoxAttributes:2.0 cornerRadius:2.0 fillColor:[CPColor colorWithHexString:"003366"] boxType:CPBoxPrimary];
         };
 
-        for (i = 0; i < jobC.outputPortNumber; i++) 
+        for (i = 0; i < workflowJobs[2].outputPortNumber; i++) 
         {
-            [jobC.outputPorts[i] changeBoxAttributes:2.0 cornerRadius:2.0 fillColor:[CPColor colorWithHexString:"003366"] boxType:CPBoxPrimary];
+            [workflowJobs[2].outputPorts[i] changeBoxAttributes:2.0 cornerRadius:2.0 fillColor:[CPColor colorWithHexString:"003366"] boxType:CPBoxPrimary];
         };
 
 
