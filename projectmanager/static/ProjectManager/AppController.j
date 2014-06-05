@@ -30,47 +30,24 @@
     //create instance of WorkflowDesignerView
     designerView = [[WorkflowDesignerView alloc] init];
 
-
-    [contentView addSubview:designerView.workflowJobs[0].workflowJob];
-    [contentView addSubview:designerView.workflowJobs[1].workflowJob];
-    [contentView addSubview:designerView.workflowJobs[2].workflowJob];
-
-
-// jobA
-
-    for (var i = 0; i < designerView.workflowJobs[0].inputPortNumber; i++)
+    var j,
+        k;
+    for (var i = 0; i < [designerView.workflowJobs count]; i++) 
     {
-        [contentView addSubview:designerView.workflowJobs[0].inputPorts[i].input];
+        [contentView addSubview:designerView.workflowJobs[i].workflowJob];
+
+        for (j = 0; j < designerView.workflowJobs[i].outputPortNumber; j++)
+        {
+            [contentView addSubview:designerView.workflowJobs[i].outputPorts[j].output];
+        };
+
+        for (k = 0; k < designerView.workflowJobs[i].inputPortNumber; k++)
+        {
+            [contentView addSubview:designerView.workflowJobs[i].inputPorts[k].input];
+        }
+
     };
 
-    for (i = 0; i < designerView.workflowJobs[0].outputPortNumber; i++)
-    {
-        [contentView addSubview:designerView.workflowJobs[0].outputPorts[i].output];
-    };
-
-// job B
-
-    for (i = 0; i < designerView.workflowJobs[1].outputPortNumber; i++)
-    {
-        [contentView addSubview:designerView.workflowJobs[1].outputPorts[i].output];
-    };
-
-    for (i = 0; i < designerView.workflowJobs[1].inputPortNumber; i++)
-    {
-        [contentView addSubview:designerView.workflowJobs[1].inputPorts[i].input];
-    };
-
-   // job C
-
-    for (i = 0; i < designerView.workflowJobs[2].outputPortNumber; i++)
-    {
-        [contentView addSubview:designerView.workflowJobs[2].outputPorts[i].output];
-    };
-
-    for (i = 0; i < designerView.workflowJobs[2].inputPortNumber; i++)
-    {
-        [contentView addSubview:designerView.workflowJobs[2].inputPorts[i].input];
-    };
 
 
 
