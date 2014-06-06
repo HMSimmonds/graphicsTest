@@ -1,6 +1,6 @@
 @import <Foundation/CPObject.j>
 
-@implementation InputPort : CPObject
+@implementation InputPort : CPView
 {
     BOOL        isUsed          @accessors;
     CPString    inputType       @accessors;
@@ -10,7 +10,7 @@
 
 - (id)init:(CGPoint)aPoint length:(float)theLength width:(float)theWidth type:(CPString)type subsection:(float)subsection iteration:(int)i
 {
-    self = [super init];
+    self = [super initWithFrame:CGRectMake(aPoint.x - 10.0, (aPoint.y + subsection*i - (subsection / 2) - 7.5) , 10.0, 15.0)];
 
     if (self) 
     {
@@ -30,6 +30,11 @@
         [self.input setFillColor:aColor];
         [self.input setBoxType:type];
 
+}
+
+- (void)mouseDragged:(CPEvent)anEvent
+{
+    console.log("inputport");
 }
 
 

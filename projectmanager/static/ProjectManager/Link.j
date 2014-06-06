@@ -22,6 +22,7 @@
         currentPoint = CGPointMake(0.0, 0.0);
 
         name = aName;
+
     }
     return self
 }
@@ -59,9 +60,6 @@
     endPoint = endPt;
 }
 
-- (void)mouseDown
-{
 
-}
 
 @end
