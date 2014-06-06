@@ -6,7 +6,7 @@
 var LENGTH = 100.0,
     WIDTH = 60.0;
 
-@implementation WorkflowDesignerView : CPObject
+@implementation WorkflowDesignerView : CPView
 {
                 CPArray             points                      @accessors;
                 CPArray             links                       @accessors;
@@ -15,7 +15,7 @@ var LENGTH = 100.0,
 
 - (id)init 
 {
-    self = [super init];
+    self = [super initWithFrame:CGRectMake(0, 0, 1600, 600)];
     if (self)
     {
 
@@ -32,9 +32,9 @@ var LENGTH = 100.0,
         //links array
         links = [[CPArray alloc] init];
 
-        links[0] = [[Link alloc] initWithFrame:CGRectMake(0, 0, 3000, 3000) name:"AtoB"];
-        links[1] = [[Link alloc] initWithFrame:CGRectMake(0, 0, 3000, 3000) name:"AtoC"];
-        links[2] = [[Link alloc] initWithFrame:CGRectMake(0, 0, 3000, 3000) name:"DtoC"];
+        links[0] = [[Link alloc] initWithFrame:CGRectMake(0, 0, 0, 0) name:"AtoB"];
+        links[1] = [[Link alloc] initWithFrame:CGRectMake(0, 0, 0, 0) name:"AtoC"];
+        links[2] = [[Link alloc] initWithFrame:CGRectMake(0, 0, 0, 0) name:"DtoC"];
 
 
         workflowJobs = [[CPArray alloc] init];
@@ -53,8 +53,9 @@ var LENGTH = 100.0,
 
 
         var j,
+            i,
             k;
-        for (var i = 0; i < [workflowJobs count]; i++)
+        for (i = 0; i < [workflowJobs count]; i++)
         {
             for (j = 0; j < workflowJobs[i].inputPortNumber; j++)
             {
@@ -67,9 +68,45 @@ var LENGTH = 100.0,
             };
         };
 
+        for (i = 0; i < [workflowJobs count]; i++) 
+        {
+            [self addSubview:workflowJobs[i].workflowJob];
+
+            for (j = 0; j < workflowJobs[i].outputPortNumber; j++)
+            {
+                [self addSubview:workflowJobs[i].outputPorts[j].output];
+            };
+
+            for (k = 0; k < workflowJobs[i].inputPortNumber; k++)
+            {
+                [self addSubview:workflowJobs[i].inputPorts[k].input];
+            }
+
+        };
+
+        for (i = 0; i < [links count]; i++)
+        {
+            [self addSubview:links[i]];
+        };
+
     }
     return self;
 }
 
+- (void)mouseDragged:(CPEvent)anEvent
+{   
+    // [CPEvent mouseLocation]
+    // var test = [workflowJobs[2].workflowJob bounds],
+    //     mouseLocation = [CPEvent mouseLocation];
+
+    //     console.log(test);
+    //     console.log(mouseLocation);
+    // if (mouseLocation.x < (test.x + test.length) && mouseLocation.x > test.x && mouseLocation.y < (test.y + test.height) && mouseLocation.y > test.y)
+    // {
+    //     console.log("YESSS");
+    // }
+    console.log("BOO");
+    
+}
 
 @end

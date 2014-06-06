@@ -3,7 +3,7 @@
 @import "InputPort.j"
 @import "OutputPort.j"
 
-@implementation WorkflowJob : CPObject 
+@implementation WorkflowJob : CPView 
 {
     CPBox                   workflowJob                     @accessors;
     CPUInteger              outputPortNumber                @accessors;
@@ -15,7 +15,7 @@
 
 - (id)initWithPoint:(CGPoint)aPoint size:(CGSize)aSize inputPortNum:(CPUInteger)inputPortNum outputPortNum:(CPUInteger)outputPortNum type:(CPString)aType
 { 
-    self = [super init];
+    self = [super initWithFrame:CGRectMake(aPoint.x, aPoint.y, aSize.height, aSize.width)];
 
     if (self)
     {
@@ -56,7 +56,24 @@
         [workflowJob setFillColor:aColor];
         [workflowJob setBoxType:type];
         [workflowJob setTitle:aTitle];
+}
 
+- (void)mouseDragged:(CPEvent)anEvent
+{
+    // [super mouseDown:anEvent];
+
+    console.log("workflowJob");
 }
 
 @end
+
+// @implementation CPView (logClickCount)
+
+// - (void)mouseDown:(CPEvent)anEvent
+// {
+// // console.log(_cmd + " clickCount=" + [anEvent clickCount]);
+// console.log(self);
+//     if ([self mouseDownCanMoveWindow])
+//         [super mouseDown:anEvent];
+// }
+// @end
