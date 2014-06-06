@@ -28,7 +28,7 @@
     
 
     //create instance of WorkflowDesignerView
-designerView = [[WorkflowDesignerView alloc] init];
+designerView = [[WorkflowDesignerView alloc] initDesigner];
 
     [contentView addSubview:designerView];
 

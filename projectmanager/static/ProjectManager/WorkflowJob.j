@@ -15,12 +15,16 @@
 
 - (id)initWithPoint:(CGPoint)aPoint size:(CGSize)aSize inputPortNum:(CPUInteger)inputPortNum outputPortNum:(CPUInteger)outputPortNum type:(CPString)aType
 { 
-    self = [super initWithFrame:CGRectMake(aPoint.x, aPoint.y, aSize.height, aSize.width)];
+    var aRect = CGRectMake(aPoint.x, aPoint.y, aSize.height, aSize.width);
+    self = [super initWithFrame:aRect];
 
     if (self)
     {
-        workflowJob = [[CPBox alloc] initWithFrame:CGRectMake(aPoint.x, aPoint.y, aSize.height, aSize.width)];
+        workflowJob = [[CPBox alloc] initWithFrame:aRect];
         
+        [self addSubview:workflowJob];
+        [self setBounds:aRect];
+
         var subsection;
         outputPortNumber = outputPortNum;
         inputPortNumber = inputPortNum;
@@ -60,9 +64,12 @@
 
 - (void)mouseDragged:(CPEvent)anEvent
 {
-    // [super mouseDown:anEvent];
+    console.log("DRAG - WorkflowJob");
+}
 
-    console.log("workflowJob");
+- (void)mouseDown:(CPEvent)anEvent
+{
+    console.log("DOWN -  WorkflowJob");
 }
 
 @end

@@ -10,13 +10,19 @@
 
 - (id)init:(CGPoint)aPoint length:(float)theLength width:(float)theWidth type:(CPString)type subsection:(float)subsection iteration:(int)i
 {
-    self = [super initWithFrame:CGRectMake(aPoint.x - 10.0, (aPoint.y + subsection*i - (subsection / 2) - 7.5) , 10.0, 15.0)];
+    var aRect = CGRectMake(aPoint.x - 10.0, (aPoint.y + subsection*i - (subsection / 2) - 7.5) , 10.0, 15.0);
+    self = [super initWithFrame:aRect];
+
 
     if (self) 
     {
-        input = [[CPBox alloc] initWithFrame:CGRectMake(aPoint.x - 10.0, (aPoint.y + subsection*i - (subsection / 2) - 7.5) , 10.0, 15.0)];
+
+        input = [[CPBox alloc] initWithFrame:aRect];
         isUsed = false;
         inputType = type;
+
+        [self addSubview:input];
+        [self setBounds:aRect];
     }
 
     return self;
@@ -34,9 +40,14 @@
 
 - (void)mouseDragged:(CPEvent)anEvent
 {
-    console.log("inputport");
+    console.log("DRAG - Inputport");
 }
 
+
+- (void)mouseDown:(CPEvent)anEvent
+{
+    console.log("DOWN - InputPort");
+}
 
 
 @end

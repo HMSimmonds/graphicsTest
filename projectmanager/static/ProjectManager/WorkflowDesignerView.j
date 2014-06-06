@@ -13,12 +13,11 @@ var LENGTH = 100.0,
                 CPArray             workflowJobs                @accessors;
 }
 
-- (id)init 
+- (id)initDesigner 
 {
     self = [super initWithFrame:CGRectMake(0, 0, 1600, 600)];
     if (self)
     {
-
         //points array
 
         points = [[CPArray alloc] init];
@@ -70,16 +69,16 @@ var LENGTH = 100.0,
 
         for (i = 0; i < [workflowJobs count]; i++) 
         {
-            [self addSubview:workflowJobs[i].workflowJob];
+            [self addSubview:workflowJobs[i]];
 
             for (j = 0; j < workflowJobs[i].outputPortNumber; j++)
             {
-                [self addSubview:workflowJobs[i].outputPorts[j].output];
+                [self addSubview:workflowJobs[i].outputPorts[j]];
             };
 
             for (k = 0; k < workflowJobs[i].inputPortNumber; k++)
             {
-                [self addSubview:workflowJobs[i].inputPorts[k].input];
+                [self addSubview:workflowJobs[i].inputPorts[k]];
             }
 
         };
@@ -95,18 +94,14 @@ var LENGTH = 100.0,
 
 - (void)mouseDragged:(CPEvent)anEvent
 {   
-    // [CPEvent mouseLocation]
-    // var test = [workflowJobs[2].workflowJob bounds],
-    //     mouseLocation = [CPEvent mouseLocation];
-
-    //     console.log(test);
-    //     console.log(mouseLocation);
-    // if (mouseLocation.x < (test.x + test.length) && mouseLocation.x > test.x && mouseLocation.y < (test.y + test.height) && mouseLocation.y > test.y)
-    // {
-    //     console.log("YESSS");
-    // }
-    console.log("BOO");
     
+    console.log("DRAG - WorkflowDesigner");
+    
+}
+
+- (void)mouseDown:(CPEvent)anEvent
+{
+    console.log("DOWN - WorkflowDesigner");
 }
 
 @end
