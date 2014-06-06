@@ -1,5 +1,7 @@
 @import <Foundation/CPObject.j>
 
+
+
 @implementation Link : CPView
 {
     CPBezierPath        pathAToB;
@@ -8,6 +10,8 @@
     CGPoint             controlPoint2       @accessors;
     CGPoint             currentPoint        @accessors;
     CPString            name                @accessors;
+    
+    BOOL                isUsed              @accessors;
 }
 
 - (id)initWithFrame:(CGRect)aFrame name:(CPString)aName;
@@ -22,6 +26,7 @@
         currentPoint = CGPointMake(0.0, 0.0);
 
         name = aName;
+        isUsed = false;
 
     }
     return self

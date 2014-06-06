@@ -5,10 +5,11 @@
     BOOL        isUsed          @accessors;
     CPString    inputType       @accessors;
     CPBox       input           @accessors;
+    int         jobID           @accessors;
 
 }
 
-- (id)init:(CGPoint)aPoint length:(float)theLength width:(float)theWidth type:(CPString)type subsection:(float)subsection iteration:(int)i
+- (id)init:(CGPoint)aPoint length:(float)theLength width:(float)theWidth type:(CPString)type subsection:(float)subsection iteration:(int)i jobID:(int)aJobID
 {
     var aRect = CGRectMake(aPoint.x - 10.0, (aPoint.y + subsection*i - (subsection / 2) - 7.5) , 10.0, 15.0);
     self = [super initWithFrame:aRect];
@@ -20,6 +21,7 @@
         input = [[CPBox alloc] initWithFrame:aRect];
         isUsed = false;
         inputType = type;
+        jobID = aJobID;
 
         [self addSubview:input];
         [self setBounds:aRect];

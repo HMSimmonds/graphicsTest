@@ -35,7 +35,7 @@
 
         for (var i = 0; i < outputPortNum; i++)
         {
-            outputPorts[i] = [[OutputPort alloc] init:aPoint length:aSize.height width:aSize.width type:aType subsection:subsection iteration:(i+1)];
+            outputPorts[i] = [[OutputPort alloc] init:aPoint length:aSize.height width:aSize.width type:aType subsection:subsection iteration:(i+1) jobID:i];
         };
         
         
@@ -45,7 +45,7 @@
         
         for (i = 0; i < inputPortNum; i++)
         {
-            inputPorts[i] = [[InputPort alloc] init:aPoint length:aSize.height width:aSize.width type:aType subsection:subsection iteration:(i+1)];
+            inputPorts[i] = [[InputPort alloc] init:aPoint length:aSize.height width:aSize.width type:aType subsection:subsection iteration:(i+1) jobID:i];
         };
     
     }
@@ -60,6 +60,7 @@
         [workflowJob setFillColor:aColor];
         [workflowJob setBoxType:type];
         [workflowJob setTitle:aTitle];
+        [workflowJob setTitlePosition:2];
 }
 
 - (void)mouseDragged:(CPEvent)anEvent

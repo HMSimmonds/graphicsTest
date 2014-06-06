@@ -2,6 +2,7 @@
 
 @import "WorkflowJob.j"
 @import "Link.j"
+@import "OutputPort.j"
 
 var LENGTH = 100.0,
     WIDTH = 60.0;
@@ -9,7 +10,7 @@ var LENGTH = 100.0,
 @implementation WorkflowDesignerView : CPView
 {
                 CPArray             points                      @accessors;
-                CPArray             links                       @accessors;
+                // CPArray             links                       @accessors;
                 CPArray             workflowJobs                @accessors;
 }
 
@@ -29,11 +30,11 @@ var LENGTH = 100.0,
 
 
         //links array
-        links = [[CPArray alloc] init];
+        // links = [[CPArray alloc] init];
 
-        links[0] = [[Link alloc] initWithFrame:CGRectMake(0, 0, 0, 0) name:"AtoB"];
-        links[1] = [[Link alloc] initWithFrame:CGRectMake(0, 0, 0, 0) name:"AtoC"];
-        links[2] = [[Link alloc] initWithFrame:CGRectMake(0, 0, 0, 0) name:"DtoC"];
+        // links[0] = [[Link alloc] initWithFrame:CGRectMake(0, 0, 0, 0) name:"AtoB"];
+        // links[1] = [[Link alloc] initWithFrame:CGRectMake(0, 0, 0, 0) name:"AtoC"];
+        // links[2] = [[Link alloc] initWithFrame:CGRectMake(0, 0, 0, 0) name:"DtoC"];
 
 
         workflowJobs = [[CPArray alloc] init];
@@ -53,7 +54,8 @@ var LENGTH = 100.0,
 
         var j,
             i,
-            k;
+            k,
+            f;
         for (i = 0; i < [workflowJobs count]; i++)
         {
             for (j = 0; j < workflowJobs[i].inputPortNumber; j++)
@@ -74,23 +76,28 @@ var LENGTH = 100.0,
             for (j = 0; j < workflowJobs[i].outputPortNumber; j++)
             {
                 [self addSubview:workflowJobs[i].outputPorts[j]];
+                for (f = 0; f < [workflowJobs[i].outputPorts[j].links count]; f++)
+                {
+                    [self addSubview:workflowJobs[i].outputPorts[j].links[f]];
+                };
             };
 
             for (k = 0; k < workflowJobs[i].inputPortNumber; k++)
             {
                 [self addSubview:workflowJobs[i].inputPorts[k]];
-            }
+            };
 
         };
 
-        for (i = 0; i < [links count]; i++)
-        {
-            [self addSubview:links[i]];
-        };
+        // for (i = 0; i < [links count]; i++)
+        // {
+        //     [self addSubview:links[i]];
+        // };
 
     }
     return self;
 }
+
 
 - (void)mouseDragged:(CPEvent)anEvent
 {   
