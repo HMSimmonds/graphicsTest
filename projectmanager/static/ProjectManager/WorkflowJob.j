@@ -47,7 +47,7 @@
         {
             inputPorts[i] = [[InputPort alloc] init:aPoint length:aSize.height width:aSize.width type:aType subsection:subsection iteration:(i+1) jobID:i];
         };
-    
+        [self setNeedsDisplay:true];
     }
     return self;
 }

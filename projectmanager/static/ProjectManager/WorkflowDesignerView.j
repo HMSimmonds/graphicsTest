@@ -34,7 +34,7 @@ var LENGTH = 100.0,
 
         // links[0] = [[Link alloc] initWithFrame:CGRectMake(0, 0, 0, 0) name:"AtoB"];
         // links[1] = [[Link alloc] initWithFrame:CGRectMake(0, 0, 0, 0) name:"AtoC"];
-        // links[2] = [[Link alloc] initWithFrame:CGRectMake(0, 0, 0, 0) name:"DtoC"];
+        // links[2] = [[Link alloc] initWithFrame:CGRectMake(0, 0, 3000, 3000) name:"DtoC"];
 
 
         workflowJobs = [[CPArray alloc] init];
@@ -76,10 +76,7 @@ var LENGTH = 100.0,
             for (j = 0; j < workflowJobs[i].outputPortNumber; j++)
             {
                 [self addSubview:workflowJobs[i].outputPorts[j]];
-                for (f = 0; f < [workflowJobs[i].outputPorts[j].links count]; f++)
-                {
-                    [self addSubview:workflowJobs[i].outputPorts[j].links[f]];
-                };
+                
             };
 
             for (k = 0; k < workflowJobs[i].inputPortNumber; k++)
@@ -95,6 +92,7 @@ var LENGTH = 100.0,
         // };
 
     }
+    [self setNeedsDisplay:true];
     return self;
 }
 
