@@ -26,7 +26,7 @@
         [self addSubview:input];
         [self setBounds:aRect];
     }
-    [self setNeedsDisplay:true];
+    // [self setNeedsDisplay:true];
     return self;
 }
 

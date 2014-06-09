@@ -4,6 +4,7 @@
 @import "Link.j"
 @import "OutputPort.j"
 
+//TEMPORARY -> length and width for workflowJob boxes
 var LENGTH = 100.0,
     WIDTH = 60.0;
 
@@ -23,7 +24,8 @@ var LENGTH = 100.0,
 
         points = [[CPArray alloc] init];
 
-        points[0] = CGPointMake(200.0, 200.0);
+        //create points for origins of workflowJob boxes
+        points[0] = CGPointMake(200.0, 170.0);
         points[1] = CGPointMake(1000.0, 400.0);
         points[2] = CGPointMake(1100.0, 100.0);
         points[3] = CGPointMake(150.0, 400.0);
@@ -39,19 +41,20 @@ var LENGTH = 100.0,
 
         workflowJobs = [[CPArray alloc] init];
 
+        //create workflowJobs on designerView
         workflowJobs[0] = [[WorkflowJob alloc] initWithPoint:points[0] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Lyrical"];
         workflowJobs[1] = [[WorkflowJob alloc] initWithPoint:points[1] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Black & White"];
         workflowJobs[2] = [[WorkflowJob alloc] initWithPoint:points[2] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Cropped Border"];
         workflowJobs[3] = [[WorkflowJob alloc] initWithPoint:points[3] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Cropped Border"];
 
-
+        //change attributes for various workflowJobs
         [workflowJobs[0] changeBoxAttributes:2.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Lryic Removal"];
         [workflowJobs[1] changeBoxAttributes:2.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Black/White Image"];
         [workflowJobs[2] changeBoxAttributes:2.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Border Crop"];
         [workflowJobs[3] changeBoxAttributes:2.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Border Crop"];
 
 
-
+        //iterat through workflows inputs and outputs to add to designerView subview
         var j,
             i,
             k,
@@ -92,7 +95,7 @@ var LENGTH = 100.0,
         // };
 
     }
-    [self setNeedsDisplay:true];
+    // [self setNeedsDisplay:true];
     return self;
 }
 
@@ -101,12 +104,15 @@ var LENGTH = 100.0,
 {   
     
     console.log("DRAG - WorkflowDesigner");
+    console.log([CPEvent mouseLocation]);
     
 }
 
 - (void)mouseDown:(CPEvent)anEvent
 {
     console.log("DOWN - WorkflowDesigner");
+        console.log([CPEvent mouseLocation]);
+
 }
 
 @end

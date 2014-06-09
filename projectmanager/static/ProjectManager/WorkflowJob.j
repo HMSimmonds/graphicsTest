@@ -11,12 +11,14 @@
 
     CPArray                 inputPorts                      @accessors;
     CPArray                 outputPorts                     @accessors;
+
 }
 
 - (id)initWithPoint:(CGPoint)aPoint size:(CGSize)aSize inputPortNum:(CPUInteger)inputPortNum outputPortNum:(CPUInteger)outputPortNum type:(CPString)aType
 { 
     var aRect = CGRectMake(aPoint.x, aPoint.y, aSize.height, aSize.width);
     self = [super initWithFrame:aRect];
+
 
     if (self)
     {
@@ -47,7 +49,6 @@
         {
             inputPorts[i] = [[InputPort alloc] init:aPoint length:aSize.height width:aSize.width type:aType subsection:subsection iteration:(i+1) jobID:i];
         };
-        [self setNeedsDisplay:true];
     }
     return self;
 }
@@ -60,7 +61,7 @@
         [workflowJob setFillColor:aColor];
         [workflowJob setBoxType:type];
         [workflowJob setTitle:aTitle];
-        [workflowJob setTitlePosition:2];
+        // [workflowJob setTitlePosition:6];
 }
 
 - (void)mouseDragged:(CPEvent)anEvent
@@ -71,9 +72,13 @@
 - (void)mouseDown:(CPEvent)anEvent
 {
     console.log("DOWN -  WorkflowJob");
+    console.log([CPEvent mouseLocation]);
 }
 
 @end
+
+
+
 
 // @implementation CPView (logClickCount)
 
