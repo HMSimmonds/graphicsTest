@@ -59,17 +59,23 @@
         if (!links[i].isUsed)
         {
             links[i] = [[Link alloc] initWithFrame:CGRectMake(startMouseLocation.x, startMouseLocation.y, 0.0, 0.0) name:""];
+            [[theWindow contentView] addSubview:links[i]];
             [links[i] makeConnectPointAtCurrentPoint:startMouseLocation controlPoint1:0.0 controlPoint2:0.0 endPoint:startMouseLocation];
             selectedLink = i;
-            [[theWindow contentView] addSubview:links[i]];
 
             return;
         }
     };
 
     links[i] = [[Link alloc] initWithFrame:CGRectMake(startMouseLocation.x, startMouseLocation.y, 0.0, 0.0) name:""];
+    [[theWindow contentView] addSubview:links[i]];
     [links[i] makeConnectPointAtCurrentPoint:startMouseLocation controlPoint1:0.0 controlPoint2:0.0 endPoint:startMouseLocation];
+    [[theWindow contentView] setNeedsDisplay:true];
+
+
     selectedLink = i;
+    
+
 }
 
 - (void)mouseDragged:(CPEvent)anEvent
@@ -78,14 +84,25 @@
     var currentMouseLocation = [CPEvent mouseLocation];
 
     [links[selectedLink] makeConnectPointAtCurrentPoint:[links[selectedLink] currentPoint] controlPoint1:currentMouseLocation controlPoint2:currentMouseLocation endPoint:currentMouseLocation];
-    [links[selectedLink] setFrame:CGRectMake(links[selectedLink].currentPoint.x, links[selectedLink].currentPoint.y, currentMouseLocation.x - links[selectedLink].currentPoint.x, currentMouseLocation.y - links[selectedLink].currentPoint.y)];
-    [links[selectedLink] setBounds:CGRectMake(links[selectedLink].currentPoint.x, links[selectedLink].currentPoint.y, currentMouseLocation.x - links[selectedLink].currentPoint.x, currentMouseLocation.y - links[selectedLink].currentPoint.y)];    
-    console.log(links[selectedLink]);
+    [links[selectedLink] setFrame:CGRectMake(0,0,6000, 6000)];
+    [links[selectedLink] setBounds:CGRectMake(0, 0, 6000, 6000)];
+
+
+    // [links[selectedLink] setFrame:CGRectMake(links[selectedLink].currentPoint.x, links[selectedLink].currentPoint.y, currentMouseLocation.x - links[selectedLink].currentPoint.x, currentMouseLocation.y - links[selectedLink].currentPoint.y)];
+    // [links[selectedLink] setBounds:CGRectMake(links[selectedLink].currentPoint.x, links[selectedLink].currentPoint.y, currentMouseLocation.x - links[selectedLink].currentPoint.x, currentMouseLocation.y - links[selectedLink].currentPoint.y)];    
+
+
+    [links[selectedLink] setNeedsDisplay:true];
+
 }
 
 - (void)mouseUp:(CPEvent)anEvent
 {
     console.log("UP - OutputPort");
+
+    var theWindow = [[CPApplication sharedApplication] mainWindow];
+
+    [[theWindow contentView] addSubview:links[selectedLink]];
 
     //if mouseUp is on inputPort location - create link and set isUsed to true -- also set name -- remove from Subview
 

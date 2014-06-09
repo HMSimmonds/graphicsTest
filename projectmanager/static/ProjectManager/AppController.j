@@ -8,7 +8,7 @@
 {
         @outlet     CPWindow                theWindow;
         @outlet     CPView                  contentView;   
-                    DesignController        designControlView;
+                    DesignController        designControlView       @accessors;
 
 
 }
@@ -16,7 +16,7 @@
 - (void)applicationDidFinishLaunching:(CPNotification)aNotification
 {
     // This is called when the application is done loading.
-
+    [contentView setNeedsDisplay:true];
 
 }
 
@@ -49,7 +49,7 @@
     //                                         controlPoint2:CGPointMake(1100.0, 430.0)
     //                                              endPoint:CGPointMake(1090.0, 130.0)];
 
-
+    [contentView setNeedsDisplay:true];
     [theWindow orderFront:self];
 
 

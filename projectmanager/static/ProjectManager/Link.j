@@ -27,6 +27,7 @@
 
         name = aName;
         isUsed = false;
+        [self setNeedsDisplay:true];
 
     }
     return self
@@ -53,6 +54,7 @@
 
 
     [pathAToB stroke];  
+    [self setNeedsDisplay:true];
 
 }
 
