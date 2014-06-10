@@ -33,10 +33,10 @@
 
 - (void)changeBoxAttributes:(float)borderWidth cornerRadius:(float)cornerRadius fillColor:(CPColor)aColor boxType:(CPBoxType)type 
 {
-        [self.input setBorderWidth:borderWidth];
-        [self.input setCornerRadius:cornerRadius];
-        [self.input setFillColor:aColor];
-        [self.input setBoxType:type];
+        [input setBorderWidth:borderWidth];
+        [input setCornerRadius:cornerRadius];
+        [input setFillColor:aColor];
+        [input setBoxType:type];
 
 }
 

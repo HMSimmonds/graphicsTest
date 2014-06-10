@@ -25,10 +25,10 @@ var LENGTH = 100.0,
         points = [[CPArray alloc] init];
 
         //create points for origins of workflowJob boxes
-        points[0] = CGPointMake(200.0, 170.0);
-        points[1] = CGPointMake(1000.0, 400.0);
-        points[2] = CGPointMake(1100.0, 100.0);
-        points[3] = CGPointMake(150.0, 400.0);
+        points[0] = CGPointMake(200.0, 70.0);
+        points[1] = CGPointMake(500.0, 350.0);
+        points[2] = CGPointMake(500.0, 70.0);
+        points[3] = CGPointMake(200.0, 350.0);
 
 
         //links array
@@ -42,9 +42,9 @@ var LENGTH = 100.0,
         workflowJobs = [[CPArray alloc] init];
 
         //create workflowJobs on designerView
-        workflowJobs[0] = [[WorkflowJob alloc] initWithPoint:points[0] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Lyrical"];
+        workflowJobs[0] = [[WorkflowJob alloc] initWithPoint:points[0] size:CGSizeMake(WIDTH*2, LENGTH) inputPortNum:3 outputPortNum:2 type:"Lyrical"];
         workflowJobs[1] = [[WorkflowJob alloc] initWithPoint:points[1] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Black & White"];
-        workflowJobs[2] = [[WorkflowJob alloc] initWithPoint:points[2] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Cropped Border"];
+        workflowJobs[2] = [[WorkflowJob alloc] initWithPoint:points[2] size:CGSizeMake(WIDTH*2, LENGTH) inputPortNum:1 outputPortNum:3 type:"Cropped Border"];
         workflowJobs[3] = [[WorkflowJob alloc] initWithPoint:points[3] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Cropped Border"];
 
         //change attributes for various workflowJobs
@@ -63,7 +63,7 @@ var LENGTH = 100.0,
         {
             for (j = 0; j < workflowJobs[i].inputPortNumber; j++)
             {
-                [workflowJobs[i].inputPorts[j] changeBoxAttributes:2.0 cornerRadius:2.0 fillColor:[CPColor colorWithHexString:"003366"] boxType:CPBoxPrimary];
+                [workflowJobs[i].inputPorts[j] changeBoxAttributes:2.0 cornerRadius:2.0 fillColor:[CPColor colorWithHexString:"FF4D4D"] boxType:CPBoxPrimary];
             };
 
             for (k = 0; k < workflowJobs[i].outputPortNumber; k++)
