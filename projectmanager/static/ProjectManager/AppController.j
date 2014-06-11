@@ -6,15 +6,26 @@
 
 @implementation AppController : CPObject
 {
-    @outlet             CPWindow            theWindow               @accessors;
-    @outlet             CPView              contentView             @accessors;
-                        CGRect              _theWindowBounds;
-                        CPScrollView        contentScrollView;
+    @outlet             CPWindow                theWindow               @accessors;
+    @outlet             CPView                  contentView             @accessors;
+                        CGRect                  _theWindowBounds;
+                        CPScrollView            contentScrollView;
     
-    @outlet             CPSplitView         workflowDesignerView    @accessors;
-    @outlet             CPView              designerView            @accessors;
-    @outlet             CPSplitView         leftSideBar             @accessors;
-    @outlet             CPSplitView         rightSideBar            @accessors;
+    @outlet             CPSplitView             workflowDesignerView    @accessors;
+    @outlet             CPView                  designerView            @accessors;
+    @outlet             CPSplitView             leftSideBar             @accessors;
+    @outlet             CPSplitView             rightSideBar            @accessors;
+
+    @outlet             CPBox                   horizontalDivider1      @accessors;
+
+                        WorkflowDesignerView    workflowDiagram         @accessors;
+
+    @outlet             CPImageView             connectImageView        @accessors;
+
+                        CPBundle                theBundle               @accessors;
+
+    @outlet             CPScrollView            jobScrollView           @accessors;
+    @outlet             CPView                  jobsView                @accessors;
 
 
 }
@@ -32,6 +43,9 @@
 {
     [theWindow setFullPlatformWindow:YES];
     _theWindowBounds = [contentView bounds];
+
+    //init. Bundle to resources
+    theBundle = [CPBundle mainBundle];
 
     //init contentView attributes
     [contentView setBackgroundColor:[CPColor colorWithHexString:"FFFFFF"]];
@@ -52,10 +66,11 @@
 
 
     //create instance of WorkflowDesignerView
-    designerView = [[WorkflowDesignerView alloc] initDesigner];
+    workflowDiagram = [[WorkflowDesignerView alloc] initDesigner];
     [designerView setFrame:CGRectMake(300.0, 0.0, CGRectGetWidth(_theWindowBounds) - 600.0, CGRectGetHeight(_theWindowBounds))];
     [designerView setAutoresizingMask:CPViewWidthSizable | CPViewHeightSizable];
     [designerView setBackgroundColor:[CPColor colorWithHexString:"FFFFFF"]];
+    [designerView addSubview:workflowDiagram];
 
     //left Side Bar
     [leftSideBar setFrame:CGRectMake(0.0, 0.0, 300.0, CGRectGetHeight(_theWindowBounds))];
@@ -69,8 +84,15 @@
     [rightSideBar setBackgroundColor:[CPColor colorWithHexString:"CCCCCC"]];
 
 
+    // connectImage = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"connect.png"]];
+    var connectImage = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"connect.png"] size:CGSizeMake(32.0, 32.0)];
+    [connectImageView setImage:connectImage];
 
-    // [contentView setAutoresizesSubviews:YES];
+    //job Scroll View
+
+    [jobScrollView setBackgroundColor:[CPColor colorWithHexString:"E6E6E6"]];
+    [jobScrollView setDocumentView:jobsView];
+
 
     [theWindow orderFront:self];
 
