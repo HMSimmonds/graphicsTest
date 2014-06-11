@@ -14,8 +14,8 @@
         <customObject id="-3" userLabel="Application"/>
         <menu title="AMainMenu" systemMenu="main" id="29" userLabel="MainMenu">
             <items>
-                <menuItem title="NewApplication" id="56">
-                    <menu key="submenu" title="NewApplication" systemMenu="apple" id="57">
+                <menuItem title="Work Flow Designer " id="56">
+                    <menu key="submenu" title="Work Flow Designer " systemMenu="apple" id="57">
                         <items>
                             <menuItem title="About NewApplication" id="58">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -279,30 +279,118 @@
         </menu>
         <customObject id="450" customClass="AppController">
             <connections>
-                <outlet property="contentView" destination="Njj-1T-0dp" id="AJQ-7N-im6"/>
-                <outlet property="theWindow" destination="nMw-Zx-u44" id="Jd9-JR-mhc"/>
+                <outlet property="contentView" destination="kob-9T-ReK" id="zO1-Ez-9fZ"/>
+                <outlet property="designerView" destination="kQV-GA-CHA" id="DN3-0N-Imy"/>
+                <outlet property="leftSideBar" destination="MMe-el-Ort" id="kmU-yh-gFe"/>
+                <outlet property="rightSideBar" destination="b7Z-Oo-STT" id="Q30-yJ-GI7"/>
+                <outlet property="theWindow" destination="nMw-Zx-u44" id="OHe-4T-LZ7"/>
+                <outlet property="workflowDesignerView" destination="igf-M9-Ire" id="8it-jt-cOu"/>
             </connections>
         </customObject>
         <customObject id="5yz-I3-Eff" userLabel="Workflow Designer View" customClass="WorkflowDesignerView"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="nMw-Zx-u44">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+        <window title="Workflow Designer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="nMw-Zx-u44">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES" unifiedTitleAndToolbar="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="909" height="586"/>
+            <rect key="contentRect" x="243" y="221" width="1389" height="957"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
-            <view key="contentView" id="kob-9T-ReK">
-                <rect key="frame" x="0.0" y="0.0" width="909" height="586"/>
+            <view key="contentView" wantsLayer="YES" id="kob-9T-ReK">
+                <rect key="frame" x="0.0" y="0.0" width="1389" height="957"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <customView wantsLayer="YES" id="Njj-1T-0dp">
-                        <rect key="frame" x="-17" y="0.0" width="926" height="586"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    </customView>
-                </subviews>
             </view>
+            <toolbar key="toolbar" implicitIdentifier="9154D01A-239B-4749-A33C-97236AA81923" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="lrE-WC-EG6">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="orX-MN-maM"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="V0R-l6-KAV"/>
+                    <toolbarItem implicitItemIdentifier="DDFFCCD5-279F-4646-9853-DDE55A6FE178" label="" paletteLabel="" tag="-1" id="oFW-Rq-cNi">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="5" height="96"/>
+                        <size key="maxSize" width="5" height="96"/>
+                        <box key="view" autoresizesSubviews="NO" horizontalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="th8-I3-qD8">
+                            <rect key="frame" x="1" y="14" width="5" height="96"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <font key="titleFont" metaFont="system"/>
+                        </box>
+                    </toolbarItem>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="orX-MN-maM"/>
+                    <toolbarItem reference="orX-MN-maM"/>
+                    <toolbarItem reference="oFW-Rq-cNi"/>
+                    <toolbarItem reference="orX-MN-maM"/>
+                    <toolbarItem reference="orX-MN-maM"/>
+                    <toolbarItem reference="V0R-l6-KAV"/>
+                </defaultToolbarItems>
+            </toolbar>
         </window>
         <customObject id="SHC-K0-T9Y" userLabel="Workflow Job" customClass="WorkflowJob"/>
         <customObject id="I5k-Is-SOH" userLabel="Link" customClass="Link"/>
-        <customObject id="UPP-QF-ocx" userLabel="Input Port"/>
-        <customObject id="2CH-cZ-aXB" userLabel="Output Port"/>
+        <customObject id="UPP-QF-ocx" userLabel="Input Port" customClass="InputPort"/>
+        <customObject id="2CH-cZ-aXB" userLabel="Output Port" customClass="OutputPort"/>
+        <menu id="45G-nQ-AvH">
+            <items>
+                <menuItem title="Item 1" id="nJ2-ym-KSx">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Item 2" id="f6Y-42-Ato">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Item 3" id="7r1-Nh-upL">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+            </items>
+        </menu>
+        <splitView dividerStyle="thin" vertical="YES" id="igf-M9-Ire" userLabel="Split View - WorkflowDesgnerView">
+            <rect key="frame" x="0.0" y="0.0" width="938" height="929"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <splitView dividerStyle="thin" id="MMe-el-Ort">
+                    <rect key="frame" x="0.0" y="0.0" width="165" height="929"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <customView id="kWf-jv-Ftf">
+                            <rect key="frame" x="0.0" y="0.0" width="165" height="448"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </customView>
+                        <customView id="b6V-EC-yLV">
+                            <rect key="frame" x="0.0" y="449" width="165" height="480"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </customView>
+                    </subviews>
+                    <holdingPriorities>
+                        <real value="250"/>
+                        <real value="250"/>
+                    </holdingPriorities>
+                </splitView>
+                <customView id="kQV-GA-CHA">
+                    <rect key="frame" x="166" y="0.0" width="538" height="929"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                </customView>
+                <splitView dividerStyle="thin" id="b7Z-Oo-STT">
+                    <rect key="frame" x="705" y="0.0" width="233" height="929"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <customView id="6p9-Ue-SxU">
+                            <rect key="frame" x="0.0" y="0.0" width="233" height="448"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </customView>
+                        <customView id="KoA-uN-124">
+                            <rect key="frame" x="0.0" y="449" width="233" height="480"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </customView>
+                    </subviews>
+                    <holdingPriorities>
+                        <real value="250"/>
+                        <real value="250"/>
+                    </holdingPriorities>
+                </splitView>
+            </subviews>
+            <holdingPriorities>
+                <real value="250"/>
+                <real value="250"/>
+                <real value="250"/>
+            </holdingPriorities>
+        </splitView>
     </objects>
 </document>
