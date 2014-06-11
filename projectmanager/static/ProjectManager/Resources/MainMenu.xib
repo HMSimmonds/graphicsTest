@@ -282,10 +282,21 @@
                 <outlet property="connectImageView" destination="XOp-xg-FLT" id="kf9-U2-fzJ"/>
                 <outlet property="contentView" destination="kob-9T-ReK" id="zO1-Ez-9fZ"/>
                 <outlet property="designerView" destination="kQV-GA-CHA" id="DN3-0N-Imy"/>
+                <outlet property="jobA" destination="ZTm-bW-rzc" id="Eku-sC-G85"/>
+                <outlet property="jobB" destination="wCb-67-ahu" id="XOa-aX-QbF"/>
+                <outlet property="jobC" destination="iW4-Dk-7ev" id="mcP-xW-Gx4"/>
+                <outlet property="jobD" destination="yfB-5D-Vcd" id="Si8-c9-ofx"/>
+                <outlet property="jobE" destination="QsQ-Pt-qYP" id="Lv1-53-ySe"/>
+                <outlet property="jobF" destination="JFY-Q4-0gG" id="ED3-Nl-daX"/>
+                <outlet property="jobG" destination="xT1-jW-dVO" id="TL3-UI-1ht"/>
+                <outlet property="jobH" destination="sKT-N5-mId" id="GLe-JJ-MvV"/>
+                <outlet property="jobI" destination="d3b-jM-aot" id="atD-m1-GKE"/>
                 <outlet property="jobScrollView" destination="gFn-kQ-Vcn" id="3dn-RA-L7S"/>
                 <outlet property="jobsView" destination="F7m-du-q4Q" id="oAg-s4-PSZ"/>
                 <outlet property="leftSideBar" destination="MMe-el-Ort" id="kmU-yh-gFe"/>
+                <outlet property="leftSideBarIcon" destination="G88-V6-N3t" id="eQP-Po-CgK"/>
                 <outlet property="rightSideBar" destination="b7Z-Oo-STT" id="Q30-yJ-GI7"/>
+                <outlet property="rightSideBarIcon" destination="Ezm-NO-BE9" id="vTi-k6-5Zq"/>
                 <outlet property="theWindow" destination="nMw-Zx-u44" id="OHe-4T-LZ7"/>
                 <outlet property="workflowDesignerView" destination="igf-M9-Ire" id="8it-jt-cOu"/>
             </connections>
@@ -316,6 +327,8 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                     </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="504ADF56-BE8F-4BEB-840C-C186BDE83F94" label="Left Side Bar" paletteLabel="Left Side Bar" tag="-1" id="G88-V6-N3t"/>
+                    <toolbarItem implicitItemIdentifier="2A1DF0F7-3C8C-4029-9991-7A4C3777404B" label="Right Side Bar" paletteLabel="Right Side Bar" tag="-1" id="Ezm-NO-BE9"/>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="orX-MN-maM"/>
@@ -324,6 +337,11 @@
                     <toolbarItem reference="orX-MN-maM"/>
                     <toolbarItem reference="orX-MN-maM"/>
                     <toolbarItem reference="V0R-l6-KAV"/>
+                    <toolbarItem reference="orX-MN-maM"/>
+                    <toolbarItem reference="orX-MN-maM"/>
+                    <toolbarItem reference="orX-MN-maM"/>
+                    <toolbarItem reference="G88-V6-N3t"/>
+                    <toolbarItem reference="Ezm-NO-BE9"/>
                 </defaultToolbarItems>
             </toolbar>
         </window>
@@ -477,30 +495,30 @@
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="Vrb-YK-v4O">
-                                    <rect key="frame" x="12" y="441" width="261" height="5"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <rect key="frame" x="11" y="425" width="261" height="5"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <font key="titleFont" metaFont="system"/>
                                 </box>
                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="XOp-xg-FLT">
                                     <rect key="frame" x="9" y="433" width="38" height="35"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="g0i-ZU-a78"/>
                                 </imageView>
                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="v9b-mB-NYN">
                                     <rect key="frame" x="55" y="433" width="38" height="35"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="XGg-W9-dt9"/>
                                 </imageView>
                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="pQv-Ij-mcT">
                                     <rect key="frame" x="102" y="433" width="38" height="35"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="Zd3-7m-Y1h"/>
                                 </imageView>
                                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="sT6-WG-AqY">
                                     <rect key="frame" x="152" y="433" width="38" height="35"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="e5s-tI-Slr"/>
                                 </imageView>
                             </subviews>
@@ -519,24 +537,24 @@
                                     </textFieldCell>
                                 </textField>
                                 <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="gFn-kQ-Vcn">
-                                    <rect key="frame" x="0.0" y="0.0" width="284" height="497"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="284" height="477"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     <clipView key="contentView" id="Fx3-lV-to6">
-                                        <rect key="frame" x="1" y="1" width="282" height="495"/>
+                                        <rect key="frame" x="1" y="1" width="282" height="475"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view id="dQL-QT-Zg5">
-                                                <rect key="frame" x="0.0" y="0.0" width="282" height="495"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="284" height="475"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             </view>
                                         </subviews>
                                     </clipView>
                                     <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="bvA-g7-NLA">
-                                        <rect key="frame" x="1" y="480" width="282" height="16"/>
+                                        <rect key="frame" x="1" y="460" width="282" height="16"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ZJN-36-VGu">
-                                        <rect key="frame" x="267" y="1" width="16" height="495"/>
+                                        <rect key="frame" x="267" y="1" width="16" height="475"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>
@@ -556,149 +574,290 @@
             </holdingPriorities>
         </splitView>
         <customView id="F7m-du-q4Q" userLabel="Custom View - Document Jobs View">
-            <rect key="frame" x="0.0" y="0.0" width="260" height="620"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <rect key="frame" x="0.0" y="0.0" width="284" height="581"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
             <subviews>
                 <customView id="ZTm-bW-rzc">
-                    <rect key="frame" x="0.0" y="554" width="260" height="66"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <rect key="frame" x="0.0" y="515" width="284" height="66"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                     <subviews>
                         <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="xkH-Im-0hQ">
-                            <rect key="frame" x="12" y="63" width="236" height="5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <rect key="frame" x="12" y="63" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="8GP-OJ-6Lf">
-                            <rect key="frame" x="12" y="-2" width="236" height="5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <rect key="frame" x="12" y="-2" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <font key="titleFont" metaFont="system"/>
                         </box>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="QxU-tt-7dA">
+                            <rect key="frame" x="115" y="20" width="45" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job A" id="JVn-qd-PZ3">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
                     </subviews>
                 </customView>
-                <customView id="gqz-Lj-hkh">
-                    <rect key="frame" x="0.0" y="490" width="260" height="66"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <customView id="wCb-67-ahu">
+                    <rect key="frame" x="0.0" y="450" width="284" height="66"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                     <subviews>
-                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="380-tB-1G9">
-                            <rect key="frame" x="12" y="63" width="236" height="5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="7Dq-Bt-gsX">
+                            <rect key="frame" x="12" y="63" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <font key="titleFont" metaFont="system"/>
                         </box>
-                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="dTf-RG-a8p">
-                            <rect key="frame" x="12" y="-2" width="236" height="5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="Qyh-PI-Vy6">
+                            <rect key="frame" x="12" y="-2" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <font key="titleFont" metaFont="system"/>
                         </box>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="9c3-d1-xIl">
+                            <rect key="frame" x="114" y="20" width="41" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job B" id="bBL-XG-txN">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
                     </subviews>
                 </customView>
-                <customView id="rfT-lw-3av">
-                    <rect key="frame" x="0.0" y="425" width="260" height="66"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <customView id="iW4-Dk-7ev">
+                    <rect key="frame" x="0.0" y="386" width="284" height="66"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                     <subviews>
-                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="9GS-S6-rDm">
-                            <rect key="frame" x="12" y="63" width="236" height="5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="8XK-WW-d8k">
+                            <rect key="frame" x="12" y="63" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <font key="titleFont" metaFont="system"/>
                         </box>
-                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="cwe-D9-vDE">
-                            <rect key="frame" x="12" y="-2" width="236" height="5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="RmT-1H-bek">
+                            <rect key="frame" x="12" y="-2" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <font key="titleFont" metaFont="system"/>
                         </box>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="eQB-0n-fEB">
+                            <rect key="frame" x="114" y="25" width="45" height="17"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job C" id="ZVS-xU-f1B">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
                     </subviews>
                 </customView>
-                <customView id="g3l-7m-PVT">
-                    <rect key="frame" x="0.0" y="360" width="260" height="66"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <customView id="yfB-5D-Vcd">
+                    <rect key="frame" x="0.0" y="321" width="284" height="66"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                     <subviews>
-                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="y2X-vN-mGN">
-                            <rect key="frame" x="12" y="63" width="236" height="5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="gBy-7x-eHI">
+                            <rect key="frame" x="12" y="63" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <font key="titleFont" metaFont="system"/>
                         </box>
-                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="nCH-ES-Cjq">
-                            <rect key="frame" x="12" y="-2" width="236" height="5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="jaF-Sw-IEk">
+                            <rect key="frame" x="12" y="-2" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <font key="titleFont" metaFont="system"/>
                         </box>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="y8J-hn-uqw">
+                            <rect key="frame" x="114" y="25" width="44" height="17"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job D" id="iYf-mC-ePf">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
                     </subviews>
                 </customView>
-                <customView id="vn8-mm-zk4">
-                    <rect key="frame" x="0.0" y="295" width="260" height="66"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <customView id="QsQ-Pt-qYP">
+                    <rect key="frame" x="0.0" y="257" width="284" height="66"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                     <subviews>
-                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="QLH-dH-NMm">
-                            <rect key="frame" x="12" y="63" width="236" height="5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="3BC-cm-huU">
+                            <rect key="frame" x="12" y="63" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <font key="titleFont" metaFont="system"/>
                         </box>
-                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="Iy0-P2-H2c">
-                            <rect key="frame" x="12" y="-2" width="236" height="5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="Ocd-UJ-Bb1">
+                            <rect key="frame" x="12" y="-2" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <font key="titleFont" metaFont="system"/>
                         </box>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="McC-Gm-HAe">
+                            <rect key="frame" x="111" y="20" width="42" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job E" id="vyh-M8-Sph">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
                     </subviews>
                 </customView>
-                <customView id="NWr-pO-oKg">
-                    <rect key="frame" x="0.0" y="231" width="260" height="66"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <customView id="JFY-Q4-0gG">
+                    <rect key="frame" x="0.0" y="193" width="284" height="66"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                     <subviews>
-                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="1be-yX-zpZ">
-                            <rect key="frame" x="12" y="63" width="236" height="5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="L0X-UO-Fhb">
+                            <rect key="frame" x="12" y="63" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <font key="titleFont" metaFont="system"/>
                         </box>
-                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="fHr-yn-zoW">
-                            <rect key="frame" x="12" y="-2" width="236" height="5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="U86-Pg-NPP">
+                            <rect key="frame" x="12" y="-2" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <font key="titleFont" metaFont="system"/>
                         </box>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="i2W-Nd-WYI">
+                            <rect key="frame" x="114" y="20" width="49" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job F" id="vXz-pi-pcV">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
                     </subviews>
                 </customView>
-                <customView id="yMh-df-rWD">
-                    <rect key="frame" x="0.0" y="167" width="260" height="66"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <customView id="xT1-jW-dVO">
+                    <rect key="frame" x="0.0" y="129" width="284" height="66"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                     <subviews>
-                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="g6x-k1-dPg">
-                            <rect key="frame" x="12" y="63" width="236" height="5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="TF7-MW-wmH">
+                            <rect key="frame" x="12" y="63" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <font key="titleFont" metaFont="system"/>
                         </box>
-                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="lcG-Of-ZbK">
-                            <rect key="frame" x="12" y="-2" width="236" height="5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="XhH-H5-nzx">
+                            <rect key="frame" x="12" y="-2" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <font key="titleFont" metaFont="system"/>
                         </box>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="KAD-MO-b0f">
+                            <rect key="frame" x="113" y="20" width="46" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job G" id="qsG-3s-FDv">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
                     </subviews>
                 </customView>
+                <customView id="sKT-N5-mId">
+                    <rect key="frame" x="0.0" y="64" width="284" height="66"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                    <subviews>
+                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="eTV-PZ-2rw">
+                            <rect key="frame" x="12" y="63" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <font key="titleFont" metaFont="system"/>
+                        </box>
+                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="QuG-Xw-dym">
+                            <rect key="frame" x="12" y="-2" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <font key="titleFont" metaFont="system"/>
+                        </box>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Dqw-Q2-c2p">
+                            <rect key="frame" x="116" y="20" width="44" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job H" id="usz-6d-hyT">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                </customView>
+                <customView id="d3b-jM-aot">
+                    <rect key="frame" x="0.0" y="0.0" width="284" height="66"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                    <subviews>
+                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="R5k-3G-FpC">
+                            <rect key="frame" x="12" y="63" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <font key="titleFont" metaFont="system"/>
+                        </box>
+                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="vL0-ja-Q2Q">
+                            <rect key="frame" x="12" y="-2" width="260" height="5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <font key="titleFont" metaFont="system"/>
+                        </box>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Ksr-RF-llJ">
+                            <rect key="frame" x="115" y="25" width="40" height="17"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job I" id="rqK-5l-iv5">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                </customView>
+            </subviews>
+        </customView>
+        <customView id="3nJ-WC-Flh">
+            <rect key="frame" x="0.0" y="0.0" width="260" height="66"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="XUE-4a-4Bf">
+                    <rect key="frame" x="12" y="63" width="236" height="5"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <font key="titleFont" metaFont="system"/>
+                </box>
+                <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="WaH-pa-pdD">
+                    <rect key="frame" x="12" y="-2" width="236" height="5"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                    <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <font key="titleFont" metaFont="system"/>
+                </box>
             </subviews>
         </customView>
     </objects>

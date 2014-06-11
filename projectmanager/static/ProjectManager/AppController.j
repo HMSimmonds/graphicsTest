@@ -10,6 +10,9 @@
     @outlet             CPView                  contentView             @accessors;
                         CGRect                  _theWindowBounds;
                         CPScrollView            contentScrollView;
+
+    @outlet             CPToolbarItem           leftSideBarIcon         @accessors;
+    @outlet             CPToolbarItem           rightSideBarIcon        @accessors;
     
     @outlet             CPSplitView             workflowDesignerView    @accessors;
     @outlet             CPView                  designerView            @accessors;
@@ -26,6 +29,18 @@
 
     @outlet             CPScrollView            jobScrollView           @accessors;
     @outlet             CPView                  jobsView                @accessors;
+    @outlet             CPArray                 jobsViewArray           @accessors;
+
+    @outlet             CPView                  jobA                    @accessors;
+    @outlet             CPView                  jobB                    @accessors;
+    @outlet             CPView                  jobC                    @accessors;
+    @outlet             CPView                  jobD                    @accessors;
+    @outlet             CPView                  jobE                    @accessors;
+    @outlet             CPView                  jobF                    @accessors;
+    @outlet             CPView                  jobG                    @accessors;
+    @outlet             CPView                  jobH                    @accessors;
+    @outlet             CPView                  jobI                    @accessors;
+
 
 
 }
@@ -43,9 +58,17 @@
 {
     [theWindow setFullPlatformWindow:YES];
     _theWindowBounds = [contentView bounds];
+    theBundle = [CPBundle mainBundle];
+
+
+    var leftSideBarImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"indent-increase.png"] size:CGSizeMake(15.0, 15.0)],
+        rightSideBarImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"indent-decrease.png"] size:CGSizeMake(15.0, 15.0)];
+
+    [leftSideBarIcon setImage:leftSideBarImageIcon];
+    [rightSideBarIcon setImage:rightSideBarImageIcon];
+
 
     //init. Bundle to resources
-    theBundle = [CPBundle mainBundle];
 
     //init contentView attributes
     [contentView setBackgroundColor:[CPColor colorWithHexString:"FFFFFF"]];
@@ -90,8 +113,30 @@
 
     //job Scroll View
 
+    var scrollBounds = [jobScrollView bounds];
+
+    // [jobsView setFrame:CGRectMake(scrollBounds.origin.x, scrollBounds.origin.y + 10.0, scrollBounds.size.x, [jobsView bounds].size.y)];
+
     [jobScrollView setBackgroundColor:[CPColor colorWithHexString:"E6E6E6"]];
     [jobScrollView setDocumentView:jobsView];
+
+    jobsViewArray = [[CPArray alloc] init]; //used to keep track of jobs. could use controller ? 
+    jobsViewArray[0] = jobA;
+    jobsViewArray[1] = jobB;
+    jobsViewArray[2] = jobC;
+    jobsViewArray[3] = jobD;
+    jobsViewArray[4] = jobE;
+    jobsViewArray[5] = jobF;
+    jobsViewArray[6] = jobG;
+    jobsViewArray[7] = jobH;
+    jobsViewArray[8] = jobI;
+
+    for (var i = 0; i < [jobsViewArray count]; i++)
+    {
+        [jobsViewArray[i] setBackgroundColor:[CPColor colorWithHexString:"E6E6E6"]];
+    };
+
+
 
 
     [theWindow orderFront:self];
