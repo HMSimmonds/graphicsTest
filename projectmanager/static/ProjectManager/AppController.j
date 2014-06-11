@@ -47,25 +47,25 @@
 
     
     [workflowDesignerView setFrame:_theWindowBounds];
-    [workflowDesignerView setAutoresizingMask:CPViewWidthSizable | CPViewMinYMargin];
+    [workflowDesignerView setAutoresizingMask:CPViewWidthSizable | CPViewHeightSizable];
     [contentView addSubview:workflowDesignerView];
 
 
     //create instance of WorkflowDesignerView
     designerView = [[WorkflowDesignerView alloc] initDesigner];
     [designerView setFrame:CGRectMake(300.0, 0.0, CGRectGetWidth(_theWindowBounds) - 600.0, CGRectGetHeight(_theWindowBounds))];
-    // [designerView setAutoresizingMask:CPViewWidthSizable | CPViewMinYMargin];
+    [designerView setAutoresizingMask:CPViewWidthSizable | CPViewHeightSizable];
     [designerView setBackgroundColor:[CPColor colorWithHexString:"FFFFFF"]];
 
     //left Side Bar
     [leftSideBar setFrame:CGRectMake(0.0, 0.0, 300.0, CGRectGetHeight(_theWindowBounds))];
-    // [leftSideBar setAutoresizingMask:CPViewWidthSizable | CPViewHeightSizable];
+    [leftSideBar setAutoresizingMask:CPViewWidthSizable | CPViewHeightSizable];
     [leftSideBar setBackgroundColor:[CPColor colorWithHexString:"CCCCCC"]];
 
 
     //Right Side Bar
     [rightSideBar setFrame:CGRectMake(CGRectGetWidth(_theWindowBounds) - 300.0, 0.0, 300.0, CGRectGetHeight(_theWindowBounds))];
-    // [rightSideBar setAutoresizingMask:CPViewHeightSizable | CPViewWidthSizable];
+    [rightSideBar setAutoresizingMask:CPViewHeightSizable | CPViewWidthSizable];
     [rightSideBar setBackgroundColor:[CPColor colorWithHexString:"CCCCCC"]];
 
 
