@@ -2,6 +2,7 @@
 
 @import "InputPort.j"
 @import "OutputPort.j"
+@import "SettingsHUD.j"
 
 @implementation WorkflowJob : CPView 
 {
@@ -11,6 +12,8 @@
 
     CPArray                 inputPorts                      @accessors;
     CPArray                 outputPorts                     @accessors;
+
+    CPButton                addAttributesButton             @accessors;
 
 }
 
@@ -23,9 +26,19 @@
     if (self)
     {
         workflowJob = [[CPBox alloc] initWithFrame:aRect];
+        addAttributesButton = [[CPButton alloc] initWithFrame:CGRectMake(12.5, 7.5, 12.5, 12.5)];
+        [addAttributesButton setBezelStyle:CPRegularSquareBezelStyle];
+
+
+
+        var plusImage = [[CPImage alloc] initWithContentsOfFile:@"Resources/plus.png" size:CGSizeMake(10.0, 10.0)];
+
+        // [addAttributesButton setImage:plusImage];
+        [addAttributesButton sizeToFit];
         
         [self addSubview:workflowJob];
         [self setBounds:aRect];
+        [self addSubview:addAttributesButton];
 
         var subsection;
         outputPortNumber = outputPortNum;

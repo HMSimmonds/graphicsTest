@@ -88,23 +88,28 @@
     [contentView addSubview:workflowDesignerView];
 
 
-    //create instance of WorkflowDesignerView
-    workflowDiagram = [[WorkflowDesignerView alloc] initDesigner];
+    
+
     [designerView setFrame:CGRectMake(300.0, 0.0, CGRectGetWidth(_theWindowBounds) - 600.0, CGRectGetHeight(_theWindowBounds))];
     [designerView setAutoresizingMask:CPViewWidthSizable | CPViewHeightSizable];
+    [designerView setAutoresizesSubviews:YES];
     [designerView setBackgroundColor:[CPColor colorWithHexString:"FFFFFF"]];
+    
+    //create instance of WorkflowDesignerView
+    workflowDiagram = [[WorkflowDesignerView alloc] initDesigner];
+    [workflowDiagram setFrame:[designerView bounds]];
     [designerView addSubview:workflowDiagram];
 
     //left Side Bar
     [leftSideBar setFrame:CGRectMake(0.0, 0.0, 300.0, CGRectGetHeight(_theWindowBounds))];
     [leftSideBar setAutoresizingMask:CPViewWidthSizable | CPViewHeightSizable];
-    [leftSideBar setBackgroundColor:[CPColor colorWithHexString:"CCCCCC"]];
+    [leftSideBar setBackgroundColor:[CPColor colorWithHexString:"E6E6E6"]];
 
 
     //Right Side Bar
     [rightSideBar setFrame:CGRectMake(CGRectGetWidth(_theWindowBounds) - 300.0, 0.0, 300.0, CGRectGetHeight(_theWindowBounds))];
     [rightSideBar setAutoresizingMask:CPViewHeightSizable | CPViewWidthSizable];
-    [rightSideBar setBackgroundColor:[CPColor colorWithHexString:"CCCCCC"]];
+    [rightSideBar setBackgroundColor:[CPColor colorWithHexString:"E6E6E6"]];
 
 
     // connectImage = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"connect.png"]];
@@ -117,7 +122,7 @@
 
     // [jobsView setFrame:CGRectMake(scrollBounds.origin.x, scrollBounds.origin.y + 10.0, scrollBounds.size.x, [jobsView bounds].size.y)];
 
-    [jobScrollView setBackgroundColor:[CPColor colorWithHexString:"E6E6E6"]];
+    [jobScrollView setBackgroundColor:[CPColor colorWithHexString:"808080"]];
     [jobScrollView setDocumentView:jobsView];
 
     jobsViewArray = [[CPArray alloc] init]; //used to keep track of jobs. could use controller ? 
@@ -133,7 +138,7 @@
 
     for (var i = 0; i < [jobsViewArray count]; i++)
     {
-        [jobsViewArray[i] setBackgroundColor:[CPColor colorWithHexString:"E6E6E6"]];
+        [jobsViewArray[i] setBackgroundColor:[CPColor colorWithHexString:"808080"]];
     };
 
 
