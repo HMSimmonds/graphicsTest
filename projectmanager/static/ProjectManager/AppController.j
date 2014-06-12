@@ -20,6 +20,8 @@
 
     @outlet             CPToolbarItem           leftSideBarIcon         @accessors;
     @outlet             CPToolbarItem           rightSideBarIcon        @accessors;
+    @outlet             CPToolbarItem           toolsIcon               @accessors;
+    @outlet             CPToolbarItem           helpIcon                @accessors;
 
     @outlet             CPButton                connectButton           @accessors;
     @outlet             CPButton                settingsButton          @accessors;
@@ -120,10 +122,14 @@
     [rightSideBar setBackgroundColor:[CPColor colorWithHexString:"E6E6E6"]];
 
     var leftSideBarImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"indent-increase.png"] size:CGSizeMake(15.0, 15.0)],
-        rightSideBarImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"indent-decrease.png"] size:CGSizeMake(15.0, 15.0)];
+        rightSideBarImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"indent-decrease.png"] size:CGSizeMake(15.0, 15.0)],
+        toolsImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"wrench.png"] size:CGSizeMake(15.0, 15.0)],
+        helpImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"help.png"] size:CGSizeMake(15.0, 15.0)];
 
         [leftSideBarIcon setImage:leftSideBarImageIcon];
         [rightSideBarIcon setImage:rightSideBarImageIcon];
+        [toolsIcon setImage:toolsImageIcon];
+        [helpIcon setImage:helpImageIcon];
 
 
     // connectImage = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"connect.png"]];
@@ -142,6 +148,32 @@
     var runsImage = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"arrow-down.png"] size:CGSizeMake(20.0, 20.0)];
     [runsButton setImage:runsImage];
     [runsButton setBordered:NO];
+
+/* ---------- Button action & target setup ------ */
+    [runsButton setAction:@selector(runsAction:)];
+    [runsButton setTarget:self];
+
+    [connectButton setAction:@selector(connectAction:)];
+    [connectButton setTarget:self];
+
+    [settingsButton setAction:@selector(settingsAction:)];
+    [settingsButton setTarget:self];
+
+    [pagesButton setAction:@selector(pagesAction:)];
+    [pagesButton setTarget:self];
+
+    [leftSideBarIcon setAction:@selector(leftSideBarAction:)];
+    [leftSideBarIcon setTarget:self];
+
+    [rightSideBarIcon setAction:@selector(rightSideBarAction:)];
+    [rightSideBarIcon setTarget:self];
+
+    [toolsIcon setAction:@selector(toolsAction:)];
+    [toolsIcon setTarget:self];
+
+    [helpIcon setAction:@selector(helpAction:)];
+    [helpIcon setTarget:self];
+    
 
     //job Scroll View
 
@@ -188,6 +220,45 @@
 
 }
 
+- (void)runsAction:(id)aSender
+{
+    console.log("Runs");
+}
+
+- (void)pagesAction:(id)aSender
+{
+    console.log("Pages");
+}
+
+- (void)toolsAction:(id)aSender
+{
+    console.log("Tools");
+}
+
+- (void)leftSideBarAction:(id)aSender
+{
+    console.log("LeftSideBar");
+}
+
+- (void)rightSideBarAction:(id)aSender
+{
+    console.log("RightSideBar");
+}
+
+- (void)helpAction:(id)aSender
+{
+    console.log("Help");
+}
+
+- (void)connectAction:(id)aSender
+{
+    console.log("Connection");
+}
+
+- (void)settingsAction:(id)aSender
+{
+    console.log("Settings");
+}
 
 @end
 

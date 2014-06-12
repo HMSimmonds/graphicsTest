@@ -1,4 +1,5 @@
 @import <AppKit/CPWindowController.j>
+@import <Foundation/CPObject.j>
 
 @import "InputPort.j"
 @import "OutputPort.j"
@@ -13,7 +14,7 @@
     CPArray                 inputPorts                      @accessors;
     CPArray                 outputPorts                     @accessors;
 
-    CPButton                addAttributesButton             @accessors;
+    CPButton                attributesButton             @accessors;
 
     CPBundle                theBundle;
 
@@ -28,20 +29,27 @@
     if (self)
     {
         workflowJob = [[CPBox alloc] initWithFrame:aRect];
-        addAttributesButton = [[CPButton alloc] initWithFrame:CGRectMake(12.5, 2.5,7.5, 7.5)];
-        [addAttributesButton setBezelStyle:CPTexturedRoundedBezelStyle];
+        
+        //init. plus button
+        attributesButton = [[CPButton alloc] initWithFrame:CGRectMake(12.5, 2.5,7.5, 7.5)];
+        [attributesButton setBezelStyle:CPTexturedRoundedBezelStyle];
 
         theBundle = [CPBundle mainBundle];
 
         var plusImage = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"plus.png"] size:CGSizeMake(7.5, 7.5)];
 
-        [addAttributesButton setImage:plusImage];
-        [addAttributesButton sizeToFit];
-        [addAttributesButton setBordered:NO];
+        [attributesButton setImage:plusImage];
+        [attributesButton sizeToFit];
+        [attributesButton setBordered:NO];
+
+        [attributesButton setAction:@selector(viewAttributes:)];
+        [attributesButton setTarget:self];
+        
         
         [self addSubview:workflowJob];
         [self setBounds:aRect];
-        [self addSubview:addAttributesButton]
+        [self addSubview:attributesButton];
+
 
 
         var subsection;
@@ -92,9 +100,10 @@
     console.log([CPEvent mouseLocation]);
 }
 
-- (@action)viewAttributes:(id)aSender
+- (void)viewAttributes:(id)aSender
 {
-    console.log("Hi");
+    alert("Hello");
+    console.log("hello");
 }
 
 @end

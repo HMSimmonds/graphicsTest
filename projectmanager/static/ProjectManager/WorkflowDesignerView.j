@@ -28,11 +28,12 @@ var LENGTH = 100.0,
 
 /* ------------------------------ CODE TO BE AUTOMATED ---------------------------- */
         //create points for origins of workflowJob boxes
-        points[0] = CGPointMake(200.0, 100.0);
-        points[1] = CGPointMake(700.0, 550.0);
-        points[2] = CGPointMake(700.0, 100.0);
-        points[3] = CGPointMake(200.0, 550.0);
-        points[4] = CGPointMake(700.0, 300.0);
+        points[0] = CGPointMake(450.0, 100.0);
+        points[1] = CGPointMake(900.0, 550.0);
+        points[2] = CGPointMake(900.0, 100.0);
+        points[3] = CGPointMake(450.0, 550.0);
+        points[4] = CGPointMake(900.0, 300.0);
+        points[5] = CGPointMake(150.0, 350.0);
         
 
         //create workflowJobs on designerView - note length and width will depend on the type of just with number of inputs
@@ -41,6 +42,7 @@ var LENGTH = 100.0,
         workflowJobs[2] = [[WorkflowJob alloc] initWithPoint:points[2] size:CGSizeMake(WIDTH*2, LENGTH) inputPortNum:1 outputPortNum:3 type:"Cropped Border"];
         workflowJobs[3] = [[WorkflowJob alloc] initWithPoint:points[3] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Cropped Border"];
         workflowJobs[4] = [[WorkflowJob alloc] initWithPoint:points[4] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Cropped Border"];
+        workflowJobs[5] = [[WorkflowJob alloc] initWithPoint:points[5] size:CGSizeMake(WIDTH*2.5, LENGTH) inputPortNum:1 outputPortNum:4 type:"Cropped Border"];
 
         // workflowJobs[0] = [[WorkflowJob alloc] initWithCibNamed:"WorkflowJobView.cib" bundle:[CPBundle mainBundle]];
         // workflowJobs[1] = [[WorkflowJob alloc] initWithCibNamed:"WorkflowJobView.cib" bundle:[CPBundle mainBundle]];
@@ -55,6 +57,7 @@ var LENGTH = 100.0,
         [workflowJobs[2] changeBoxAttributes:1.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Border Crop"];
         [workflowJobs[3] changeBoxAttributes:1.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Border Crop"];
         [workflowJobs[4] changeBoxAttributes:1.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Border Crop"];
+        [workflowJobs[5] changeBoxAttributes:1.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Border Crop"];
 
 
 

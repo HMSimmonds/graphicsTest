@@ -282,6 +282,7 @@
                 <outlet property="connectButton" destination="XY0-QO-Hi0" id="4li-dz-8Om"/>
                 <outlet property="contentView" destination="kob-9T-ReK" id="zO1-Ez-9fZ"/>
                 <outlet property="designerView" destination="kQV-GA-CHA" id="DN3-0N-Imy"/>
+                <outlet property="helpIcon" destination="e7c-at-Kvi" id="GUb-Og-Wpa"/>
                 <outlet property="imageA" destination="xjY-ed-peN" id="0Ol-H2-Rro"/>
                 <outlet property="imageB" destination="TVg-7h-XII" id="CMG-0b-yel"/>
                 <outlet property="imageC" destination="iCV-zt-o3T" id="gSx-IB-o8E"/>
@@ -310,6 +311,7 @@
                 <outlet property="runsButton" destination="bir-k9-fKT" id="j04-T4-DXb"/>
                 <outlet property="settingsButton" destination="dOC-Lx-o8h" id="nVe-e3-rq5"/>
                 <outlet property="theWindow" destination="nMw-Zx-u44" id="OHe-4T-LZ7"/>
+                <outlet property="toolsIcon" destination="T6d-w9-7yL" id="thr-py-ZQ6"/>
                 <outlet property="workflowDesignerView" destination="igf-M9-Ire" id="8it-jt-cOu"/>
             </connections>
         </customObject>
@@ -341,6 +343,8 @@
                     </toolbarItem>
                     <toolbarItem implicitItemIdentifier="504ADF56-BE8F-4BEB-840C-C186BDE83F94" label="Left Side Bar" paletteLabel="Left Side Bar" tag="-1" id="G88-V6-N3t"/>
                     <toolbarItem implicitItemIdentifier="2A1DF0F7-3C8C-4029-9991-7A4C3777404B" label="Right Side Bar" paletteLabel="Right Side Bar" tag="-1" id="Ezm-NO-BE9"/>
+                    <toolbarItem implicitItemIdentifier="AE21010C-0858-47A8-820A-BCDAB3E69E12" label="Tools" paletteLabel="Tools" tag="-1" id="T6d-w9-7yL"/>
+                    <toolbarItem implicitItemIdentifier="9311FC87-A83C-4B07-9A90-79FA57E8CEF7" label="Help" paletteLabel="Help" tag="-1" id="e7c-at-Kvi"/>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="orX-MN-maM"/>
@@ -349,11 +353,13 @@
                     <toolbarItem reference="orX-MN-maM"/>
                     <toolbarItem reference="orX-MN-maM"/>
                     <toolbarItem reference="V0R-l6-KAV"/>
-                    <toolbarItem reference="orX-MN-maM"/>
-                    <toolbarItem reference="orX-MN-maM"/>
+                    <toolbarItem reference="T6d-w9-7yL"/>
                     <toolbarItem reference="orX-MN-maM"/>
                     <toolbarItem reference="G88-V6-N3t"/>
                     <toolbarItem reference="Ezm-NO-BE9"/>
+                    <toolbarItem reference="orX-MN-maM"/>
+                    <toolbarItem reference="e7c-at-Kvi"/>
+                    <toolbarItem reference="orX-MN-maM"/>
                 </defaultToolbarItems>
             </toolbar>
         </window>
