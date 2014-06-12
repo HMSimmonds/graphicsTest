@@ -15,6 +15,8 @@
 
     CPButton                addAttributesButton             @accessors;
 
+    CPBundle                theBundle;
+
 }
 
 - (id)initWithPoint:(CGPoint)aPoint size:(CGSize)aSize inputPortNum:(CPUInteger)inputPortNum outputPortNum:(CPUInteger)outputPortNum type:(CPString)aType
@@ -26,19 +28,21 @@
     if (self)
     {
         workflowJob = [[CPBox alloc] initWithFrame:aRect];
-        addAttributesButton = [[CPButton alloc] initWithFrame:CGRectMake(12.5, 7.5, 12.5, 12.5)];
-        [addAttributesButton setBezelStyle:CPRegularSquareBezelStyle];
+        addAttributesButton = [[CPButton alloc] initWithFrame:CGRectMake(12.5, 2.5,7.5, 7.5)];
+        [addAttributesButton setBezelStyle:CPTexturedRoundedBezelStyle];
 
+        theBundle = [CPBundle mainBundle];
 
+        var plusImage = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"plus.png"] size:CGSizeMake(7.5, 7.5)];
 
-        var plusImage = [[CPImage alloc] initWithContentsOfFile:@"Resources/plus.png" size:CGSizeMake(10.0, 10.0)];
-
-        // [addAttributesButton setImage:plusImage];
+        [addAttributesButton setImage:plusImage];
         [addAttributesButton sizeToFit];
+        [addAttributesButton setBordered:NO];
         
         [self addSubview:workflowJob];
         [self setBounds:aRect];
-        [self addSubview:addAttributesButton];
+        [self addSubview:addAttributesButton]
+
 
         var subsection;
         outputPortNumber = outputPortNum;
@@ -86,6 +90,11 @@
 {
     console.log("DOWN -  WorkflowJob");
     console.log([CPEvent mouseLocation]);
+}
+
+- (@action)viewAttributes:(id)aSender
+{
+    console.log("Hi");
 }
 
 @end

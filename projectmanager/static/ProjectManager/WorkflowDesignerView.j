@@ -12,6 +12,7 @@ var LENGTH = 100.0,
 {
                 CPArray             points                      @accessors;
                 CPArray             workflowJobs                @accessors;
+                CPArray             links                       @accessors;
 }
 
 - (id)initDesigner 
@@ -23,6 +24,7 @@ var LENGTH = 100.0,
 
         points = [[CPArray alloc] init];
         workflowJobs = [[CPArray alloc] init];
+        links = [[CPArray alloc] init];
 
 /* ------------------------------ CODE TO BE AUTOMATED ---------------------------- */
         //create points for origins of workflowJob boxes
@@ -40,6 +42,11 @@ var LENGTH = 100.0,
         workflowJobs[3] = [[WorkflowJob alloc] initWithPoint:points[3] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Cropped Border"];
         workflowJobs[4] = [[WorkflowJob alloc] initWithPoint:points[4] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Cropped Border"];
 
+        // workflowJobs[0] = [[WorkflowJob alloc] initWithCibNamed:"WorkflowJobView.cib" bundle:[CPBundle mainBundle]];
+        // workflowJobs[1] = [[WorkflowJob alloc] initWithCibNamed:"WorkflowJobView.cib" bundle:[CPBundle mainBundle]];
+        // workflowJobs[2] = [[WorkflowJob alloc] initWithCibNamed:"WorkflowJobView.cib" bundle:[CPBundle mainBundle]];
+        // workflowJobs[3] = [[WorkflowJob alloc] initWithCibNamed:"WorkflowJobView.cib" bundle:[CPBundle mainBundle]];
+        // workflowJobs[4] = [[WorkflowJob alloc] initWithCibNamed:"WorkflowJobView.cib" bundle:[CPBundle mainBundle]];
 
 
         //change attributes for various workflowJobs
@@ -48,6 +55,8 @@ var LENGTH = 100.0,
         [workflowJobs[2] changeBoxAttributes:1.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Border Crop"];
         [workflowJobs[3] changeBoxAttributes:1.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Border Crop"];
         [workflowJobs[4] changeBoxAttributes:1.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Border Crop"];
+
+
 
 /* --------------------------------------- AUTOMATED CODE END --------------------------- */
 
@@ -85,6 +94,11 @@ var LENGTH = 100.0,
             };
 
         };
+
+        // for (i = 0; i < [links count]; i++)
+        // {
+        //     [self addSubview:links[i]];
+        // };
 
 
     }
