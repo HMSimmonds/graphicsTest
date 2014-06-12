@@ -11,19 +11,21 @@
                         CGRect                  _theWindowBounds;
                         CPScrollView            contentScrollView;
 
-    @outlet             CPToolbarItem           leftSideBarIcon         @accessors;
-    @outlet             CPToolbarItem           rightSideBarIcon        @accessors;
-    
     @outlet             CPSplitView             workflowDesignerView    @accessors;
     @outlet             CPView                  designerView            @accessors;
     @outlet             CPSplitView             leftSideBar             @accessors;
     @outlet             CPSplitView             rightSideBar            @accessors;
 
-    @outlet             CPBox                   horizontalDivider1      @accessors;
-
                         WorkflowDesignerView    workflowDiagram         @accessors;
 
-    @outlet             CPImageView             connectImageView        @accessors;
+    @outlet             CPToolbarItem           leftSideBarIcon         @accessors;
+    @outlet             CPToolbarItem           rightSideBarIcon        @accessors;
+
+    @outlet             CPButton                connectButton           @accessors;
+    @outlet             CPButton                settingsButton          @accessors;
+    @outlet             CPButton                pagesButton             @accessors;
+    @outlet             CPButton                runsButton              @accessors;
+
 
                         CPBundle                theBundle               @accessors;
 
@@ -40,6 +42,16 @@
     @outlet             CPView                  jobG                    @accessors;
     @outlet             CPView                  jobH                    @accessors;
     @outlet             CPView                  jobI                    @accessors;
+
+    @outlet             CPImageView             imageA;
+    @outlet             CPImageView             imageB;
+    @outlet             CPImageView             imageC;
+    @outlet             CPImageView             imageD;
+    @outlet             CPImageView             imageE;
+    @outlet             CPImageView             imageF;
+    @outlet             CPImageView             imageG;
+    @outlet             CPImageView             imageH;
+    @outlet             CPImageView             imageI;
 
 
 
@@ -61,12 +73,6 @@
     theBundle = [CPBundle mainBundle];
 
 
-    var leftSideBarImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"indent-increase.png"] size:CGSizeMake(15.0, 15.0)],
-        rightSideBarImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"indent-decrease.png"] size:CGSizeMake(15.0, 15.0)];
-
-    [leftSideBarIcon setImage:leftSideBarImageIcon];
-    [rightSideBarIcon setImage:rightSideBarImageIcon];
-
 
     //init. Bundle to resources
 
@@ -86,6 +92,8 @@
     [workflowDesignerView setFrame:_theWindowBounds];
     [workflowDesignerView setAutoresizingMask:CPViewWidthSizable | CPViewHeightSizable];
     [contentView addSubview:workflowDesignerView];
+
+    
 
 
     
@@ -111,10 +119,29 @@
     [rightSideBar setAutoresizingMask:CPViewHeightSizable | CPViewWidthSizable];
     [rightSideBar setBackgroundColor:[CPColor colorWithHexString:"E6E6E6"]];
 
+    var leftSideBarImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"indent-increase.png"] size:CGSizeMake(15.0, 15.0)],
+        rightSideBarImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"indent-decrease.png"] size:CGSizeMake(15.0, 15.0)];
+
+        [leftSideBarIcon setImage:leftSideBarImageIcon];
+        [rightSideBarIcon setImage:rightSideBarImageIcon];
+
 
     // connectImage = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"connect.png"]];
-    var connectImage = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"connect.png"] size:CGSizeMake(32.0, 32.0)];
-    [connectImageView setImage:connectImage];
+    var connectImage = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"connect.png"] size:CGSizeMake(20.0, 20.0)];
+    [connectButton setImage:connectImage];
+    [connectButton setBordered:NO];
+
+    var settingsImage = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"cog.png"] size:CGSizeMake(20.0, 20.0)];
+    [settingsButton setImage:settingsImage];
+    [settingsButton setBordered:NO];
+
+    var pagesImage = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"file.png"] size:CGSizeMake(20.0, 20.0)];
+    [pagesButton setImage:pagesImage];
+    [pagesButton setBordered:NO];
+
+    var runsImage = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"arrow-down.png"] size:CGSizeMake(20.0, 20.0)];
+    [runsButton setImage:runsImage];
+    [runsButton setBordered:NO];
 
     //job Scroll View
 
@@ -122,8 +149,18 @@
 
     // [jobsView setFrame:CGRectMake(scrollBounds.origin.x, scrollBounds.origin.y + 10.0, scrollBounds.size.x, [jobsView bounds].size.y)];
 
-    [jobScrollView setBackgroundColor:[CPColor colorWithHexString:"808080"]];
+    [jobScrollView setBackgroundColor:[CPColor colorWithHexString:"A6A6A6"]];
     [jobScrollView setDocumentView:jobsView];
+
+    [imageA setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"contrast.png"] size:CGSizeMake(32.0, 32.0)]];
+    [imageB setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"crop.png"] size:CGSizeMake(32.0, 32.0)]];
+    [imageC setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"expand.png"] size:CGSizeMake(32.0, 32.0)]];
+    [imageD setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"expand2.png"] size:CGSizeMake(32.0, 32.0)]];
+    [imageE setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"image.png"] size:CGSizeMake(32.0, 32.0)]];
+    [imageF setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"libreoffice.png"] size:CGSizeMake(32.0, 32.0)]];
+    [imageG setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"music.png"] size:CGSizeMake(32.0, 32.0)]];
+    [imageH setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"pen.png"] size:CGSizeMake(32.0, 32.0)]];
+    [imageI setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"table.png"] size:CGSizeMake(32.0, 32.0)]];
 
     jobsViewArray = [[CPArray alloc] init]; //used to keep track of jobs. could use controller ? 
     jobsViewArray[0] = jobA;
@@ -138,7 +175,7 @@
 
     for (var i = 0; i < [jobsViewArray count]; i++)
     {
-        [jobsViewArray[i] setBackgroundColor:[CPColor colorWithHexString:"808080"]];
+        [jobsViewArray[i] setBackgroundColor:[CPColor colorWithHexString:"A6A6A6"]];
     };
 
 
