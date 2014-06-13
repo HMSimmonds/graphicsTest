@@ -13,7 +13,8 @@
                         CPScrollView            contentScrollView;
 
     @outlet             CPSplitView             workflowDesignerView    @accessors;
-    @outlet             CPView                  designerView            @accessors;
+    // @outlet             CPView                  designerView            @accessors;
+    @outlet             CPScrollView            designerView      @accessors;
     @outlet             CPSplitView             leftSideBar             @accessors;
     @outlet             CPSplitView             rightSideBar            @accessors;
 
@@ -23,6 +24,13 @@
     @outlet             CPToolbarItem           rightSideBarIcon        @accessors;
     @outlet             CPToolbarItem           toolsIcon               @accessors;
     @outlet             CPToolbarItem           helpIcon                @accessors;
+    @outlet             CPToolbarItem           statusIcon              @accessors;
+    @outlet             CPToolbarItem           userIcon                @accessors;
+    @outlet             CPToolbarItem           pagesIcon               @accessors;
+    @outlet             CPToolbarItem           designerIcon            @accessors;
+    @outlet             CPToolbarItem           jobsIcon                @accessors;
+    @outlet             CPToolbarItem           resultsIcon             @accessors;
+
 
     @outlet             CPButton                connectButton           @accessors;
     @outlet             CPButton                settingsButton          @accessors;
@@ -141,7 +149,7 @@
     //create instance of WorkflowDesignerView
     workflowDiagram = [[WorkflowDesignerView alloc] initDesigner];
     [workflowDiagram setFrame:[designerView bounds]];
-    [designerView addSubview:workflowDiagram];
+    [designerView setDocumentView:workflowDiagram];
 
     //left Side Bar
     [leftSideBar setFrame:CGRectMake(0.0, 0.0, 300.0, CGRectGetHeight(_theWindowBounds))];
@@ -157,12 +165,24 @@
     var leftSideBarImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"indent-increase.png"] size:CGSizeMake(15.0, 15.0)],
         rightSideBarImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"indent-decrease.png"] size:CGSizeMake(15.0, 15.0)],
         toolsImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"wrench.png"] size:CGSizeMake(15.0, 15.0)],
-        helpImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"help.png"] size:CGSizeMake(15.0, 15.0)];
+        helpImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"help.png"] size:CGSizeMake(15.0, 15.0)],
+        statusImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"toolbar-status.png"] size:CGSizeMake(15.0, 15.0)],
+        usersImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"toolbar-users.png"] size:CGSizeMake(15.0, 15.0)],
+        pagesImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"toolbar-users.png"] size:CGSizeMake(15.0, 15.0)],
+        designerImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"toolbar-workflow-designer.png"] size:CGSizeMake(15.0, 15.0)],
+        jobsImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"toolbar-jobs.png"] size:CGSizeMake(15.0, 15.0)],
+        resultsImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"toolbar-workflows.png"] size:CGSizeMake(15.0, 15.0)];
 
         [leftSideBarIcon setImage:leftSideBarImageIcon];
         [rightSideBarIcon setImage:rightSideBarImageIcon];
         [toolsIcon setImage:toolsImageIcon];
         [helpIcon setImage:helpImageIcon];
+        [statusIcon setImage:statusImageIcon];
+        [userIcon setImage:usersImageIcon];
+        [pagesIcon setImage:pagesImageIcon];
+        [designerIcon setImage:designerImageIcon];
+        [jobsIcon setImage:jobsImageIcon];
+        [resultsIcon setImage:resultsImageIcon];
 
 
     // connectImage = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"connect.png"]];

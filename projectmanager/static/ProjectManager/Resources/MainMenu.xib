@@ -281,7 +281,8 @@
             <connections>
                 <outlet property="connectButton" destination="XY0-QO-Hi0" id="4li-dz-8Om"/>
                 <outlet property="contentView" destination="kob-9T-ReK" id="zO1-Ez-9fZ"/>
-                <outlet property="designerView" destination="sv0-Gu-Xyg" id="2uh-K0-R2B"/>
+                <outlet property="designerIcon" destination="PdR-IT-YPI" id="cif-9I-a3m"/>
+                <outlet property="designerView" destination="fLW-ki-ODv" id="aGJ-6E-K0q"/>
                 <outlet property="helpIcon" destination="e7c-at-Kvi" id="GUb-Og-Wpa"/>
                 <outlet property="imageA" destination="xjY-ed-peN" id="0Ol-H2-Rro"/>
                 <outlet property="imageB" destination="TVg-7h-XII" id="CMG-0b-yel"/>
@@ -302,6 +303,7 @@
                 <outlet property="jobH" destination="sKT-N5-mId" id="GLe-JJ-MvV"/>
                 <outlet property="jobI" destination="d3b-jM-aot" id="atD-m1-GKE"/>
                 <outlet property="jobScrollView" destination="gFn-kQ-Vcn" id="3dn-RA-L7S"/>
+                <outlet property="jobsIcon" destination="adf-WL-dWh" id="ULf-GR-gui"/>
                 <outlet property="jobsView" destination="F7m-du-q4Q" id="oAg-s4-PSZ"/>
                 <outlet property="leftScrollView" destination="Dn7-nj-qX4" id="bma-qv-DDs"/>
                 <outlet property="leftSideBar" destination="MMe-el-Ort" id="kmU-yh-gFe"/>
@@ -325,7 +327,9 @@
                 <outlet property="pageImageH" destination="CqQ-eD-2W1" id="Rk3-fJ-96R"/>
                 <outlet property="pageImageI" destination="aOf-dU-ILf" id="HST-DB-rCV"/>
                 <outlet property="pagesButton" destination="Roq-dI-vv0" id="kED-Km-CLm"/>
+                <outlet property="pagesIcon" destination="sh5-es-wAU" id="agE-RH-GIP"/>
                 <outlet property="pagesView" destination="pcp-bN-Rl9" id="LA8-f4-PRm"/>
+                <outlet property="resultsIcon" destination="jMY-qn-pSD" id="Czp-ht-QRm"/>
                 <outlet property="rightSideBar" destination="b7Z-Oo-STT" id="Q30-yJ-GI7"/>
                 <outlet property="rightSideBarIcon" destination="Ezm-NO-BE9" id="vTi-k6-5Zq"/>
                 <outlet property="rightUpperScrollView" destination="Hu3-gd-vry" id="JTk-e7-WJf"/>
@@ -334,8 +338,10 @@
                 <outlet property="runsView" destination="zqf-RX-9Vd" id="lT9-1g-Jk3"/>
                 <outlet property="settingsButton" destination="dOC-Lx-o8h" id="nVe-e3-rq5"/>
                 <outlet property="settingsView" destination="yeE-3p-x48" id="Cvg-Pb-kzz"/>
+                <outlet property="statusIcon" destination="RzX-EG-6nM" id="X5x-cM-IZ3"/>
                 <outlet property="theWindow" destination="nMw-Zx-u44" id="OHe-4T-LZ7"/>
                 <outlet property="toolsIcon" destination="T6d-w9-7yL" id="thr-py-ZQ6"/>
+                <outlet property="userIcon" destination="qau-9h-fJI" id="eMG-Yq-MGc"/>
                 <outlet property="workflowDesignerView" destination="igf-M9-Ire" id="8it-jt-cOu"/>
             </connections>
         </customObject>
@@ -351,8 +357,6 @@
             </view>
             <toolbar key="toolbar" implicitIdentifier="9154D01A-239B-4749-A33C-97236AA81923" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="lrE-WC-EG6">
                 <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="orX-MN-maM"/>
-                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="V0R-l6-KAV"/>
                     <toolbarItem implicitItemIdentifier="DDFFCCD5-279F-4646-9853-DDE55A6FE178" label="" paletteLabel="" tag="-1" id="oFW-Rq-cNi">
                         <nil key="toolTip"/>
                         <size key="minSize" width="5" height="96"/>
@@ -369,13 +373,25 @@
                     <toolbarItem implicitItemIdentifier="2A1DF0F7-3C8C-4029-9991-7A4C3777404B" label="Right Side Bar" paletteLabel="Right Side Bar" tag="-1" id="Ezm-NO-BE9"/>
                     <toolbarItem implicitItemIdentifier="AE21010C-0858-47A8-820A-BCDAB3E69E12" label="Tools" paletteLabel="Tools" tag="-1" id="T6d-w9-7yL"/>
                     <toolbarItem implicitItemIdentifier="9311FC87-A83C-4B07-9A90-79FA57E8CEF7" label="Help" paletteLabel="Help" tag="-1" id="e7c-at-Kvi"/>
+                    <toolbarItem implicitItemIdentifier="8CDB17A3-FE03-4465-A73F-139B2D8C3B5F" label="Status" paletteLabel="Status" tag="-1" id="RzX-EG-6nM"/>
+                    <toolbarItem implicitItemIdentifier="8F9B10F7-AB90-416F-AC9D-A714DF36BFDF" label="Users" paletteLabel="Users" tag="-1" id="qau-9h-fJI"/>
+                    <toolbarItem implicitItemIdentifier="E7A41C60-989E-43E2-98DE-348A49A9EC6A" label="Pages" paletteLabel="Pages" tag="-1" id="sh5-es-wAU"/>
+                    <toolbarItem implicitItemIdentifier="4D3BE105-D503-4175-81E9-5135193DFD8B" label="Designer" paletteLabel="Designer" tag="-1" id="PdR-IT-YPI"/>
+                    <toolbarItem implicitItemIdentifier="6714F3DA-3826-4D52-97E9-91B865939746" label="Jobs" paletteLabel="Jobs" tag="-1" id="adf-WL-dWh"/>
+                    <toolbarItem implicitItemIdentifier="76057109-F6B0-4445-A589-E2DB6DA984EF" label="Results" paletteLabel="Results" tag="-1" id="jMY-qn-pSD"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="V0R-l6-KAV"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="orX-MN-maM"/>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
-                    <toolbarItem reference="orX-MN-maM"/>
-                    <toolbarItem reference="orX-MN-maM"/>
+                    <toolbarItem reference="RzX-EG-6nM"/>
+                    <toolbarItem reference="qau-9h-fJI"/>
                     <toolbarItem reference="oFW-Rq-cNi"/>
-                    <toolbarItem reference="orX-MN-maM"/>
-                    <toolbarItem reference="orX-MN-maM"/>
+                    <toolbarItem reference="sh5-es-wAU"/>
+                    <toolbarItem reference="PdR-IT-YPI"/>
+                    <toolbarItem reference="oFW-Rq-cNi"/>
+                    <toolbarItem reference="adf-WL-dWh"/>
+                    <toolbarItem reference="jMY-qn-pSD"/>
+                    <toolbarItem reference="oFW-Rq-cNi"/>
                     <toolbarItem reference="V0R-l6-KAV"/>
                     <toolbarItem reference="T6d-w9-7yL"/>
                     <toolbarItem reference="orX-MN-maM"/>
@@ -409,11 +425,11 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <splitView dividerStyle="thin" id="MMe-el-Ort">
-                    <rect key="frame" x="0.0" y="0.0" width="255" height="1013"/>
+                    <rect key="frame" x="0.0" y="0.0" width="262" height="1013"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <customView id="kWf-jv-Ftf">
-                            <rect key="frame" x="0.0" y="0.0" width="255" height="488"/>
+                            <rect key="frame" x="0.0" y="0.0" width="262" height="488"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <searchField verticalHuggingPriority="750" id="ReK-4D-vso">
@@ -426,14 +442,14 @@
                                     </searchFieldCell>
                                 </searchField>
                                 <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="HQ5-cG-Fze">
-                                    <rect key="frame" x="12" y="8" width="231" height="395"/>
+                                    <rect key="frame" x="12" y="8" width="238" height="395"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <clipView key="contentView" id="ACH-d1-FV2">
-                                        <rect key="frame" x="1" y="17" width="229" height="377"/>
+                                        <rect key="frame" x="1" y="17" width="236" height="377"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" headerView="iCW-XH-bTk" indentationPerLevel="16" outlineTableColumn="YzS-uA-WC1" id="eLS-Et-RvL">
-                                                <rect key="frame" x="0.0" y="0.0" width="229" height="377"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="236" height="377"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <size key="intercellSpacing" width="3" height="2"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -452,7 +468,7 @@
                                                         </textFieldCell>
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     </tableColumn>
-                                                    <tableColumn width="122" minWidth="40" maxWidth="1000" id="w0K-rc-tbJ">
+                                                    <tableColumn width="129" minWidth="40" maxWidth="1000" id="w0K-rc-tbJ">
                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Connections">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -479,12 +495,12 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <tableHeaderView key="headerView" id="iCW-XH-bTk">
-                                        <rect key="frame" x="0.0" y="0.0" width="229" height="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="236" height="17"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </tableHeaderView>
                                 </scrollView>
                                 <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="f4m-lu-bi2">
-                                    <rect key="frame" x="12" y="430" width="231" height="5"/>
+                                    <rect key="frame" x="12" y="430" width="238" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -493,7 +509,7 @@
                             </subviews>
                         </customView>
                         <customView id="b6V-EC-yLV">
-                            <rect key="frame" x="0.0" y="489" width="255" height="524"/>
+                            <rect key="frame" x="0.0" y="489" width="262" height="524"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <button id="bir-k9-fKT">
@@ -513,24 +529,24 @@
                                     </buttonCell>
                                 </button>
                                 <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Dn7-nj-qX4">
-                                    <rect key="frame" x="0.0" y="0.0" width="255" height="461"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="262" height="461"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <clipView key="contentView" id="T58-jR-yO6">
-                                        <rect key="frame" x="1" y="1" width="253" height="459"/>
+                                        <rect key="frame" x="1" y="1" width="260" height="459"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view id="gs7-8V-vmh">
-                                                <rect key="frame" x="0.0" y="0.0" width="544" height="459"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="551" height="459"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             </view>
                                         </subviews>
                                     </clipView>
                                     <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="aHT-kO-w86">
-                                        <rect key="frame" x="1" y="444" width="253" height="16"/>
+                                        <rect key="frame" x="1" y="444" width="260" height="16"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Bl4-Jg-fTC">
-                                        <rect key="frame" x="238" y="1" width="16" height="459"/>
+                                        <rect key="frame" x="245" y="1" width="16" height="459"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>
@@ -542,20 +558,38 @@
                         <real value="250"/>
                     </holdingPriorities>
                 </splitView>
-                <customView id="sv0-Gu-Xyg">
-                    <rect key="frame" x="256" y="0.0" width="612" height="1013"/>
+                <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="fLW-ki-ODv">
+                    <rect key="frame" x="263" y="0.0" width="644" height="1013"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                </customView>
+                    <clipView key="contentView" id="egW-7L-G3e">
+                        <rect key="frame" x="1" y="1" width="642" height="1011"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view id="5YR-1i-SQ2">
+                                <rect key="frame" x="0.0" y="0.0" width="642" height="1011"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="Pne-fH-5hm">
+                        <rect key="frame" x="1" y="996" width="642" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="1Uf-dD-68e">
+                        <rect key="frame" x="627" y="1" width="16" height="1011"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
                 <splitView dividerStyle="thin" id="b7Z-Oo-STT">
-                    <rect key="frame" x="869" y="0.0" width="278" height="1013"/>
+                    <rect key="frame" x="908" y="0.0" width="239" height="1013"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <customView id="6p9-Ue-SxU">
-                            <rect key="frame" x="0.0" y="0.0" width="278" height="488"/>
+                            <rect key="frame" x="0.0" y="0.0" width="239" height="488"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <box autoresizesSubviews="NO" verticalHuggingPriority="750" title="Box" boxType="separator" titlePosition="noTitle" id="Vrb-YK-v4O">
-                                    <rect key="frame" x="11" y="425" width="514" height="5"/>
+                                    <rect key="frame" x="11" y="425" width="439" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                     <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -578,31 +612,31 @@
                                     </buttonCell>
                                 </button>
                                 <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Hu3-gd-vry">
-                                    <rect key="frame" x="0.0" y="0.0" width="555" height="419"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="516" height="419"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <clipView key="contentView" id="oSN-Mw-ekB">
-                                        <rect key="frame" x="1" y="1" width="553" height="417"/>
+                                        <rect key="frame" x="1" y="1" width="514" height="417"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view id="FwL-Pv-CHR">
-                                                <rect key="frame" x="0.0" y="0.0" width="555" height="417"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="516" height="417"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             </view>
                                         </subviews>
                                     </clipView>
                                     <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="Zvu-SU-Jr2">
-                                        <rect key="frame" x="1" y="402" width="553" height="16"/>
+                                        <rect key="frame" x="1" y="402" width="514" height="16"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="eqO-KM-jkD">
-                                        <rect key="frame" x="538" y="1" width="16" height="417"/>
+                                        <rect key="frame" x="499" y="1" width="16" height="417"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>
                             </subviews>
                         </customView>
                         <customView id="KoA-uN-124">
-                            <rect key="frame" x="0.0" y="489" width="278" height="524"/>
+                            <rect key="frame" x="0.0" y="489" width="239" height="524"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="0R7-uX-FvC">
@@ -615,24 +649,24 @@
                                     </textFieldCell>
                                 </textField>
                                 <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="gFn-kQ-Vcn">
-                                    <rect key="frame" x="0.0" y="0.0" width="278" height="477"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="239" height="477"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <clipView key="contentView" id="Fx3-lV-to6">
-                                        <rect key="frame" x="1" y="1" width="276" height="475"/>
+                                        <rect key="frame" x="1" y="1" width="237" height="475"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <view id="dQL-QT-Zg5">
-                                                <rect key="frame" x="0.0" y="0.0" width="555" height="475"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="516" height="475"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             </view>
                                         </subviews>
                                     </clipView>
                                     <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="bvA-g7-NLA">
-                                        <rect key="frame" x="1" y="460" width="276" height="16"/>
+                                        <rect key="frame" x="1" y="460" width="237" height="16"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ZJN-36-VGu">
-                                        <rect key="frame" x="261" y="1" width="16" height="475"/>
+                                        <rect key="frame" x="222" y="1" width="16" height="475"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>

@@ -21,6 +21,7 @@ var LENGTH = 100.0,
     if (self)
     {
         //points array
+        [self setBackgroundColor:[CPColor colorWithHexString:"FFFFFF"]];
 
         points = [[CPArray alloc] init];
         workflowJobs = [[CPArray alloc] init];
