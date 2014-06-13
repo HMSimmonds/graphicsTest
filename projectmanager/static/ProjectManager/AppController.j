@@ -2,6 +2,7 @@
 
 @import "WorkflowDesignerView.j"
 @import "ToolPanel.j"
+@import "WorkflowJob.j"
 
 
 @implementation AppController : CPObject
@@ -35,6 +36,18 @@
     @outlet             CPView                  jobsView                @accessors;
     @outlet             CPArray                 jobsViewArray           @accessors;
 
+    @outlet             CPScrollView            leftScrollView          @accessors;
+    
+    @outlet             CPView                  pagesView               @accessors;
+    @outlet             CPArray                 pagesViewArray          @accessors;
+    @outlet             CPView                  runsView                @accessors;
+    @outlet             CPArray                 runsViewArray           @accessors;
+
+    @outlet             CPScrollView            rightUpperScrollView    @accessors;
+    @outlet             CPView                  rightUpperView          @accessors;
+    @outlet             CPTableView             settingsView            @accessors;
+
+
     @outlet             CPView                  jobA                    @accessors;
     @outlet             CPView                  jobB                    @accessors;
     @outlet             CPView                  jobC                    @accessors;
@@ -54,6 +67,26 @@
     @outlet             CPImageView             imageG;
     @outlet             CPImageView             imageH;
     @outlet             CPImageView             imageI;
+
+    @outlet             CPView                  pageA                    @accessors;
+    @outlet             CPView                  pageB                    @accessors;
+    @outlet             CPView                  pageC                    @accessors;
+    @outlet             CPView                  pageD                    @accessors;
+    @outlet             CPView                  pageE                    @accessors;
+    @outlet             CPView                  pageF                    @accessors;
+    @outlet             CPView                  pageG                    @accessors;
+    @outlet             CPView                  pageH                    @accessors;
+    @outlet             CPView                  pageI                    @accessors;
+
+    @outlet             CPImageView             pageImageA;
+    @outlet             CPImageView             pageImageB;
+    @outlet             CPImageView             pageImageC;
+    @outlet             CPImageView             pageImageD;
+    @outlet             CPImageView             pageImageE;
+    @outlet             CPImageView             pageImageF;
+    @outlet             CPImageView             pageImageG;
+    @outlet             CPImageView             pageImageH;
+    @outlet             CPImageView             pageImageI;
 
 
 
@@ -174,8 +207,9 @@
     [helpIcon setAction:@selector(helpAction:)];
     [helpIcon setTarget:self];
     
-
-    //job Scroll View
+/* ------------------------------------------------ */
+    [rightUpperScrollView setBackgroundColor:[CPColor colorWithHexString:"A6A6A6"]];
+    [rightUpperScrollView setDocumentView:rightUpperView];
 
     var scrollBounds = [jobScrollView bounds];
 
@@ -210,7 +244,36 @@
         [jobsViewArray[i] setBackgroundColor:[CPColor colorWithHexString:"A6A6A6"]];
     };
 
+    [leftScrollView setBackgroundColor:[CPColor colorWithHexString:"A6A6A6"]];
+    // [leftScrollView setDocumentView:runsView];
+    
+    [leftScrollView setDocumentView:pagesView];
 
+    [pageImageA setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"file.png"] size:CGSizeMake(32.0, 32.0)]];
+    [pageImageB setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"file.png"] size:CGSizeMake(32.0, 32.0)]];
+    [pageImageC setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"file.png"] size:CGSizeMake(32.0, 32.0)]];
+    [pageImageD setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"file.png"] size:CGSizeMake(32.0, 32.0)]];
+    [pageImageE setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"file.png"] size:CGSizeMake(32.0, 32.0)]];
+    [pageImageF setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"file.png"] size:CGSizeMake(32.0, 32.0)]];
+    [pageImageG setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"file.png"] size:CGSizeMake(32.0, 32.0)]];
+    [pageImageH setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"file.png"] size:CGSizeMake(32.0, 32.0)]];
+    [pageImageI setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"file.png"] size:CGSizeMake(32.0, 32.0)]];
+
+    pagesViewArray = [[CPArray alloc] init];
+    pagesViewArray[0] = pageA;
+    pagesViewArray[0] = pageB;
+    pagesViewArray[0] = pageC;
+    pagesViewArray[0] = pageD;
+    pagesViewArray[0] = pageE;
+    pagesViewArray[0] = pageF;
+    pagesViewArray[0] = pageG;
+    pagesViewArray[0] = pageH;
+    pagesViewArray[0] = pageI;
+
+    for (var i = 0; i < [pagesViewArray count]; i++)
+    {
+        [pagesViewArray[i] setBackgroundColor:[CPColor colorWithHexString:"A6A6A6"]];
+    };
 
 
     [theWindow orderFront:self];
@@ -220,6 +283,7 @@
 
 }
 
+/* --------- Button Actions -------------- */
 - (void)runsAction:(id)aSender
 {
     console.log("Runs");
@@ -259,6 +323,7 @@
 {
     console.log("Settings");
 }
+/* -------------------------------------- */
 
 @end
 

@@ -86,12 +86,12 @@
     console.log(currentMouseLocation);
 
 
-    // [links[selectedLink] setFrame:CGRectMake(links[selectedLink].currentPoint.x, links[selectedLink].currentPoint.y, currentMouseLocation.x - links[selectedLink].currentPoint.x, currentMouseLocation.y - links[selectedLink].currentPoint.y)];
-    // [links[selectedLink] setBounds:CGRectMake(links[selectedLink].currentPoint.x, links[selectedLink].currentPoint.y, currentMouseLocation.x - links[selectedLink].currentPoint.x, currentMouseLocation.y - links[selectedLink].currentPoint.y)];    
+    [links[selectedLink] setFrame:CGRectMake(links[selectedLink].currentPoint.x, links[selectedLink].currentPoint.y, currentMouseLocation.x - links[selectedLink].currentPoint.x, currentMouseLocation.y - links[selectedLink].currentPoint.y)];
+    [links[selectedLink] setBounds:CGRectMake(links[selectedLink].currentPoint.x, links[selectedLink].currentPoint.y, currentMouseLocation.x - links[selectedLink].currentPoint.x, currentMouseLocation.y - links[selectedLink].currentPoint.y)];    
 
     [links[selectedLink] makeConnectPointAtCurrentPoint:[links[selectedLink] currentPoint] controlPoint1:currentMouseLocation controlPoint2:currentMouseLocation endPoint:currentMouseLocation];
 
-    [links[selectedLink] setFrame:CGRectMake(0, 0, 6000, 600)];
+    // [links[selectedLink] setFrame:CGRectMake(0, 0, 6000, 600)];
     // [links[selectedLink] setBounds:CGRectMake(0, 0, 1600, 600)];
 
     // [links[selectedLink] setFrame:CGRectMake(310, 230, currentMouseLocation.x - links[selectedLink].currentPoint.x, currentMouseLocation.y - links[selectedLink].currentPoint.y)];
