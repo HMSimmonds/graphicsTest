@@ -2,7 +2,7 @@
 
 
 
-@implementation Link : CPView
+@implementation Link : CPObject
 {
     CPBezierPath        pathAToB;
     CGPoint             endPoint            @accessors;
@@ -14,9 +14,9 @@
     BOOL                isUsed              @accessors;
 }
 
-- (id)initWithFrame:(CGRect)aFrame name:(CPString)aName;
+- (id)initWithName:(CPString)aName;
 {
-    self = [super initWithFrame:aFrame];
+    self = [super init];
 
     if (self)
     {
@@ -27,6 +27,7 @@
 
         name = aName;
         isUsed = false;
+        pathAToB = [[CPBezierPath alloc] init];
         // [self setNeedsDisplay:true];
 
     }
@@ -35,28 +36,28 @@
 
 
 
-- (void)drawRect:(CGRect)aRect
-{
-    pathAToB = [[CPBezierPath alloc] init];
+// - (void)drawRect:(CGRect)aRect
+// {
+//     pathAToB = [[CPBezierPath alloc] init];
 
-    var context = [[CPGraphicsContext currentContext] graphicsPort],
-        shadowColor = [CPColor colorWithCalibratedWhite:1 alpha:1];
+//     var context = [[CPGraphicsContext currentContext] graphicsPort],
+//         shadowColor = [CPColor colorWithCalibratedWhite:1 alpha:1];
 
-    CGContextSetFillColor(context, [CPColor colorWithCalibratedWhite:0.9 alpha:1.0]);
+//     CGContextSetFillColor(context, [CPColor colorWithCalibratedWhite:0.9 alpha:1.0]);
 
-    CGContextSetShadowWithColor(context, CGSizeMake(1, 1), 0, shadowColor);
-    CGContextSetStrokeColor(context, [CPColor blackColor]);
+//     CGContextSetShadowWithColor(context, CGSizeMake(1, 1), 0, shadowColor);
+//     CGContextSetStrokeColor(context, [CPColor blackColor]);
 
-    [pathAToB moveToPoint:currentPoint];
-    [pathAToB setLineWidth:2.0];
+//     [pathAToB moveToPoint:currentPoint];
+//     [pathAToB setLineWidth:2.0];
 
-    [pathAToB curveToPoint:endPoint controlPoint1:controlPoint1 controlPoint2:controlPoint2];
+//     [pathAToB curveToPoint:endPoint controlPoint1:controlPoint1 controlPoint2:controlPoint2];
 
 
-    [pathAToB stroke];  
-    // [self setNeedsDisplay:true];
+//     [pathAToB stroke];  
+//     // [self setNeedsDisplay:true];
 
-}
+// }
 
 
 - (void)makeConnectPointAtCurrentPoint:(CGPoint)currentPt controlPoint1:(CGPoint)ctrlPt1 controlPoint2:(CGPoint)ctrlPt2 endPoint:(CGPoint)endPt

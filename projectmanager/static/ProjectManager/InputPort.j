@@ -6,13 +6,21 @@
     CPString    inputType       @accessors;
     CPBox       input           @accessors;
     int         jobID           @accessors;
+    CGPoint     inputEnd      @accessors;
 
 }
 
 - (id)init:(CGPoint)aPoint length:(float)theLength width:(float)theWidth type:(CPString)type subsection:(float)subsection iteration:(int)i jobID:(int)aJobID
 {
-    var aRect = CGRectMake(aPoint.x - 7.5, (aPoint.y + subsection*i - (subsection / 2) - 7.5) , 7.5, 7.5);
+    var length = 7.5,
+        width = 7.5,
+        pointX = aPoint.x - length,
+        pointY = aPoint.y + subsection*i - (subsection / 2) - length;
+
+    var aRect = CGRectMake(pointX, pointY, length, width);
     self = [super initWithFrame:aRect];
+
+    inputEnd = CGPointMake(pointX, pointY + (length /2));
 
 
     if (self) 

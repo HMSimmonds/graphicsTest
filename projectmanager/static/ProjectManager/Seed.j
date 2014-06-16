@@ -11,12 +11,16 @@
 
     CPButton            attributesButton    @accessors;
 
+    CPView              infoView            @accessors;
+
 }
 
 - (id)initWithPoint:(CGPoint)aPoint size:(CGSize)aSize pageNum:(CPUInteger)pageNum
 {
     var aRect = CGRectMake(aPoint.x, aPoint.y, aSize.height, aSize.width);
     self = [super initWithFrame:aRect];
+    // self = [super initWithFrame:CGRectMake(aPoint.x, aPoint.y, aSize.height + 100, aSize.width + 100.0)];
+
 
     if (self)
     {
@@ -27,6 +31,11 @@
         [self addSubview:seed];
         [self setBounds:aRect];
         // [self addSubview:attributesButton];
+
+        [infoView = [[CPView alloc] initWithFrame:CGRectMake(aPoint.x + aSize.height, aPoint.y, 55.0, 20.0)]];
+        [infoView setBackgroundColor:[CPColor colorWithHexString:"FFFF99"]];
+        var label = [[CPTextField alloc] initWithFrame:CGRectMake(aPoint.x + aSize.height, aPoint.y, 55.0, 20.0)];
+        [label setStringValue:"Pages: "];
 
     }
     return self;
@@ -45,12 +54,19 @@
 
 - (void)mouseEntered:(CPEvent)anEvent
 {
-    console.log("Entered");
+    console.log("Entered Seed");
+    [self addSubview:infoView];
 }
 
 - (void)mouseExited:(CPEvent)anEvent
 {
-    
+
+    [infoView removeFromSuperview];
+}
+
+- (void)mouseDown:(CPEvent)anEvent
+{
+    console.log("SEED");
 }
 
 @end
