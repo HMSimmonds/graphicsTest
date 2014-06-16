@@ -3,6 +3,7 @@
 @import "WorkflowJob.j"
 @import "Link.j"
 @import "OutputPort.j"
+@import "Seed.j"
 
 //TEMPORARY -> length and width for workflowJob boxes
 var LENGTH = 100.0,
@@ -13,6 +14,7 @@ var LENGTH = 100.0,
                 CPArray             points                      @accessors;
                 CPArray             workflowJobs                @accessors;
                 CPArray             links                       @accessors;
+                CPArray             seeds                       @accessors;
 }
 
 - (id)initDesigner 
@@ -26,6 +28,7 @@ var LENGTH = 100.0,
         points = [[CPArray alloc] init];
         workflowJobs = [[CPArray alloc] init];
         links = [[CPArray alloc] init];
+        seeds = [[CPArray alloc] init];
 
 /* ------------------------------ CODE TO BE AUTOMATED ---------------------------- */
         //create points for origins of workflowJob boxes
@@ -34,7 +37,10 @@ var LENGTH = 100.0,
         points[2] = CGPointMake(900.0, 100.0);
         points[3] = CGPointMake(450.0, 550.0);
         points[4] = CGPointMake(900.0, 300.0);
-        points[5] = CGPointMake(150.0, 350.0);
+        points[5] = CGPointMake(175.0, 300.0);
+
+        //seed point
+        points[6] = CGPointMake(40.0, 200.0);
         
 
         //create workflowJobs on designerView - note length and width will depend on the type of just with number of inputs
@@ -60,8 +66,9 @@ var LENGTH = 100.0,
         [workflowJobs[4] changeBoxAttributes:1.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Border Crop"];
         [workflowJobs[5] changeBoxAttributes:1.0 cornerRadius:15.0 fillColor:[CPColor colorWithHexString:"E6E6E6"] boxType:CPBoxPrimary title:"Border Crop"];
 
+        seeds[0] = [[Seed alloc] initWithPoint:points[6] size:CGSizeMake(35.0, 55.0) pageNum:3];
 
-
+        [seeds[0] changeBoxAttributes:1.5 cornerRadius:5.0 fillColor:[CPColor colorWithHexString:"303030"] boxType:CPBoxPrimary title:"Seed"];
 /* --------------------------------------- AUTOMATED CODE END --------------------------- */
 
         //iterate through workflows inputs and outputs to add to designerView subview
@@ -98,6 +105,11 @@ var LENGTH = 100.0,
             };
 
         };
+
+        for (i = 0; i < [seeds count]; i++)
+        {
+            [self addSubview:seeds[i]];
+        }
 
         // for (i = 0; i < [links count]; i++)
         // {
