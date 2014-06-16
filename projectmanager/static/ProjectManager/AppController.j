@@ -148,7 +148,7 @@
     
     //create instance of WorkflowDesignerView
     workflowDiagram = [[WorkflowDesignerView alloc] initDesigner];
-    [workflowDiagram setFrame:CGRectMake(0.0, 0.0, 1000, 1000)];        //NOTE -> must autoadjust to size of canvas
+    [workflowDiagram setFrame:CGRectMake(0.0, 0.0, 1200, 1200)];        //NOTE -> must autoadjust to size of canvas
     [workflowDiagram setAutoresizingMask:CPViewWidthSizable | CPViewHeightSizable];
     [designerView setDocumentView:workflowDiagram];
 
@@ -304,6 +304,8 @@
     [attributesOutlineView setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
     [attributesScrollView setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
     [attributesPanel close];
+    
+
     [theWindow orderFront:self];
 
 

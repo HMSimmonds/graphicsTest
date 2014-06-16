@@ -279,6 +279,10 @@
         </menu>
         <customObject id="450" customClass="AppController">
             <connections>
+                <outlet property="attributesOutlineView" destination="8aV-OG-fth" id="L6k-NP-UuI"/>
+                <outlet property="attributesPanel" destination="1Vd-qI-WKi" id="aen-jO-y6x"/>
+                <outlet property="attributesScrollView" destination="rfw-kN-hch" id="I0k-1l-Xmy"/>
+                <outlet property="attributesTableHeader" destination="rLc-6g-jec" id="8C3-QE-Ajh"/>
                 <outlet property="connectButton" destination="XY0-QO-Hi0" id="4li-dz-8Om"/>
                 <outlet property="contentView" destination="kob-9T-ReK" id="zO1-Ez-9fZ"/>
                 <outlet property="designerIcon" destination="PdR-IT-YPI" id="cif-9I-a3m"/>
@@ -349,10 +353,10 @@
         <window title="Workflow Designer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="nMw-Zx-u44">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES" unifiedTitleAndToolbar="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="243" y="221" width="1389" height="957"/>
+            <rect key="contentRect" x="243" y="221" width="914" height="581"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
             <view key="contentView" wantsLayer="YES" id="kob-9T-ReK">
-                <rect key="frame" x="0.0" y="0.0" width="1389" height="957"/>
+                <rect key="frame" x="0.0" y="0.0" width="914" height="581"/>
                 <autoresizingMask key="autoresizingMask"/>
             </view>
             <toolbar key="toolbar" implicitIdentifier="9154D01A-239B-4749-A33C-97236AA81923" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="lrE-WC-EG6">
@@ -381,6 +385,21 @@
                     <toolbarItem implicitItemIdentifier="76057109-F6B0-4445-A589-E2DB6DA984EF" label="Results" paletteLabel="Results" tag="-1" id="jMY-qn-pSD"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="V0R-l6-KAV"/>
                     <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="orX-MN-maM"/>
+                    <toolbarItem implicitItemIdentifier="3E3EBAA5-BB52-4900-B7DF-7AA4512109B6" label="" paletteLabel="" tag="-1" id="I1b-ES-fBo">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="295" height="14"/>
+                        <size key="maxSize" width="304" height="33"/>
+                        <box key="view" autoresizesSubviews="NO" title="Box" boxType="custom" borderType="bezel" titlePosition="noTitle" id="jJg-ky-Rz5">
+                            <rect key="frame" x="0.0" y="14" width="295" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <view key="contentView">
+                                <rect key="frame" x="1" y="1" width="293" height="12"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                            <color key="borderColor" red="0.38890540081521741" green="0.38890540081521741" blue="0.38890540081521741" alpha="0.41999999999999998" colorSpace="calibratedRGB"/>
+                            <color key="fillColor" red="0.87660427957618292" green="0.93168599857442935" blue="0.97032099184782605" alpha="0.83000000000000007" colorSpace="calibratedRGB"/>
+                        </box>
+                    </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
                     <toolbarItem reference="RzX-EG-6nM"/>
@@ -392,6 +411,8 @@
                     <toolbarItem reference="adf-WL-dWh"/>
                     <toolbarItem reference="jMY-qn-pSD"/>
                     <toolbarItem reference="oFW-Rq-cNi"/>
+                    <toolbarItem reference="V0R-l6-KAV"/>
+                    <toolbarItem reference="I1b-ES-fBo"/>
                     <toolbarItem reference="V0R-l6-KAV"/>
                     <toolbarItem reference="T6d-w9-7yL"/>
                     <toolbarItem reference="orX-MN-maM"/>
@@ -546,7 +567,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Bl4-Jg-fTC">
-                                        <rect key="frame" x="245" y="1" width="16" height="459"/>
+                                        <rect key="frame" x="246" y="1" width="15" height="459"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>
@@ -576,7 +597,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="1Uf-dD-68e">
-                        <rect key="frame" x="627" y="1" width="16" height="1011"/>
+                        <rect key="frame" x="628" y="1" width="15" height="1011"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
@@ -629,7 +650,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="eqO-KM-jkD">
-                                        <rect key="frame" x="499" y="1" width="16" height="417"/>
+                                        <rect key="frame" x="500" y="1" width="15" height="417"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>
@@ -666,7 +687,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ZJN-36-VGu">
-                                        <rect key="frame" x="222" y="1" width="16" height="475"/>
+                                        <rect key="frame" x="223" y="1" width="15" height="475"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>
@@ -723,7 +744,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="QxU-tt-7dA">
-                            <rect key="frame" x="115" y="20" width="45" height="22"/>
+                            <rect key="frame" x="120" y="22" width="45" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job A" id="JVn-qd-PZ3">
                                 <font key="font" metaFont="system"/>
@@ -757,7 +778,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="9c3-d1-xIl">
-                            <rect key="frame" x="114" y="20" width="41" height="22"/>
+                            <rect key="frame" x="122" y="20" width="51" height="24"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job B" id="bBL-XG-txN">
                                 <font key="font" metaFont="system"/>
@@ -791,7 +812,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="eQB-0n-fEB">
-                            <rect key="frame" x="114" y="25" width="45" height="17"/>
+                            <rect key="frame" x="120" y="20" width="48" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job C" id="ZVS-xU-f1B">
                                 <font key="font" metaFont="system"/>
@@ -825,7 +846,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="y8J-hn-uqw">
-                            <rect key="frame" x="114" y="25" width="44" height="17"/>
+                            <rect key="frame" x="120" y="20" width="47" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job D" id="iYf-mC-ePf">
                                 <font key="font" metaFont="system"/>
@@ -859,7 +880,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="McC-Gm-HAe">
-                            <rect key="frame" x="111" y="20" width="42" height="22"/>
+                            <rect key="frame" x="121" y="22" width="42" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job E" id="vyh-M8-Sph">
                                 <font key="font" metaFont="system"/>
@@ -893,7 +914,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="i2W-Nd-WYI">
-                            <rect key="frame" x="114" y="20" width="49" height="22"/>
+                            <rect key="frame" x="118" y="22" width="49" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job F" id="vXz-pi-pcV">
                                 <font key="font" metaFont="system"/>
@@ -927,7 +948,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="KAD-MO-b0f">
-                            <rect key="frame" x="113" y="20" width="46" height="22"/>
+                            <rect key="frame" x="119" y="22" width="46" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job G" id="qsG-3s-FDv">
                                 <font key="font" metaFont="system"/>
@@ -961,7 +982,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Dqw-Q2-c2p">
-                            <rect key="frame" x="116" y="20" width="44" height="22"/>
+                            <rect key="frame" x="120" y="22" width="44" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job H" id="usz-6d-hyT">
                                 <font key="font" metaFont="system"/>
@@ -995,7 +1016,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Ksr-RF-llJ">
-                            <rect key="frame" x="115" y="25" width="40" height="17"/>
+                            <rect key="frame" x="122" y="25" width="40" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Job I" id="rqK-5l-iv5">
                                 <font key="font" metaFont="system"/>
@@ -1035,7 +1056,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="H3E-7y-lmy">
-                            <rect key="frame" x="115" y="20" width="45" height="22"/>
+                            <rect key="frame" x="120" y="20" width="48" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PageA" id="EVf-Uk-TvO">
                                 <font key="font" metaFont="system"/>
@@ -1069,7 +1090,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dsP-5a-HHZ">
-                            <rect key="frame" x="114" y="20" width="42" height="22"/>
+                            <rect key="frame" x="121" y="20" width="48" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PageB" id="9G8-QX-DRy">
                                 <font key="font" metaFont="system"/>
@@ -1103,7 +1124,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Izv-Sy-1n8">
-                            <rect key="frame" x="114" y="25" width="45" height="17"/>
+                            <rect key="frame" x="120" y="25" width="51" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PageC" id="1Sf-Ad-gr5">
                                 <font key="font" metaFont="system"/>
@@ -1137,7 +1158,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="zLV-Kz-nPB">
-                            <rect key="frame" x="114" y="25" width="44" height="17"/>
+                            <rect key="frame" x="120" y="20" width="51" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PageD" id="MdB-jH-oQa">
                                 <font key="font" metaFont="system"/>
@@ -1171,7 +1192,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Tkf-y1-jbF">
-                            <rect key="frame" x="111" y="20" width="42" height="22"/>
+                            <rect key="frame" x="121" y="20" width="48" height="24"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PageE" id="Sjb-fk-bqh">
                                 <font key="font" metaFont="system"/>
@@ -1205,7 +1226,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="f5Y-u2-NMf">
-                            <rect key="frame" x="114" y="20" width="49" height="22"/>
+                            <rect key="frame" x="118" y="20" width="52" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PageF" id="gQQ-Sc-qDI">
                                 <font key="font" metaFont="system"/>
@@ -1239,7 +1260,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="CAe-TR-1Ij">
-                            <rect key="frame" x="113" y="20" width="46" height="22"/>
+                            <rect key="frame" x="119" y="12" width="56" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PageG" id="jCe-r9-RJW">
                                 <font key="font" metaFont="system"/>
@@ -1273,7 +1294,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="ym3-6S-JVo">
-                            <rect key="frame" x="116" y="20" width="44" height="22"/>
+                            <rect key="frame" x="120" y="20" width="50" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PageH" id="PAF-Gu-Yjo">
                                 <font key="font" metaFont="system"/>
@@ -1307,7 +1328,7 @@
                             <font key="titleFont" metaFont="system"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dAo-tW-c24">
-                            <rect key="frame" x="115" y="25" width="40" height="17"/>
+                            <rect key="frame" x="122" y="20" width="49" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PageI" id="YCM-nT-Rxy">
                                 <font key="font" metaFont="system"/>
@@ -1653,7 +1674,7 @@
                         <rect key="frame" x="1" y="117.51460671424866" width="236.92878723144531" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="37" horizontal="NO" id="VVW-5h-gL3">
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="VVW-5h-gL3">
                         <rect key="frame" x="224" y="17" width="15" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
@@ -1664,5 +1685,77 @@
                 </scrollView>
             </subviews>
         </customView>
+        <window title="Attributes" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="1Vd-qI-WKi" userLabel="Panel - Attributes" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES" HUD="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="1232" y="751" width="299" height="295"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
+            <value key="minSize" type="size" width="290" height="8"/>
+            <value key="maxSize" type="size" width="351" height="548"/>
+            <view key="contentView" id="M0y-td-DR8">
+                <rect key="frame" x="0.0" y="0.0" width="299" height="295"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="rfw-kN-hch">
+                        <rect key="frame" x="-1" y="44" width="301" height="241"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <clipView key="contentView" id="xda-M7-csD">
+                            <rect key="frame" x="1" y="17" width="299" height="223"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" headerView="rLc-6g-jec" indentationPerLevel="16" outlineTableColumn="e2y-6z-qbZ" id="8aV-OG-fth">
+                                    <rect key="frame" x="0.0" y="0.0" width="299" height="223"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <size key="intercellSpacing" width="3" height="2"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                    <tableColumns>
+                                        <tableColumn width="101" minWidth="16" maxWidth="1000" id="e2y-6z-qbZ">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="zAQ-3P-yYR">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        </tableColumn>
+                                        <tableColumn width="192" minWidth="40" maxWidth="1000" id="mSt-2Q-vRb">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="vY5-UC-aOw">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        </tableColumn>
+                                    </tableColumns>
+                                </outlineView>
+                            </subviews>
+                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="e5W-Zq-t9h">
+                            <rect key="frame" x="1" y="119" width="223" height="15"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="GPO-v9-8KR">
+                            <rect key="frame" x="224" y="17" width="15" height="102"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <tableHeaderView key="headerView" id="rLc-6g-jec">
+                            <rect key="frame" x="0.0" y="0.0" width="299" height="17"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </tableHeaderView>
+                    </scrollView>
+                </subviews>
+            </view>
+        </window>
     </objects>
 </document>
