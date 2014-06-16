@@ -14,7 +14,7 @@
 
     @outlet             CPSplitView             workflowDesignerView    @accessors;
     // @outlet             CPView                  designerView            @accessors;
-    @outlet             CPScrollView            designerView      @accessors;
+    @outlet             CPScrollView            designerView            @accessors;
     @outlet             CPSplitView             leftSideBar             @accessors;
     @outlet             CPSplitView             rightSideBar            @accessors;
 
@@ -96,7 +96,10 @@
     @outlet             CPImageView             pageImageH;
     @outlet             CPImageView             pageImageI;
 
-
+    @outlet             CPPanel                 attributesPanel;
+    @outlet             CPTableHeaderView       attributesTableHeader;
+    @outlet             CPOutlineView           attributesOutlineView;
+    @outlet             CPScrollView            attributesScrollView;
 
 }
     
@@ -136,10 +139,7 @@
     [workflowDesignerView setAutoresizingMask:CPViewWidthSizable | CPViewHeightSizable];
     [contentView addSubview:workflowDesignerView];
 
-    
 
-
-    
 
     [designerView setFrame:CGRectMake(300.0, 0.0, CGRectGetWidth(_theWindowBounds) - 600.0, CGRectGetHeight(_theWindowBounds))];
     [designerView setAutoresizingMask:CPViewWidthSizable | CPViewHeightSizable];
@@ -148,7 +148,8 @@
     
     //create instance of WorkflowDesignerView
     workflowDiagram = [[WorkflowDesignerView alloc] initDesigner];
-    [workflowDiagram setFrame:[designerView bounds]];
+    [workflowDiagram setFrame:CGRectMake(0.0, 0.0, 1000, 1000)];        //NOTE -> must autoadjust to size of canvas
+    [workflowDiagram setAutoresizingMask:CPViewWidthSizable | CPViewHeightSizable];
     [designerView setDocumentView:workflowDiagram];
 
     //left Side Bar
@@ -161,6 +162,7 @@
     [rightSideBar setFrame:CGRectMake(CGRectGetWidth(_theWindowBounds) - 300.0, 0.0, 300.0, CGRectGetHeight(_theWindowBounds))];
     [rightSideBar setAutoresizingMask:CPViewHeightSizable | CPViewWidthSizable];
     [rightSideBar setBackgroundColor:[CPColor colorWithHexString:"E6E6E6"]];
+    // [rightSideBar splitView:rightSideBar constrainMinCoordinate:2 ofSubviewAt:0];
 
     var leftSideBarImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"indent-increase.png"] size:CGSizeMake(15.0, 15.0)],
         rightSideBarImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"indent-decrease.png"] size:CGSizeMake(15.0, 15.0)],
@@ -296,6 +298,12 @@
     };
 
 
+    [attributesPanel setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
+
+    [attributesTableHeader setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
+    [attributesOutlineView setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
+    [attributesScrollView setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
+    [attributesPanel close];
     [theWindow orderFront:self];
 
 
@@ -317,6 +325,8 @@
 - (void)toolsAction:(id)aSender
 {
     console.log("Tools");
+    [attributesPanel orderFront:self];
+
 }
 
 - (void)leftSideBarAction:(id)aSender
