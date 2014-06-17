@@ -17,6 +17,26 @@ var LENGTH = 100.0,
                 CPArray             seeds                       @accessors;
 }
 
+
+- (void)awakeFromCib
+{
+    // Subscriptions for self.
+    [[CPNotificationCenter defaultCenter] addObserver:self
+                                          selector:@selector(receiveAddLink:)
+                                          name:@"AddLinkToView"
+                                          object:nil];
+    
+    [[CPNotificationCenter defaultCenter] addObserver:self
+                                          selector:@selector(receiveRemoveLink:)
+                                          name:@"RemoveLinkFromView"
+                                          object:nil];
+
+    [[CPNotificationCenter defaultCenter] addObserver:self
+                                          selector:@selector(receiveDragLink:)
+                                          name:@"DragLinkInView"
+                                          object:nil];
+}
+
 - (id)initDesigner 
 {
     self = [super init];
@@ -142,21 +162,22 @@ var LENGTH = 100.0,
 }
 
 
-- (void)mouseDragged:(CPEvent)anEvent
-{   
+// - (void)mouseDragged:(CPEvent)anEvent
+// {   
     
-    console.log("DRAG - WorkflowDesigner");
-    console.log([CPEvent mouseLocation]);
+//     console.log("DRAG - WorkflowDesigner");
+//     console.log([CPEvent mouseLocation]);
     
-}
+// }
 
-- (void)mouseDown:(CPEvent)anEvent
-{
-    console.log("DOWN - WorkflowDesigner");
-        console.log([CPEvent mouseLocation]);
+// - (void)mouseDown:(CPEvent)anEvent
+// {
+//     console.log("DOWN - WorkflowDesigner");
+//         console.log([CPEvent mouseLocation]);
 
-}
+// }
 
+//to draw lines
 - (void)drawRect:(CGRect)aRect
 {
     var i;
@@ -183,5 +204,23 @@ var LENGTH = 100.0,
     };
 
 }
+
+- (void)receiveAddLink:(CPNotification)aNotification
+{
+    console.log("HELLOOOOOO");
+}
+
+
+- (void)receiveRemoveLink:(CPNotification)aNotification
+{
+    
+}
+
+
+- (void)receiveDragLink:(CPNotification)aNotification
+{
+    
+}
+
 
 @end

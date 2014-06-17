@@ -63,6 +63,8 @@
     var theWindow = [[CPApplication sharedApplication] mainWindow];
     console.log(startMouseLocation);
 
+    [[CPNotificationCenter defaultCenter] postNotificationName:@"AddLinkToView" object:nil];
+
     // for (var i = 0; i < [links count]; i++) 
     // {
     //     if (!links[i].isUsed)

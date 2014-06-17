@@ -118,7 +118,7 @@
     _theWindowBounds = [contentView bounds];
     theBundle = [CPBundle mainBundle];
 
-
+    var center = [CPNotificationCenter defaultCenter];
 
     //init. Bundle to resources
 
