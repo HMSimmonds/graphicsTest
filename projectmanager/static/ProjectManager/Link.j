@@ -10,11 +10,16 @@
     CGPoint             controlPoint2       @accessors;
     CGPoint             currentPoint        @accessors;
     CPString            name                @accessors;
+
+    CPUInteger          workflowStart        @accessors;
+    CPUInteger          workflowEnd        @accessors;
+    CPUInteger          outputRef           @accessors;
+    CPUInteger          inputRef            @accessors;
     
     BOOL                isUsed              @accessors;
 }
 
-- (id)initWithName:(CPString)aName;
+- (id)initWithName:(CPString)aName workflowStart:(CPUInteger)wflowStart workflowEnd:(CPUInteger)wflowEnd outputRef:(CPUInteger)oRef inputRef:(CPUInteger)iRef;
 {
     self = [super init];
 
@@ -24,6 +29,11 @@
         controlPoint1 = CGPointMake(0.0, 0.0);
         controlPoint2 = CGPointMake(0.0, 0.0);
         currentPoint = CGPointMake(0.0, 0.0);
+
+        workflowStart = wflowStart;
+        workflowEnd = wflowEnd;
+        outputRef = oRef;
+        inputRef = iRef;
 
         name = aName;
         isUsed = false;

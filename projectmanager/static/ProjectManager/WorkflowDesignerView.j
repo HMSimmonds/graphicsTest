@@ -92,22 +92,24 @@ var LENGTH = 100.0,
         [seeds[0] changeBoxAttributes:1.5 cornerRadius:5.0 fillColor:[CPColor colorWithHexString:"303030"] boxType:CPBoxPrimary title:"Seed"];
 
 
-        links[0] = [[Link alloc] initWithName:""];
-        links[1] = [[Link alloc] initWithName:""];
-        links[2] = [[Link alloc] initWithName:""];
-        links[3] = [[Link alloc] initWithName:""];
-        links[4] = [[Link alloc] initWithName:""];
-        links[5] = [[Link alloc] initWithName:""];
-        links[6] = [[Link alloc] initWithName:""];
-        links[7] = [[Link alloc] initWithName:""];
+    // links[0] = [[Link alloc] initWithName:"" workflowStart:null workflowEnd:null outputRef:null inputRef:null];
+    // links[1] = [[Link alloc] initWithName:"" workflowStart:null workflowEnd:null outputRef:null inputRef:null];
+    // links[2] = [[Link alloc] initWithName:"" workflowStart:null workflowEnd:null outputRef:null inputRef:null];
+    // links[3] = [[Link alloc] initWithName:"" workflowStart:null workflowEnd:null outputRef:null inputRef:null];
+    // links[4] = [[Link alloc] initWithName:"" workflowStart:null workflowEnd:null outputRef:null inputRef:null];
+    // links[5] = [[Link alloc] initWithName:"" workflowStart:null workflowEnd:null outputRef:null inputRef:null];
+    // links[6] = [[Link alloc] initWithName:"" workflowStart:null workflowEnd:null outputRef:null inputRef:null];
+    // links[7] = [[Link alloc] initWithName:"" workflowStart:null workflowEnd:null outputRef:null inputRef:null];
 
-        [links[0] makeConnectPointAtCurrentPoint:workflowJobs[5].outputPorts[0].outputStart controlPoint1:workflowJobs[0].inputPorts[0].inputEnd controlPoint2:workflowJobs[0].inputPorts[0].inputEnd endPoint:workflowJobs[0].inputPorts[0].inputEnd];
-        [links[1] makeConnectPointAtCurrentPoint:workflowJobs[5].outputPorts[1].outputStart controlPoint1:workflowJobs[0].inputPorts[1].inputEnd controlPoint2:workflowJobs[0].inputPorts[1].inputEnd endPoint:workflowJobs[0].inputPorts[1].inputEnd];
-        [links[2] makeConnectPointAtCurrentPoint:workflowJobs[5].outputPorts[2].outputStart controlPoint1:workflowJobs[0].inputPorts[2].inputEnd controlPoint2:workflowJobs[0].inputPorts[2].inputEnd endPoint:workflowJobs[0].inputPorts[2].inputEnd];
-        [links[3] makeConnectPointAtCurrentPoint:workflowJobs[5].outputPorts[3].outputStart controlPoint1:workflowJobs[3].inputPorts[0].inputEnd controlPoint2:workflowJobs[3].inputPorts[0].inputEnd endPoint:workflowJobs[3].inputPorts[0].inputEnd];
-        [links[4] makeConnectPointAtCurrentPoint:workflowJobs[0].outputPorts[0].outputStart controlPoint1:workflowJobs[2].inputPorts[0].inputEnd controlPoint2:workflowJobs[2].inputPorts[0].inputEnd endPoint:workflowJobs[2].inputPorts[0].inputEnd];
-        [links[5] makeConnectPointAtCurrentPoint:workflowJobs[0].outputPorts[1].outputStart controlPoint1:workflowJobs[4].inputPorts[0].inputEnd controlPoint2:workflowJobs[4].inputPorts[0].inputEnd endPoint:workflowJobs[4].inputPorts[0].inputEnd];
-        [links[6] makeConnectPointAtCurrentPoint:workflowJobs[3].outputPorts[0].outputStart controlPoint1:workflowJobs[1].inputPorts[0].inputEnd controlPoint2:workflowJobs[1].inputPorts[0].inputEnd endPoint:workflowJobs[1].inputPorts[0].inputEnd];
+
+
+    //     [links[0] makeConnectPointAtCurrentPoint:workflowJobs[5].outputPorts[0].outputStart controlPoint1:workflowJobs[0].inputPorts[0].inputEnd controlPoint2:workflowJobs[0].inputPorts[0].inputEnd endPoint:workflowJobs[0].inputPorts[0].inputEnd];
+    //     [links[1] makeConnectPointAtCurrentPoint:workflowJobs[5].outputPorts[1].outputStart controlPoint1:workflowJobs[0].inputPorts[1].inputEnd controlPoint2:workflowJobs[0].inputPorts[1].inputEnd endPoint:workflowJobs[0].inputPorts[1].inputEnd];
+    //     [links[2] makeConnectPointAtCurrentPoint:workflowJobs[5].outputPorts[2].outputStart controlPoint1:workflowJobs[0].inputPorts[2].inputEnd controlPoint2:workflowJobs[0].inputPorts[2].inputEnd endPoint:workflowJobs[0].inputPorts[2].inputEnd];
+    //     [links[3] makeConnectPointAtCurrentPoint:workflowJobs[5].outputPorts[3].outputStart controlPoint1:workflowJobs[3].inputPorts[0].inputEnd controlPoint2:workflowJobs[3].inputPorts[0].inputEnd endPoint:workflowJobs[3].inputPorts[0].inputEnd];
+    //     [links[4] makeConnectPointAtCurrentPoint:workflowJobs[0].outputPorts[0].outputStart controlPoint1:workflowJobs[2].inputPorts[0].inputEnd controlPoint2:workflowJobs[2].inputPorts[0].inputEnd endPoint:workflowJobs[2].inputPorts[0].inputEnd];
+    //     [links[5] makeConnectPointAtCurrentPoint:workflowJobs[0].outputPorts[1].outputStart controlPoint1:workflowJobs[4].inputPorts[0].inputEnd controlPoint2:workflowJobs[4].inputPorts[0].inputEnd endPoint:workflowJobs[4].inputPorts[0].inputEnd];
+    //     [links[6] makeConnectPointAtCurrentPoint:workflowJobs[3].outputPorts[0].outputStart controlPoint1:workflowJobs[1].inputPorts[0].inputEnd controlPoint2:workflowJobs[1].inputPorts[0].inputEnd endPoint:workflowJobs[1].inputPorts[0].inputEnd];
         // [links[7] makeConnectPointAtCurrentPoint: controlPoint1: controlPoint2: endPoint:];
 /* --------------------------------------- AUTOMATED CODE END --------------------------- */
 
@@ -209,21 +211,45 @@ var LENGTH = 100.0,
 - (void)receiveAddLink:(CPNotification)aNotification
 {
     console.log("Add Link");
-    var info = [aNotification userInfo];
-    console.log([info objectForKey:@"workflow_number"]);
-    console.log([info objectForKey:@"output_number"]);
+    var info = [aNotification userInfo],    
+        mouseLocation = [CPEvent mouseLocation],
+        workflowNumber = [info objectForKey:"workflow_number"],
+        outputNumber = [info objectForKey:"output_number"];
+
+    var k = 0; 
+
+    while (links[k] != [CPNull null])
+        k++;
+
+    links[k] = [[Link alloc] initWithName:"" workflowStart:workflowNumber workflowEnd:null outputRef:outputNumber inputRef:null];
+
+
 }
 
 
 - (void)receiveRemoveLink:(CPNotification)aNotification
 {
     console.log("Remove Link");
+    var info = [aNotification userInfo],
+        mouseLocation = [CPEvent mouseLocation],
+        workflowNumber = [info objectForKey:"workflow_number"],
+        outputNumber = [info objectForKey:"output_number"];
+
+    var k;
+
+    // for (k = 0; k < [links count]; k++)
+    // {
+    //     if (links[k].workflow)
+    // };
 }
 
 
 - (void)receiveDragLink:(CPNotification)aNotification
 {
     console.log("Drag Link");
+
+    [links[k] makeConnectPointAtCurrentPoint:workflowJobs[workflowNumber].outputPorts[outputNumber].outputStart controlPoint1:workflowJobs[0].inputPorts[0].inputEnd controlPoint2:workflowJobs[0].inputPorts[0].inputEnd endPoint:workflowJobs[0].inputPorts[0].inputEnd];
+
 }
 
 

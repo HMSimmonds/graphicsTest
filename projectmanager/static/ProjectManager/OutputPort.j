@@ -60,11 +60,6 @@
 
 - (void)mouseDown:(CPEvent)anEvent
 {
-    console.log("DOWN - OutputPort");
-    var startMouseLocation = [CPEvent mouseLocation];
-    var theWindow = [[CPApplication sharedApplication] mainWindow];
-    console.log(startMouseLocation);
-
     [[CPNotificationCenter defaultCenter] postNotificationName:@"AddLinkToView" object:nil userInfo:[[CPDictionary alloc] initWithObjects:[workflowJobID, jobID] forKeys:[@"workflow_number", @"output_number"]]];
 
     // for (var i = 0; i < [links count]; i++) 
