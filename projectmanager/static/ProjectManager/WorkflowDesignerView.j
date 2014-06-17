@@ -21,6 +21,7 @@ var LENGTH = 100.0,
 - (void)awakeFromCib
 {
     // Subscriptions for self.
+    //notifications to draw links 
     [[CPNotificationCenter defaultCenter] addObserver:self
                                           selector:@selector(receiveAddLink:)
                                           name:@"AddLinkToView"
@@ -64,12 +65,12 @@ var LENGTH = 100.0,
         
 
         //create workflowJobs on designerView - note length and width will depend on the type of just with number of inputs
-        workflowJobs[0] = [[WorkflowJob alloc] initWithPoint:points[0] size:CGSizeMake(WIDTH*2, LENGTH) inputPortNum:3 outputPortNum:2 type:"Lyrical"];
-        workflowJobs[1] = [[WorkflowJob alloc] initWithPoint:points[1] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Black & White"];
-        workflowJobs[2] = [[WorkflowJob alloc] initWithPoint:points[2] size:CGSizeMake(WIDTH*2, LENGTH) inputPortNum:1 outputPortNum:3 type:"Cropped Border"];
-        workflowJobs[3] = [[WorkflowJob alloc] initWithPoint:points[3] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Cropped Border"];
-        workflowJobs[4] = [[WorkflowJob alloc] initWithPoint:points[4] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Cropped Border"];
-        workflowJobs[5] = [[WorkflowJob alloc] initWithPoint:points[5] size:CGSizeMake(WIDTH*2.5, LENGTH) inputPortNum:1 outputPortNum:4 type:"Cropped Border"];
+        workflowJobs[0] = [[WorkflowJob alloc] initWithPoint:points[0] size:CGSizeMake(WIDTH*2, LENGTH) inputPortNum:3 outputPortNum:2 type:"Lyrical" refNumber:0];
+        workflowJobs[1] = [[WorkflowJob alloc] initWithPoint:points[1] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Black & White" refNumber:1];
+        workflowJobs[2] = [[WorkflowJob alloc] initWithPoint:points[2] size:CGSizeMake(WIDTH*2, LENGTH) inputPortNum:1 outputPortNum:3 type:"Cropped Border" refNumber:2];
+        workflowJobs[3] = [[WorkflowJob alloc] initWithPoint:points[3] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Cropped Border" refNumber:3];
+        workflowJobs[4] = [[WorkflowJob alloc] initWithPoint:points[4] size:CGSizeMake(WIDTH, LENGTH) inputPortNum:1 outputPortNum:1 type:"Cropped Border" refNumber:4];
+        workflowJobs[5] = [[WorkflowJob alloc] initWithPoint:points[5] size:CGSizeMake(WIDTH*2.5, LENGTH) inputPortNum:1 outputPortNum:4 type:"Cropped Border" refNumber:5];
 
         // workflowJobs[0] = [[WorkflowJob alloc] initWithCibNamed:"WorkflowJobView.cib" bundle:[CPBundle mainBundle]];
         // workflowJobs[1] = [[WorkflowJob alloc] initWithCibNamed:"WorkflowJobView.cib" bundle:[CPBundle mainBundle]];
@@ -207,19 +208,22 @@ var LENGTH = 100.0,
 
 - (void)receiveAddLink:(CPNotification)aNotification
 {
-    console.log("HELLOOOOOO");
+    console.log("Add Link");
+    var info = [aNotification userInfo];
+    console.log([info objectForKey:@"workflow_number"]);
+    console.log([info objectForKey:@"output_number"]);
 }
 
 
 - (void)receiveRemoveLink:(CPNotification)aNotification
 {
-    
+    console.log("Remove Link");
 }
 
 
 - (void)receiveDragLink:(CPNotification)aNotification
 {
-    
+    console.log("Drag Link");
 }
 
 

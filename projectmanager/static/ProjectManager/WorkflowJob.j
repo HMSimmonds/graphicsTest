@@ -17,10 +17,11 @@
     CPButton                attributesButton             @accessors;
 
     CPBundle                theBundle;
+    CPUInteger              refNumber               @accessors;
 
 }
 
-- (id)initWithPoint:(CGPoint)aPoint size:(CGSize)aSize inputPortNum:(CPUInteger)inputPortNum outputPortNum:(CPUInteger)outputPortNum type:(CPString)aType
+- (id)initWithPoint:(CGPoint)aPoint size:(CGSize)aSize inputPortNum:(CPUInteger)inputPortNum outputPortNum:(CPUInteger)outputPortNum type:(CPString)aType refNumber:(CPUInteger)aNumber
 { 
     var aRect = CGRectMake(aPoint.x, aPoint.y, aSize.height, aSize.width);
     self = [super initWithFrame:aRect];
@@ -29,7 +30,7 @@
     if (self)
     {
         workflowJob = [[CPBox alloc] initWithFrame:aRect];
-        
+        refNumber = aNumber;
         //init. plus button
         attributesButton = [[CPButton alloc] initWithFrame:CGRectMake(12.5, 2.5,7.5, 7.5)];
         [attributesButton setBezelStyle:CPTexturedRoundedBezelStyle];
@@ -62,7 +63,7 @@
 
         for (var i = 0; i < outputPortNum; i++)
         {
-            outputPorts[i] = [[OutputPort alloc] init:aPoint length:aSize.height width:aSize.width type:aType subsection:subsection iteration:(i+1) jobID:i];
+            outputPorts[i] = [[OutputPort alloc] init:aPoint length:aSize.height width:aSize.width type:aType subsection:subsection iteration:(i+1) jobID:i workflowJobID:refNumber];
         };
         
         
@@ -72,7 +73,7 @@
         
         for (i = 0; i < inputPortNum; i++)
         {
-            inputPorts[i] = [[InputPort alloc] init:aPoint length:aSize.height width:aSize.width type:aType subsection:subsection iteration:(i+1) jobID:i];
+            inputPorts[i] = [[InputPort alloc] init:aPoint length:aSize.height width:aSize.width type:aType subsection:subsection iteration:(i+1) jobID:i workflowJobID:refNumber];
         };
     }
     return self;

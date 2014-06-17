@@ -10,6 +10,7 @@
     CPString    outputType      @accessors;
     CPBox       output          @accessors;
     int         jobID           @accessors;
+    CPUInteger  workflowJobID   @accessors;
     CGPoint     outputStart     @accessors;
 
     CPArray     links           @accessors;
@@ -19,7 +20,7 @@
 
 }
 
-- (id)init:(CGPoint)aPoint length:(float)theLength width:(float)theWidth type:(CPString)type subsection:(float)subsection iteration:(int)i jobID:(int)aJobID
+- (id)init:(CGPoint)aPoint length:(float)theLength width:(float)theWidth type:(CPString)type subsection:(float)subsection iteration:(int)i jobID:(int)aJobID workflowJobID:(CPUInteger)aWorkflowJobID
 {
     var length = 7.5,
         width = 7.5,
@@ -38,6 +39,7 @@
         isUsed = false;
         outputType = type;
         jobID = aJobID;
+        workflowJobID = aWorkflowJobID;
 
         [self addSubview:output];
         [self setBounds:aRect];
@@ -63,7 +65,7 @@
     var theWindow = [[CPApplication sharedApplication] mainWindow];
     console.log(startMouseLocation);
 
-    [[CPNotificationCenter defaultCenter] postNotificationName:@"AddLinkToView" object:nil];
+    [[CPNotificationCenter defaultCenter] postNotificationName:@"AddLinkToView" object:nil userInfo:[[CPDictionary alloc] initWithObjects:[workflowJobID, jobID] forKeys:[@"workflow_number", @"output_number"]]];
 
     // for (var i = 0; i < [links count]; i++) 
     // {
@@ -93,6 +95,8 @@
     var currentMouseLocation = [CPEvent mouseLocation];
     console.log(currentMouseLocation);
 
+    [[CPNotificationCenter defaultCenter] postNotificationName:@"DragLinkInView" object:nil userInfo:[[CPDictionary alloc] initWithObjects:[workflowJobID, jobID] forKeys:[@"workflow_number", @"output_number"]]];
+
 
     // [links[selectedLink] setFrame:CGRectMake(links[selectedLink].currentPoint.x, links[selectedLink].currentPoint.y, currentMouseLocation.x - links[selectedLink].currentPoint.x, currentMouseLocation.y - links[selectedLink].currentPoint.y)];
     // [links[selectedLink] setBounds:CGRectMake(links[selectedLink].currentPoint.x, links[selectedLink].currentPoint.y, currentMouseLocation.x - links[selectedLink].currentPoint.x, currentMouseLocation.y - links[selectedLink].currentPoint.y)];    
@@ -113,6 +117,9 @@
 - (void)mouseUp:(CPEvent)anEvent
 {
     // console.log("UP - OutputPort");
+
+    [[CPNotificationCenter defaultCenter] postNotificationName:@"RemoveLinkFromView" object:nil userInfo:[[CPDictionary alloc] initWithObjects:[workflowJobID, jobID] forKeys:[@"workflow_number", @"output_number"]]];
+
 
     // var theWindow = [[CPApplication sharedApplication] mainWindow];
     // var currentMouseLocation = [CPEvent mouseLocation];

@@ -6,11 +6,12 @@
     CPString    inputType       @accessors;
     CPBox       input           @accessors;
     int         jobID           @accessors;
+    CPUInteger  workflowJobID   @accessors;
     CGPoint     inputEnd      @accessors;
 
 }
 
-- (id)init:(CGPoint)aPoint length:(float)theLength width:(float)theWidth type:(CPString)type subsection:(float)subsection iteration:(int)i jobID:(int)aJobID
+- (id)init:(CGPoint)aPoint length:(float)theLength width:(float)theWidth type:(CPString)type subsection:(float)subsection iteration:(int)i jobID:(int)aJobID workflowJobID:(CPUInteger)aWorkflowJobID
 {
     var length = 7.5,
         width = 7.5,
@@ -30,6 +31,7 @@
         isUsed = false;
         inputType = type;
         jobID = aJobID;
+        workflowJobID = aWorkflowJobID;
 
         [self addSubview:input];
         [self setBounds:aRect];
