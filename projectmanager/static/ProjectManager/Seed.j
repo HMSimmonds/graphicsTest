@@ -6,6 +6,7 @@
 {
     CPBox               seed                @accessors;
     CPUInteger          numberOfPages       @accessors;
+    CPView              outputPort          @accessors;
 
     CPArray             pages               @accessors;
 
@@ -25,6 +26,10 @@
     if (self)
     {
         seed = [[CPBox alloc] initWithFrame:aRect];
+
+        var subsection = aSize.width;
+
+        // outputPort = [[OutputPort alloc] init:aPoint length:aSize.height width:aSize.width type:"Seed" subsection:subsection iteration:1 jobID:0 workflowJobID:0];
 
         // attributesButton = [[CPButton alloc] initWithFrame:CGRectMake(12.5, 2.5, 7.5, 7.5)];
 
@@ -54,13 +59,13 @@
 
 - (void)mouseEntered:(CPEvent)anEvent
 {
-    console.log("Entered Seed");
+    [seed setBorderColor:[CPColor colorWithHexString:"FF9933"]];
     [self addSubview:infoView];
 }
 
 - (void)mouseExited:(CPEvent)anEvent
 {
-
+    [seed setBorderColor:[CPColor colorWithHexString:"CC3300"]];
     [infoView removeFromSuperview];
 }
 

@@ -13,8 +13,8 @@
 
 - (id)init:(CGPoint)aPoint length:(float)theLength width:(float)theWidth type:(CPString)type subsection:(float)subsection iteration:(int)i jobID:(int)aJobID workflowJobID:(CPUInteger)aWorkflowJobID
 {
-    var length = 7.5,
-        width = 7.5,
+    var length = 8.5,
+        width = 8.5,
         pointX = aPoint.x - length,
         pointY = aPoint.y + subsection*i - (subsection / 2) - length;
 
@@ -33,6 +33,8 @@
         jobID = aJobID;
         workflowJobID = aWorkflowJobID;
 
+        [self changeBoxAttributes:0.75 cornerRadius:1.0 fillColor:[CPColor colorWithHexString:"FF4D4D"] boxType:CPBoxOldStyle];
+
         [self addSubview:input];
         [self setBounds:aRect];
     }
@@ -50,28 +52,15 @@
 
 }
 
-// - (void)mouseDragged:(CPEvent)anEvent
-// {
-//     console.log("DRAG - Inputport");
-// }
+- (void)mouseEntered:(CPEvent)anEvent
+{
+    [self changeBoxAttributes:0.75 cornerRadius:1.0 fillColor:[CPColor colorWithHexString:"FF9933"] boxType:CPBoxOldStyle];
+}
 
-
-// - (void)mouseDown:(CPEvent)anEvent
-// {
-//     console.log("DOWN - InputPort");
-// }
-
-// - (void)mouseDragged:(CPEvent)anEvent
-// {
-//     [[CPNotificationCenter defaultCenter] postNotificationName:@"MouseHoverInView" object:nil userInfo:[[CPDictionary alloc] initWithObjects:[workflowJobID, jobID] forKeys:[@"workflow_number", @"input_number"]]];
-
-// }
-
-// - (void)mouseExited:(CPEvent)anEvent
-// {
-//     [[CPNotificationCenter defaultCenter] postNotificationName:@"MouseHoverInView" object:nil userInfo:[[CPDictionary alloc] initWithObjects:[-1, -1] forKeys:[@"workflow_number", @"input_number"]]];    
-// }
-
+- (void)mouseExited:(CPEvent)anEvent
+{
+    [self changeBoxAttributes:0.75 cornerRadius:1.0 fillColor:[CPColor colorWithHexString:"FF4D4D"] boxType:CPBoxOldStyle];
+}
 
 @end
 

@@ -22,8 +22,8 @@
 
 - (id)init:(CGPoint)aPoint length:(float)theLength width:(float)theWidth type:(CPString)type subsection:(float)subsection iteration:(int)i jobID:(int)aJobID workflowJobID:(CPUInteger)aWorkflowJobID
 {
-    var length = 7.5,
-        width = 7.5,
+    var length = 8.5,
+        width = 8.5,
         pointX = aPoint.x + theLength,
         pointY = aPoint.y + subsection*i - (subsection / 2) - length;
 
@@ -40,6 +40,8 @@
         outputType = type;
         jobID = aJobID;
         workflowJobID = aWorkflowJobID;
+
+        [self changeBoxAttributes:0.75 cornerRadius:1.0 fillColor:[CPColor colorWithHexString:"003366"] boxType:CPBoxOldStyle];
 
         [self addSubview:output];
         [self setBounds:aRect];
@@ -61,73 +63,31 @@
 - (void)mouseDown:(CPEvent)anEvent
 {
     [[CPNotificationCenter defaultCenter] postNotificationName:@"AddLinkToView" object:nil userInfo:[[CPDictionary alloc] initWithObjects:[workflowJobID, jobID] forKeys:[@"workflow_number", @"output_number"]]];
-
-    // for (var i = 0; i < [links count]; i++) 
-    // {
-    //     if (!links[i].isUsed)
-    //     {
-    //         // links[i] = [[Link alloc] initWithFrame:CGRectMake(startMouseLocation.x, startMouseLocation.y, 0.0, 0.0) name:""];
-    //         links[i] = [[Link alloc] initWithFrame:CGRectMake(startMouseLocation.x, startMouseLocation.y, 0.0, 0.0) name:""];
-    //         [[theWindow contentView] addSubview:links[i]];
-    //         [links[i] makeConnectPointAtCurrentPoint:startMouseLocation controlPoint1:0.0 controlPoint2:0.0 endPoint:startMouseLocation];
-    //         [[theWindow contentView] setNeedsDisplay:true];
-    //         selectedLink = i;
-    //         return;
-    //     }
-    // };
-
-    // links[i] = [[Link alloc] initWithFrame:CGRectMake(startMouseLocation.x, startMouseLocation.y, 0.0, 0.0) name:""];
-    // [[theWindow contentView] addSubview:links[i]];
-    // [links[i] makeConnectPointAtCurrentPoint:startMouseLocation controlPoint1:0.0 controlPoint2:0.0 endPoint:startMouseLocation];
-    // [[theWindow contentView] setNeedsDisplay:true];
-    // selectedLink = i;
     [self setNeedsDisplay:YES];
 }
 
 - (void)mouseDragged:(CPEvent)anEvent
 {
-
     [[CPNotificationCenter defaultCenter] postNotificationName:@"DragLinkInView" object:nil userInfo:[[CPDictionary alloc] initWithObjects:[workflowJobID, jobID] forKeys:[@"workflow_number", @"output_number"]]];
-
-
-    // [links[selectedLink] setFrame:CGRectMake(links[selectedLink].currentPoint.x, links[selectedLink].currentPoint.y, currentMouseLocation.x - links[selectedLink].currentPoint.x, currentMouseLocation.y - links[selectedLink].currentPoint.y)];
-    // [links[selectedLink] setBounds:CGRectMake(links[selectedLink].currentPoint.x, links[selectedLink].currentPoint.y, currentMouseLocation.x - links[selectedLink].currentPoint.x, currentMouseLocation.y - links[selectedLink].currentPoint.y)];    
-
-    // [links[selectedLink] makeConnectPointAtCurrentPoint:[links[selectedLink] currentPoint] controlPoint1:currentMouseLocation controlPoint2:currentMouseLocation endPoint:currentMouseLocation];
-
-    // [links[selectedLink] setFrame:CGRectMake(0, 0, 6000, 600)];
-    // [links[selectedLink] setBounds:CGRectMake(0, 0, 1600, 600)];
-
-    // [links[selectedLink] setFrame:CGRectMake(310, 230, currentMouseLocation.x - links[selectedLink].currentPoint.x, currentMouseLocation.y - links[selectedLink].currentPoint.y)];
-
-
-
-    // [links[selectedLink] setNeedsDisplay:true];
     [self setNeedsDisplay:YES];
 }
 
 - (void)mouseUp:(CPEvent)anEvent
 {
-    // console.log("UP - OutputPort");
-
     [[CPNotificationCenter defaultCenter] postNotificationName:@"RemoveLinkFromView" object:nil userInfo:[[CPDictionary alloc] initWithObjects:[workflowJobID, jobID] forKeys:[@"workflow_number", @"output_number"]]];
-
-
-    // var theWindow = [[CPApplication sharedApplication] mainWindow];
-    // var currentMouseLocation = [CPEvent mouseLocation];
-
-    
-    // [links[selectedLink] makeConnectPointAtCurrentPoint:[links[selectedLink] currentPoint] controlPoint1:100 controlPoint2:600 endPoint:currentMouseLocation];
-
-    // links[selectedLink].isUsed = true;
-
-    //if mouseUp is on inputPort location - create link and set isUsed to true -- also set name -- remove from Subview
-
-    //if not, then destory link at selectedLink.
     [self setNeedsDisplay:YES];
 }
 
+- (void)mouseEntered:(CPEvent)anEvent
+{
+     [self changeBoxAttributes:0.75 cornerRadius:1.0 fillColor:[CPColor colorWithHexString:"FF9933"] boxType:CPBoxOldStyle];   
+}
 
+- (void)mouseExited:(CPEvent)anEvent
+{
+    [self changeBoxAttributes:0.75 cornerRadius:1.0 fillColor:[CPColor colorWithHexString:"003366"] boxType:CPBoxOldStyle];
+
+}
 
 @end
 

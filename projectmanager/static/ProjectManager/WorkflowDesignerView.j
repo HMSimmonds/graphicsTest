@@ -104,19 +104,6 @@ var LENGTH = 100.0,
             i,
             k,
             f;
-        for (i = 0; i < [workflowJobs count]; i++)
-        {
-            for (j = 0; j < workflowJobs[i].inputPortNumber; j++)
-            {
-                [workflowJobs[i].inputPorts[j] changeBoxAttributes:0.75 cornerRadius:1.0 fillColor:[CPColor colorWithHexString:"FF4D4D"] boxType:CPBoxOldStyle];
-            };
-
-            for (k = 0; k < workflowJobs[i].outputPortNumber; k++)
-            {
-                [workflowJobs[i].outputPorts[k] changeBoxAttributes:0.75 cornerRadius:1.0 fillColor:[CPColor colorWithHexString:"003366"] boxType:CPBoxOldStyle];
-            };
-        };
-
         for (i = 0; i < [workflowJobs count]; i++) 
         {
             [self addSubview:workflowJobs[i]];
@@ -137,6 +124,7 @@ var LENGTH = 100.0,
         for (i = 0; i < [seeds count]; i++)
         {
             [self addSubview:seeds[i]];
+            // [self addSubview:seeds[i].outputPort];
         }
 
     }
@@ -320,13 +308,8 @@ var LENGTH = 100.0,
             aFrame.size.height = 35.0;
             aFrame.size.width = 10.0;
 
-            console.log(aFrame);
-            console.log(mouseLocation);
-
-
             if (CPRectContainsPoint(aFrame, mouseLocation))
             {
-                console.log("ENTERED");
                 currentInputHover[0] = i;
                 currentInputHover[1] = j;
                 return true;

@@ -87,6 +87,7 @@
         [workflowJob setFillColor:aColor];
         [workflowJob setBoxType:type];
         [workflowJob setTitle:aTitle];
+        [workflowJob setBorderColor:[CPColor colorWithHexString:"999999"]];
         // [workflowJob setTitlePosition:6];
 }
 
@@ -107,7 +108,17 @@
     console.log("hello");
 }
 
+- (void)mouseEntered:(CPEvent)anEvent
+{
+    [workflowJob setBorderColor:[CPColor colorWithHexString:"4C4C4C"]];
+    [workflowJob setBorderWidth:1.5];
+}
 
+- (void)mouseExited:(CPEvent)anEvent
+{
+    [workflowJob setBorderColor:[CPColor colorWithHexString:"999999"]];
+    [workflowJob setBorderWidth:1.0];
+}
 
 @end
 
