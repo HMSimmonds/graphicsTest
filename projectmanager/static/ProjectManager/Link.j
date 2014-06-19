@@ -38,7 +38,6 @@
         name = aName;
         isUsed = false;
         pathAToB = [[CPBezierPath alloc] init];
-        // [self setNeedsDisplay:true];
 
     }
     return self

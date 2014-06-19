@@ -101,6 +101,8 @@
     @outlet             CPOutlineView           attributesOutlineView;
     @outlet             CPScrollView            attributesScrollView;
 
+
+
 }
     
 - (void)applicationDidFinishLaunching:(CPNotification)aNotification

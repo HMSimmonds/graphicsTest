@@ -15,28 +15,10 @@ var LENGTH = 100.0,
                 CPArray             workflowJobs                @accessors;
                 CPArray             links                       @accessors;
                 CPArray             seeds                       @accessors;
+
+                CPArray             currentInputHover; //array, pos. 0 = workflowJob, pos. 1 = inputNumber
 }
 
-
-- (void)awakeFromCib
-{
-    // Subscriptions for self.
-    //notifications to draw links 
-    [[CPNotificationCenter defaultCenter] addObserver:self
-                                          selector:@selector(receiveAddLink:)
-                                          name:@"AddLinkToView"
-                                          object:nil];
-    
-    [[CPNotificationCenter defaultCenter] addObserver:self
-                                          selector:@selector(receiveRemoveLink:)
-                                          name:@"RemoveLinkFromView"
-                                          object:nil];
-
-    [[CPNotificationCenter defaultCenter] addObserver:self
-                                          selector:@selector(receiveDragLink:)
-                                          name:@"DragLinkInView"
-                                          object:nil];
-}
 
 - (id)initDesigner 
 {
@@ -50,6 +32,10 @@ var LENGTH = 100.0,
         workflowJobs = [[CPArray alloc] init];
         links = [[CPArray alloc] init];
         seeds = [[CPArray alloc] init];
+
+        currentInputHover = [[CPArray alloc] init];
+        currentInputHover[0] = -1;
+        currentInputHover[1] = -1;
 
 /* ------------------------------ CODE TO BE AUTOMATED ---------------------------- */
         //create points for origins of workflowJob boxes NOTE: use points to create bezier curves
@@ -153,13 +139,30 @@ var LENGTH = 100.0,
             [self addSubview:seeds[i]];
         }
 
-        // for (i = 0; i < [links count]; i++)
-        // {
-        //     [self addSubview:links[i]];
-        // };
-
-
     }
+
+    //register notification observers
+    [[CPNotificationCenter defaultCenter] addObserver:self
+                                          selector:@selector(receiveAddLink:)
+                                          name:@"AddLinkToView"
+                                          object:nil];
+    
+    [[CPNotificationCenter defaultCenter] addObserver:self
+                                          selector:@selector(receiveRemoveLink:)
+                                          name:@"RemoveLinkFromView"
+                                          object:nil];
+
+    [[CPNotificationCenter defaultCenter] addObserver:self
+                                          selector:@selector(receiveDragLink:)
+                                          name:@"DragLinkInView"
+                                          object:nil];
+
+    [[CPNotificationCenter defaultCenter] addObserver:self
+                                          selector:@selector(receiveCurrentMouseHover:)
+                                          name:@"MouseHoverInView"
+                                          object:nil];
+    [self setNeedsDisplay:YES];
+    // [self display];
 
     return self;
 }
@@ -173,12 +176,12 @@ var LENGTH = 100.0,
     
 // }
 
-// - (void)mouseDown:(CPEvent)anEvent
-// {
-//     console.log("DOWN - WorkflowDesigner");
-//         console.log([CPEvent mouseLocation]);
+- (void)mouseDown:(CPEvent)anEvent
+{
+    console.log("DOWN - WorkflowDesigner");
+        console.log([self convertPoint:[CPEvent mouseLocation] fromView:nil]);
 
-// }
+}
 
 //to draw lines
 - (void)drawRect:(CGRect)aRect
@@ -203,54 +206,134 @@ var LENGTH = 100.0,
 
 
         [links[i].pathAToB stroke];  
-        // [self setNeedsDisplay:true];
+        [self setNeedsDisplay:true];
+
     };
 
 }
 
 - (void)receiveAddLink:(CPNotification)aNotification
 {
-    console.log("Add Link");
+    
     var info = [aNotification userInfo],    
         mouseLocation = [CPEvent mouseLocation],
         workflowNumber = [info objectForKey:"workflow_number"],
-        outputNumber = [info objectForKey:"output_number"];
+        outputNumber = [info objectForKey:"output_number"],
+        k = 0,
+        currentMouseLocation = [self convertPoint:mouseLocation fromView:nil];
 
-    var k = 0; 
-
-    while (links[k] != [CPNull null])
+    while (links[k] != null)
         k++;
-
-    links[k] = [[Link alloc] initWithName:"" workflowStart:workflowNumber workflowEnd:null outputRef:outputNumber inputRef:null];
-
-
+    
+    console.log(links);
+    links[k] = [[Link alloc] initWithName:"" workflowStart:workflowNumber workflowEnd:-1 outputRef:outputNumber inputRef:-1];
+    [links[k] makeConnectPointAtCurrentPoint:currentMouseLocation controlPoint1:0.0 controlPoint2:0.0 endPoint:currentMouseLocation];
+    console.log("Add Link");
 }
 
 
 - (void)receiveRemoveLink:(CPNotification)aNotification
 {
-    console.log("Remove Link");
+    
     var info = [aNotification userInfo],
         mouseLocation = [CPEvent mouseLocation],
         workflowNumber = [info objectForKey:"workflow_number"],
-        outputNumber = [info objectForKey:"output_number"];
+        outputNumber = [info objectForKey:"output_number"],
+        k,
+        currentMouseLocation = [self convertPoint:mouseLocation fromView:nil];
+        console.log(currentMouseLocation);
 
-    var k;
+    for (k = 0; k < [links count]; k++)
+    {
+        if ((links[k].workflowStart == workflowNumber) && (links[k].outputRef == outputNumber))
+        {
+            if ([self isInInputLocation:currentMouseLocation])
+            {
+                //create link
+                links[k].workflowEnd = currentInputHover[0];
+                links[k].inputRef = currentInputHover[1];
+                links[k].isUsed = true;
+                [links[k] makeConnectPointAtCurrentPoint:workflowJobs[workflowNumber].outputPorts[outputNumber].outputStart controlPoint1:workflowJobs[workflowNumber].outputPorts[outputNumber].outputStart controlPoint2:workflowJobs[workflowNumber].outputPorts[outputNumber].outputStart endPoint:workflowJobs[currentInputHover[0]].inputPorts[currentInputHover[1]].inputEnd];
 
-    // for (k = 0; k < [links count]; k++)
-    // {
-    //     if (links[k].workflow)
-    // };
+                console.log("Create Link");
+            }
+
+            else //link is not used -> remove
+            {
+                links[k] = null;
+                console.log("Remove Link");
+                [self display];
+            }
+            break;
+        }
+    };
 }
 
 
 - (void)receiveDragLink:(CPNotification)aNotification
 {
-    console.log("Drag Link");
+    var info = [aNotification userInfo],
+        mouseLocation = [CPEvent mouseLocation],
+        workflowNumber = [info objectForKey:"workflow_number"],
+        outputNumber = [info objectForKey:"output_number"],
+        k,
+        currentMouseLocation = [self convertPoint:mouseLocation fromView:nil];
 
-    [links[k] makeConnectPointAtCurrentPoint:workflowJobs[workflowNumber].outputPorts[outputNumber].outputStart controlPoint1:workflowJobs[0].inputPorts[0].inputEnd controlPoint2:workflowJobs[0].inputPorts[0].inputEnd endPoint:workflowJobs[0].inputPorts[0].inputEnd];
+    for (k = 0; k < [links count]; k++)
+    {
+        if ((links[k].workflowStart == workflowNumber) && (links[k].outputRef == outputNumber))
+        {
+            [links[k] makeConnectPointAtCurrentPoint:workflowJobs[workflowNumber].outputPorts[outputNumber].outputStart controlPoint1:currentMouseLocation controlPoint2:currentMouseLocation endPoint:currentMouseLocation];
+            console.log("Drag Link");
+        }
+    };
+    [self display];
 
 }
 
+// - (void)receiveCurrentMouseHover:(CPNotification)aNotification
+// {
+//     console.log("Hover");
+    
+//     var info = [aNotification userInfo],
+//         workflowNumber = [info objectForKey:"workflow_number"],
+//         inputNumber = [info objectForKey:"input_number"];
 
+//     currentInputHover[0] = workflowNumber;
+//     currentInputHover[1] = inputNumber;
+
+// }
+
+
+- (BOOL)isInInputLocation:(CGPoint)mouseLocation
+{
+    var i,
+        j,
+        k;
+
+    for (i = 0; i < [workflowJobs count]; i++)
+    {
+        for (j = 0; j < workflowJobs[i].inputPortNumber; j++)
+        {
+            var aFrame = [workflowJobs[i].inputPorts[j] frame];
+            
+            aFrame.size.height = 35.0;
+            aFrame.size.width = 10.0;
+
+            console.log(aFrame);
+            console.log(mouseLocation);
+
+
+            if (CPRectContainsPoint(aFrame, mouseLocation))
+            {
+                console.log("ENTERED");
+                currentInputHover[0] = i;
+                currentInputHover[1] = j;
+                return true;
+            }
+            
+        };
+    };
+    return false;
+}
 @end

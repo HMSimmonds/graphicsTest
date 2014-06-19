@@ -50,16 +50,27 @@
 
 }
 
-- (void)mouseDragged:(CPEvent)anEvent
-{
-    console.log("DRAG - Inputport");
-}
+// - (void)mouseDragged:(CPEvent)anEvent
+// {
+//     console.log("DRAG - Inputport");
+// }
 
 
-- (void)mouseDown:(CPEvent)anEvent
-{
-    console.log("DOWN - InputPort");
-}
+// - (void)mouseDown:(CPEvent)anEvent
+// {
+//     console.log("DOWN - InputPort");
+// }
+
+// - (void)mouseDragged:(CPEvent)anEvent
+// {
+//     [[CPNotificationCenter defaultCenter] postNotificationName:@"MouseHoverInView" object:nil userInfo:[[CPDictionary alloc] initWithObjects:[workflowJobID, jobID] forKeys:[@"workflow_number", @"input_number"]]];
+
+// }
+
+// - (void)mouseExited:(CPEvent)anEvent
+// {
+//     [[CPNotificationCenter defaultCenter] postNotificationName:@"MouseHoverInView" object:nil userInfo:[[CPDictionary alloc] initWithObjects:[-1, -1] forKeys:[@"workflow_number", @"input_number"]]];    
+// }
 
 
 @end

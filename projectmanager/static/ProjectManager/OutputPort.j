@@ -81,14 +81,11 @@
     // [links[i] makeConnectPointAtCurrentPoint:startMouseLocation controlPoint1:0.0 controlPoint2:0.0 endPoint:startMouseLocation];
     // [[theWindow contentView] setNeedsDisplay:true];
     // selectedLink = i;
-
+    [self setNeedsDisplay:YES];
 }
 
 - (void)mouseDragged:(CPEvent)anEvent
 {
-    console.log("DRAG - OutputPort");
-    var currentMouseLocation = [CPEvent mouseLocation];
-    console.log(currentMouseLocation);
 
     [[CPNotificationCenter defaultCenter] postNotificationName:@"DragLinkInView" object:nil userInfo:[[CPDictionary alloc] initWithObjects:[workflowJobID, jobID] forKeys:[@"workflow_number", @"output_number"]]];
 
@@ -106,7 +103,7 @@
 
 
     // [links[selectedLink] setNeedsDisplay:true];
-
+    [self setNeedsDisplay:YES];
 }
 
 - (void)mouseUp:(CPEvent)anEvent
@@ -127,6 +124,7 @@
     //if mouseUp is on inputPort location - create link and set isUsed to true -- also set name -- remove from Subview
 
     //if not, then destory link at selectedLink.
+    [self setNeedsDisplay:YES];
 }
 
 

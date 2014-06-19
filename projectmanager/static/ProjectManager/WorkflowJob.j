@@ -1,5 +1,5 @@
-@import <AppKit/CPWindowController.j>
 @import <Foundation/CPObject.j>
+@import <AppKit/CPWindowController.j>
 
 @import "InputPort.j"
 @import "OutputPort.j"
