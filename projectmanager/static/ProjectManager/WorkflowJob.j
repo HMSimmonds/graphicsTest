@@ -14,10 +14,11 @@
     CPArray                 inputPorts                      @accessors;
     CPArray                 outputPorts                     @accessors;
 
-    CPButton                attributesButton             @accessors;
+    CPButton                attributesButton                @accessors;
 
     CPBundle                theBundle;
-    CPUInteger              refNumber               @accessors;
+    CPUInteger              refNumber                       @accessors;
+    CPString                type                            @accessors;
 
 }
 
@@ -37,6 +38,7 @@
 
         theBundle = [CPBundle mainBundle];
 
+        type = aType;
         var plusImage = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"plus.png"] size:CGSizeMake(7.5, 7.5)];
 
         [attributesButton setImage:plusImage];
@@ -80,12 +82,12 @@
 }
 
 
-- (void)changeBoxAttributes:(float)borderWidth cornerRadius:(float)cornerRadius fillColor:(CPColor)aColor boxType:(CPBoxType)type title:(CPString)aTitle 
+- (void)changeBoxAttributes:(float)borderWidth cornerRadius:(float)cornerRadius fillColor:(CPColor)aColor boxType:(CPBoxType)aType title:(CPString)aTitle 
 {
         [workflowJob setBorderWidth:borderWidth];
         [workflowJob setCornerRadius:cornerRadius];
         [workflowJob setFillColor:aColor];
-        [workflowJob setBoxType:type];
+        [workflowJob setBoxType:aType];
         [workflowJob setTitle:aTitle];
         [workflowJob setBorderColor:[CPColor colorWithHexString:"999999"]];
         // [workflowJob setTitlePosition:6];

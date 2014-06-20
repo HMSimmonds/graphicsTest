@@ -3,7 +3,7 @@
 @import "WorkflowDesignerView.j"
 @import "ToolPanel.j"
 @import "WorkflowJob.j"
-
+@import "MyCollectionViewItem.j"
 
 @implementation AppController : CPObject
 {
@@ -100,6 +100,9 @@
     @outlet             CPTableHeaderView       attributesTableHeader;
     @outlet             CPOutlineView           attributesOutlineView;
     @outlet             CPScrollView            attributesScrollView;
+
+
+    
 
 
 
@@ -235,22 +238,35 @@
     [rightUpperScrollView setBackgroundColor:[CPColor colorWithHexString:"A6A6A6"]];
     [rightUpperScrollView setDocumentView:rightUpperView];
 
-    var scrollBounds = [jobScrollView bounds];
+    // var scrollBounds = [jobScrollView bounds];
 
     // [jobsView setFrame:CGRectMake(scrollBounds.origin.x, scrollBounds.origin.y + 10.0, scrollBounds.size.x, [jobsView bounds].size.y)];
 
     [jobScrollView setBackgroundColor:[CPColor colorWithHexString:"A6A6A6"]];
-    [jobScrollView setDocumentView:jobsView];
+    // [jobScrollView setDocumentView:jobsView];
 
-    [imageA setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"contrast.png"] size:CGSizeMake(32.0, 32.0)]];
-    [imageB setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"crop.png"] size:CGSizeMake(32.0, 32.0)]];
-    [imageC setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"expand.png"] size:CGSizeMake(32.0, 32.0)]];
-    [imageD setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"expand2.png"] size:CGSizeMake(32.0, 32.0)]];
-    [imageE setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"image.png"] size:CGSizeMake(32.0, 32.0)]];
-    [imageF setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"libreoffice.png"] size:CGSizeMake(32.0, 32.0)]];
-    [imageG setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"music.png"] size:CGSizeMake(32.0, 32.0)]];
-    [imageH setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"pen.png"] size:CGSizeMake(32.0, 32.0)]];
-    [imageI setImage:[[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"table.png"] size:CGSizeMake(32.0, 32.0)]];
+    
+
+    var image1 = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"contrast.png"] size:CGSizeMake(32.0, 32.0)],
+        image2 = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"crop.png"] size:CGSizeMake(32.0, 32.0)],
+        image3 = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"expand.png"] size:CGSizeMake(32.0, 32.0)],
+        image4 = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"expand2.png"] size:CGSizeMake(32.0, 32.0)],
+        image5 = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"image.png"] size:CGSizeMake(32.0, 32.0)],
+        image6 = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"libreoffice.png"] size:CGSizeMake(32.0, 32.0)],
+        image7 = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"music.png"] size:CGSizeMake(32.0, 32.0)],
+        image8 = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"pen.png"] size:CGSizeMake(32.0, 32.0)],
+        image9 = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"table.png"] size:CGSizeMake(32.0, 32.0)];
+
+    [imageA setImage:image1];
+    [imageB setImage:image2];
+    [imageC setImage:image3];
+    [imageD setImage:image4];
+    [imageE setImage:image5];
+    [imageF setImage:image6];
+    [imageG setImage:image7];
+    [imageH setImage:image8];
+    [imageI setImage:image9];
+
 
     jobsViewArray = [[CPArray alloc] init]; //used to keep track of jobs. could use controller ? 
     jobsViewArray[0] = jobA;
@@ -307,11 +323,7 @@
     [attributesScrollView setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
     [attributesPanel close];
     
-
     [theWindow orderFront:self];
-
-
-
 
 }
 
