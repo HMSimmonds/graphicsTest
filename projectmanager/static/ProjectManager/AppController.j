@@ -3,7 +3,6 @@
 @import "WorkflowDesignerView.j"
 @import "ToolPanel.j"
 @import "WorkflowJob.j"
-@import "MyCollectionViewItem.j"
 
 @implementation AppController : CPObject
 {
@@ -11,6 +10,7 @@
     @outlet             CPView                  contentView             @accessors;
                         CGRect                  _theWindowBounds;
                         CPScrollView            contentScrollView;
+
 
     @outlet             CPSplitView             workflowDesignerView    @accessors;
     // @outlet             CPView                  designerView            @accessors;
@@ -102,7 +102,8 @@
     @outlet             CPScrollView            attributesScrollView;
 
 
-    
+    //Table View
+    @outlet             CPTableView             jobsTableView;
 
 
 
@@ -142,6 +143,7 @@
     
     [workflowDesignerView setFrame:_theWindowBounds];
     [workflowDesignerView setAutoresizingMask:CPViewWidthSizable | CPViewHeightSizable];
+    [workflowDesignerView setDelegate:self];
     [contentView addSubview:workflowDesignerView];
 
 
@@ -161,12 +163,14 @@
     [leftSideBar setFrame:CGRectMake(0.0, 0.0, 300.0, CGRectGetHeight(_theWindowBounds))];
     [leftSideBar setAutoresizingMask:CPViewWidthSizable | CPViewHeightSizable];
     [leftSideBar setBackgroundColor:[CPColor colorWithHexString:"E6E6E6"]];
+    [leftSideBar setDelegate:self];
 
 
     //Right Side Bar
     [rightSideBar setFrame:CGRectMake(CGRectGetWidth(_theWindowBounds) - 300.0, 0.0, 300.0, CGRectGetHeight(_theWindowBounds))];
     [rightSideBar setAutoresizingMask:CPViewHeightSizable | CPViewWidthSizable];
     [rightSideBar setBackgroundColor:[CPColor colorWithHexString:"E6E6E6"]];
+    [rightSideBar setDelegate:self];
     // [rightSideBar splitView:rightSideBar constrainMinCoordinate:2 ofSubviewAt:0];
 
     var leftSideBarImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"indent-increase.png"] size:CGSizeMake(15.0, 15.0)],
@@ -316,13 +320,33 @@
     };
 
 
-    [attributesPanel setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
+    // [attributesPanel setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
 
-    [attributesTableHeader setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
-    [attributesOutlineView setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
-    [attributesScrollView setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
+    //for now
+    var selectedWindowTitle = "Attributes";
+
+    // [attributesTableHeader setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
+    // [attributesOutlineView setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
+    // [attributesScrollView setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
+    [attributesPanel setTitle:selectedWindowTitle];
+    [attributesPanel setFloatingPanel:YES];
+
+
+    
     [attributesPanel close];
     
+
+    /* --------- TABLE VIEW IMPLMENTATION ------- */
+
+
+
+
+    /* ---------- SPLIT VIEW CONSTRAINT IMPLEMENTATION ------- */
+    
+
+
+
+
     [theWindow orderFront:self];
 
 }
@@ -347,12 +371,25 @@
 
 - (void)leftSideBarAction:(id)aSender
 {
-    console.log("LeftSideBar");
+    var leftViewCollapsed = [[self workflowDesignerView] isSubviewCollapsed:[[[self workflowDesignerView] subviews] objectAtIndex:0]];
+    if (leftViewCollapsed)
+        [workflowDesignerView setPosition:300.0 ofDividerAtIndex:0];
+    else
+        [workflowDesignerView setPosition:1.0 ofDividerAtIndex:0];
 }
 
 - (void)rightSideBarAction:(id)aSender
 {
-    console.log("RightSideBar");
+    var rightViewCollapsed = [[self workflowDesignerView] isSubviewCollapsed:[[[self workflowDesignerView] subviews] objectAtIndex:2]],
+        overallFrame = [workflowDesignerView frame];
+
+    console.log(overallFrame.origin.x);
+
+    if (rightViewCollapsed)
+        [workflowDesignerView setPosition:overallFrame.origin.x + overallFrame.size.width - 300 ofDividerAtIndex:1];
+
+    else
+        [workflowDesignerView setPosition:overallFrame.origin.x + overallFrame.size.width ofDividerAtIndex:1];
 }
 
 - (void)helpAction:(id)aSender
@@ -370,6 +407,47 @@
     console.log("Settings");
 }
 /* -------------------------------------- */
+
+//split View method constrain & hide support
+- (float)splitView:(CPSplitView)splitView constrainMinCoordinate:(float)minCoord ofSubviewAt:(CPInteger)index
+{
+    if (index == 0)
+        return 200;
+    else
+        return minCoord;
+
+}
+
+- (float)splitView:(CPSplitView)splitView constrainMaxCoordinate:(float)minCoord ofSubviewAt:(CPInteger)index
+{
+    if (index == 0)
+        return 500;
+
+    else
+        return minCoord;
+}
+
+- (float)splitView:(CPSplitView)splitView canCollapseSubview:(CPView)subview
+{
+    var rightView = [[splitView subviews] objectAtIndex:0];
+    return ([subview isEqual:rightView]);
+}
+
+// - (BOOL)splitView:(CPSplitView)splitView shouldHideDividerAtIndex:(CPInteger)dividerIndex
+// {
+//     return YES;
+// }
+
+
+//will collapse on doubleClick
+- (BOOL)splitView:(CPSplitView)splitView shouldCollapseSubview:(CPView)subview forDoubleClickOnDividerAtIndex:(CPInteger)dividerIndex
+{
+    console.log("hi");
+    var rightView = [[splitView subviews] objectAtIndex:0];
+    return ([subview isEqual:rightView]);
+}
+
+
 
 @end
 
