@@ -412,12 +412,68 @@
 - (void)leftSideBarAction:(id)aSender
 {
     console.log("LeftSideBar");
+    var leftViewCollapsed = [[self workflowDesignerView] isSubviewCollapsed:[[[self workflowDesignerView] subviews] objectAtIndex:0]];
+    if (leftViewCollapsed)
+        [workflowDesignerView setPosition:300.0 ofDividerAtIndex:0];
+    else
+        [workflowDesignerView setPosition:1.0 ofDividerAtIndex:0];
 }
 
 - (void)rightSideBarAction:(id)aSender
 {
     console.log("RightSideBar");
+    var rightViewCollapsed = [[self workflowDesignerView] isSubviewCollapsed:[[[self workflowDesignerView] subviews] objectAtIndex:2]],
+        overallFrame = [workflowDesignerView frame];
+ 
+    console.log(overallFrame.origin.x);
+ 
+    if (rightViewCollapsed)
+        [workflowDesignerView setPosition:overallFrame.origin.x + overallFrame.size.width - 300 ofDividerAtIndex:1];
+ 
+    else
+        [workflowDesignerView setPosition:overallFrame.origin.x + overallFrame.size.width ofDividerAtIndex:1];
 }
+
+//split View method constrain & hide support
+- (float)splitView:(CPSplitView)splitView constrainMinCoordinate:(float)minCoord ofSubviewAt:(CPInteger)index
+{
+    if (index == 0)
+        return 200;
+    else
+        return minCoord;
+ 
+}
+ 
+- (float)splitView:(CPSplitView)splitView constrainMaxCoordinate:(float)minCoord ofSubviewAt:(CPInteger)index
+{
+    if (index == 0)
+        return 500;
+ 
+    else
+        return minCoord;
+}
+ 
+- (float)splitView:(CPSplitView)splitView canCollapseSubview:(CPView)subview
+{
+    var rightView = [[splitView subviews] objectAtIndex:0];
+    return ([subview isEqual:rightView]);
+}
+ 
+// - (BOOL)splitView:(CPSplitView)splitView shouldHideDividerAtIndex:(CPInteger)dividerIndex
+// {
+//     return YES;
+// }
+ 
+ 
+//will collapse on doubleClick
+- (BOOL)splitView:(CPSplitView)splitView shouldCollapseSubview:(CPView)subview forDoubleClickOnDividerAtIndex:(CPInteger)dividerIndex
+{
+    console.log("hi");
+    var rightView = [[splitView subviews] objectAtIndex:0];
+    return ([subview isEqual:rightView]);
+}
+ 
+
 
 - (void)helpAction:(id)aSender
 {
