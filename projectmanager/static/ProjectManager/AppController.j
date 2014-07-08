@@ -11,7 +11,6 @@
                         CGRect                  _theWindowBounds;
                         CPScrollView            contentScrollView;
 
-
     @outlet             CPSplitView             workflowDesignerView    @accessors;
     // @outlet             CPView                  designerView            @accessors;
     @outlet             CPScrollView            designerView            @accessors;
@@ -76,6 +75,16 @@
     @outlet             CPImageView             imageH;
     @outlet             CPImageView             imageI;
 
+    @outlet             CPImageView             imageA2;
+    @outlet             CPImageView             imageB2;
+    @outlet             CPImageView             imageC2;
+    @outlet             CPImageView             imageD2;
+    @outlet             CPImageView             imageE2;
+    @outlet             CPImageView             imageF2;
+    @outlet             CPImageView             imageG2;
+    @outlet             CPImageView             imageH2;
+    @outlet             CPImageView             imageI2;
+
     @outlet             CPView                  pageA                    @accessors;
     @outlet             CPView                  pageB                    @accessors;
     @outlet             CPView                  pageC                    @accessors;
@@ -104,7 +113,11 @@
 
     //Table View
     @outlet             CPTableView             jobsTableView;
+    @outlet             CPArray                 _tableContent;
 
+    //Outline View
+    @outlet             CPOutlineView           outlineView;
+    @outlet             CPArray                 _outlineItems;
 
 
 }
@@ -143,7 +156,6 @@
     
     [workflowDesignerView setFrame:_theWindowBounds];
     [workflowDesignerView setAutoresizingMask:CPViewWidthSizable | CPViewHeightSizable];
-    [workflowDesignerView setDelegate:self];
     [contentView addSubview:workflowDesignerView];
 
 
@@ -163,14 +175,12 @@
     [leftSideBar setFrame:CGRectMake(0.0, 0.0, 300.0, CGRectGetHeight(_theWindowBounds))];
     [leftSideBar setAutoresizingMask:CPViewWidthSizable | CPViewHeightSizable];
     [leftSideBar setBackgroundColor:[CPColor colorWithHexString:"E6E6E6"]];
-    [leftSideBar setDelegate:self];
 
 
     //Right Side Bar
     [rightSideBar setFrame:CGRectMake(CGRectGetWidth(_theWindowBounds) - 300.0, 0.0, 300.0, CGRectGetHeight(_theWindowBounds))];
     [rightSideBar setAutoresizingMask:CPViewHeightSizable | CPViewWidthSizable];
     [rightSideBar setBackgroundColor:[CPColor colorWithHexString:"E6E6E6"]];
-    [rightSideBar setDelegate:self];
     // [rightSideBar splitView:rightSideBar constrainMinCoordinate:2 ofSubviewAt:0];
 
     var leftSideBarImageIcon = [[CPImage alloc] initWithContentsOfFile:[theBundle pathForResource:@"indent-increase.png"] size:CGSizeMake(15.0, 15.0)],
@@ -271,6 +281,16 @@
     [imageH setImage:image8];
     [imageI setImage:image9];
 
+    [imageA2 setImage:image1];
+    [imageB2 setImage:image2];
+    [imageC2 setImage:image3];
+    [imageD2 setImage:image4];
+    [imageE2 setImage:image5];
+    [imageF2 setImage:image6];
+    [imageG2 setImage:image7];
+    [imageH2 setImage:image8];
+    [imageI2 setImage:image9];
+
 
     jobsViewArray = [[CPArray alloc] init]; //used to keep track of jobs. could use controller ? 
     jobsViewArray[0] = jobA;
@@ -320,34 +340,47 @@
     };
 
 
-    // [attributesPanel setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
+    [attributesPanel setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
 
-    //for now
-    var selectedWindowTitle = "Attributes";
-
-    // [attributesTableHeader setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
-    // [attributesOutlineView setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
-    // [attributesScrollView setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
-    [attributesPanel setTitle:selectedWindowTitle];
-    [attributesPanel setFloatingPanel:YES];
-
-
-    
+    [attributesTableHeader setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
+    [attributesOutlineView setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
+    [attributesScrollView setBackgroundColor:[CPColor colorWithHexString:"4C4C4C"]];
     [attributesPanel close];
     
 
     /* --------- TABLE VIEW IMPLMENTATION ------- */
+    _tableContent = [[CPArray alloc] init];
+    //put content into _tableContent
+    for (var i = 0; i < [jobsViewArray count]; i++)
+    {
+        [_tableContent addObject:jobsViewArray[i]];
+    };
 
 
 
+    [jobsTableView setDataSource:self];
+    [jobsTableView setDelegate:self];
+    // [jobsTableView registerForDraggedTypes:[CPArray arrayWithObject:TABLE_DRAG_TYPE]];
 
-    /* ---------- SPLIT VIEW CONSTRAINT IMPLEMENTATION ------- */
+    // var column = [[CPTableColumn alloc] initWithIdentifier:@"workflowJobs"];
+    // [[column headerView] setStringValue:@"workflowJobs"];
+    // [jobsTableView addTableColumn:column];
+
+
+
+    /* -------- OUTLINE VIEW IMPLEMENTATION --- */
+    // _outlineItems = [[CPArray alloc] init];
+
+    // for (var i = 0; i < 40; i++)
+    // {
+    //     var item = [CPString stringWithString:@"Some Text"];
+    //     [_outlineItems addObject:item];
+    // };
+
+    // [outlineView setDelegate:self];
+    // [outlineView setDataSource:self];
     
-
-
-
-
-    [theWindow orderFront:self];
+    // [theWindow orderFront:self];
 
 }
 
@@ -371,25 +404,12 @@
 
 - (void)leftSideBarAction:(id)aSender
 {
-    var leftViewCollapsed = [[self workflowDesignerView] isSubviewCollapsed:[[[self workflowDesignerView] subviews] objectAtIndex:0]];
-    if (leftViewCollapsed)
-        [workflowDesignerView setPosition:300.0 ofDividerAtIndex:0];
-    else
-        [workflowDesignerView setPosition:1.0 ofDividerAtIndex:0];
+    console.log("LeftSideBar");
 }
 
 - (void)rightSideBarAction:(id)aSender
 {
-    var rightViewCollapsed = [[self workflowDesignerView] isSubviewCollapsed:[[[self workflowDesignerView] subviews] objectAtIndex:2]],
-        overallFrame = [workflowDesignerView frame];
-
-    console.log(overallFrame.origin.x);
-
-    if (rightViewCollapsed)
-        [workflowDesignerView setPosition:overallFrame.origin.x + overallFrame.size.width - 300 ofDividerAtIndex:1];
-
-    else
-        [workflowDesignerView setPosition:overallFrame.origin.x + overallFrame.size.width ofDividerAtIndex:1];
+    console.log("RightSideBar");
 }
 
 - (void)helpAction:(id)aSender
@@ -408,46 +428,126 @@
 }
 /* -------------------------------------- */
 
-//split View method constrain & hide support
-- (float)splitView:(CPSplitView)splitView constrainMinCoordinate:(float)minCoord ofSubviewAt:(CPInteger)index
+/* ------- TABLE VIEW HELPER METHODS --------- */
+- (id)tableView:(CPTableView)aTableView objectValueForTableColumn:(CPtableColumn)aTableColumn row:(int)aRow 
 {
-    if (index == 0)
-        return 200;
-    else
-        return minCoord;
-
+    return [_tableContent objectAtIndex:aRow];
 }
 
-- (float)splitView:(CPSplitView)splitView constrainMaxCoordinate:(float)minCoord ofSubviewAt:(CPInteger)index
+- (int)numberOfRowsInTableView:(CPTableView)aTableView
 {
-    if (index == 0)
-        return 500;
-
-    else
-        return minCoord;
+    return [_tableContent count];
 }
 
-- (float)splitView:(CPSplitView)splitView canCollapseSubview:(CPView)subview
+- (void)tableViewSelectionDidChange:(CPNotification)aNotification
 {
-    var rightView = [[splitView subviews] objectAtIndex:0];
-    return ([subview isEqual:rightView]);
+    var row = [[[aNotification object] selectedRowIndexes] firstIndex];
+    console.info(row);
+
+    if (row == -1)
+        console.info(@"Nothing selected");
+
+    else 
+        console.info([CPString stringWithFormat:@"selected: %@", [_tableContent objectAtIndex:row]]);
 }
 
-// - (BOOL)splitView:(CPSplitView)splitView shouldHideDividerAtIndex:(CPInteger)dividerIndex
+// - (CPView)tableView:(CPTableView)aTableView viewForTableColumn:(CPTableColumn)aTableColumn row:(CPInteger)aRow
+// {
+//     var tableColumnId = [aTableColumn identifier],
+//         view = [aTableView makeViewWithIdentifier:tableColumnId owner:self];
+
+//     if (view == nil)
+//     {
+//         view = [[CPTableCellView alloc] initWithFrame:CGRectMakeZero()];
+//         [view setIdentifier:@"Jobs"];
+//     }
+
+//     [[view textField] setStringValue:aRow];
+
+//     return view;
+// }
+
+// - (void)tableView:(CPTableView)aTableView viewForTableColumn:(CPTableColumn)aTableColumn row:(int)aRow
+// {
+//     var aView = [aTableView makeViewWithIdentifier:@"workflowJob" owner:self];
+
+//     return aView;
+// }
+
+// - (IBAction)reload:(id)aSender
+// {
+//     [jobsTableView reloadData];
+// }
+
+/* ---------- OUTLINE VIEW SETUP -------------- */
+
+// - (id)outlineView:(CPOutlineView)anOutlineView child:(int)anIndex ofItem:(id)anItem
+// {
+//     return [CPObject new];
+// }
+
+// - (BOOL)outlineView:(CPOutlineView)anOutlineView isItemExpandable:(id)anItem
 // {
 //     return YES;
 // }
 
+// - (int)outlineView:(CPOutlineView)anOutlineView numberOfChildrenOfItem:(id)anItem
+// {
+//     return 10;
+// }
 
-//will collapse on doubleClick
-- (BOOL)splitView:(CPSplitView)splitView shouldCollapseSubview:(CPView)subview forDoubleClickOnDividerAtIndex:(CPInteger)dividerIndex
-{
-    console.log("hi");
-    var rightView = [[splitView subviews] objectAtIndex:0];
-    return ([subview isEqual:rightView]);
-}
+// - (id)outlineView:(CPOutlineView)anOutlineView dataViewForTableColumn:(CPTableColumn)aTableColumn byItem:(int)anItem
+// {
+//     var identifier = [aTableColumn identifier];
 
+//     if (identifier == @"first" && [anOutlineView parentForItem:anItem] == nil)
+//         identifier = @"firstRoot";
+
+//     var view = [anOutlineView makeViewWithIdentifier:identifier owner:self];
+//     [[view textField] setStringValue:@"Item <" + [item UID] + ">"];
+
+//     if (identifier = @"firstRoot")
+//     {
+        
+//     }
+// }
+
+
+/* --------------------------------------------- */
 
 
 @end
+
+
+
+// @implementation JobsListCellView : CPView
+// {
+//     id              objectValue     @accessors;
+//     CPTextField     textField       @accessors;
+// }
+
+// - (id)init 
+// {
+//     self = [super init];
+//     return self;
+// }
+
+// - (id)initWithFrame:(CGRect)aFrame
+// {
+//     self = [super initWithFrame:aFrame];
+//     return self;
+// }
+
+// - (id)initWithCoder:(CPCoder)aCoder
+// {
+//     self = [super initWithCoder:aCoder];
+//     return self;
+// }
+
+// - (void)setObjectValue:(id)aValue
+// {
+//     objectValue = aValue;
+// }
+
+// @end
 
