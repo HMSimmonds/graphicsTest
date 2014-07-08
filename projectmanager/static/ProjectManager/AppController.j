@@ -6,6 +6,7 @@
 
 @implementation AppController : CPObject
 {
+    //Main Window
     @outlet             CPWindow                theWindow               @accessors;
     @outlet             CPView                  contentView             @accessors;
                         CGRect                  _theWindowBounds;
@@ -19,6 +20,7 @@
 
                         WorkflowDesignerView    workflowDiagram         @accessors;
 
+    //toolbar icons (can be moved to separate class?)
     @outlet             CPToolbarItem           leftSideBarIcon         @accessors;
     @outlet             CPToolbarItem           rightSideBarIcon        @accessors;
     @outlet             CPToolbarItem           toolsIcon               @accessors;
@@ -30,15 +32,16 @@
     @outlet             CPToolbarItem           jobsIcon                @accessors;
     @outlet             CPToolbarItem           resultsIcon             @accessors;
 
-
+    //toolbar buttons (can be moved to separate class ?)
     @outlet             CPButton                connectButton           @accessors;
     @outlet             CPButton                settingsButton          @accessors;
     @outlet             CPButton                pagesButton             @accessors;
     @outlet             CPButton                runsButton              @accessors;
 
-
+    //bundle to access resources (.png files)
                         CPBundle                theBundle               @accessors;
 
+    //jobs View
     @outlet             CPScrollView            jobScrollView           @accessors;
     @outlet             CPView                  jobsView                @accessors;
     @outlet             CPArray                 jobsViewArray           @accessors;
@@ -65,6 +68,7 @@
     @outlet             CPView                  jobH                    @accessors;
     @outlet             CPView                  jobI                    @accessors;
 
+    //images for nested views of jobs
     @outlet             CPImageView             imageA;
     @outlet             CPImageView             imageB;
     @outlet             CPImageView             imageC;
@@ -75,6 +79,7 @@
     @outlet             CPImageView             imageH;
     @outlet             CPImageView             imageI;
 
+    //images for view based table view for jobs
     @outlet             CPImageView             imageA2;
     @outlet             CPImageView             imageB2;
     @outlet             CPImageView             imageC2;
@@ -85,6 +90,7 @@
     @outlet             CPImageView             imageH2;
     @outlet             CPImageView             imageI2;
 
+    //resources for view based table view
     @outlet             CPView                  pageA                    @accessors;
     @outlet             CPView                  pageB                    @accessors;
     @outlet             CPView                  pageC                    @accessors;
@@ -95,6 +101,7 @@
     @outlet             CPView                  pageH                    @accessors;
     @outlet             CPView                  pageI                    @accessors;
 
+    //imagefor views
     @outlet             CPImageView             pageImageA;
     @outlet             CPImageView             pageImageB;
     @outlet             CPImageView             pageImageC;
@@ -451,6 +458,7 @@
         console.info([CPString stringWithFormat:@"selected: %@", [_tableContent objectAtIndex:row]]);
 }
 
+// not working - yet to fix
 // - (CPView)tableView:(CPTableView)aTableView viewForTableColumn:(CPTableColumn)aTableColumn row:(CPInteger)aRow
 // {
 //     var tableColumnId = [aTableColumn identifier],
@@ -481,6 +489,7 @@
 
 /* ---------- OUTLINE VIEW SETUP -------------- */
 
+//not working - yet to fix
 // - (id)outlineView:(CPOutlineView)anOutlineView child:(int)anIndex ofItem:(id)anItem
 // {
 //     return [CPObject new];
@@ -508,7 +517,7 @@
 
 //     if (identifier = @"firstRoot")
 //     {
-        
+
 //     }
 // }
 
@@ -519,7 +528,7 @@
 @end
 
 
-
+//not working yet to fix
 // @implementation JobsListCellView : CPView
 // {
 //     id              objectValue     @accessors;

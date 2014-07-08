@@ -8,10 +8,4 @@
     @outlet             CPString                outlineName;
 }
 
-
-
-
-
-
-
 @end
